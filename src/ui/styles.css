@@ -600,7 +600,7 @@ input:not([type]) {
 }
 .layer-card {
   /* Cards wrap onto a second row rather than squeezing their header controls together. */
-  flex: 1 1 250px;
+  flex: 1 1 290px;
   min-width: 0;
   max-width: 360px;
   display: flex;
@@ -623,8 +623,11 @@ input:not([type]) {
 .layer-head {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
+}
+.layer-head .seg {
+  flex: none;
 }
 .layer-title {
   display: flex;

@@ -54,3 +54,18 @@
   text-align: right;
   font-size: 11px;
 }
+
+.oc-export-target {
+  min-height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #3a3c44);
+  background: var(--raised, #24262c);
+  font-weight: 500;
+}
+.oc-export-target:hover {
+  border-color: var(--border-hover, #5a5d68);
+}
+.oc-export-target[aria-pressed='true'] {
+  border-color: #2fa86b;
+  color: #7be0a8;
+}

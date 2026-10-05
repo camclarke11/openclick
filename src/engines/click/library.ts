@@ -1,10 +1,13 @@
 import manifestJson from './manifest.json';
+import packsJson from './packs.json';
 
 /**
- * The Click sample library, read from `manifest.json` (written by scripts/samples/generate.ts;
- * the audio files live in public/samples/). To swap in the real recorded library, replace the
- * files under public/samples/ and this manifest; nothing else needs to change. Presets refer to
- * sounds by `Category/Name`, so keep names stable once presets use them.
+ * The Click sample library, read from two manifests (the audio files live in public/samples/):
+ * - `manifest.json`: synthesised mechanical stand-ins, written by scripts/samples/generate.ts.
+ *   To swap in the real recorded library, replace those files and this manifest.
+ * - `packs.json`: third-party CC0 packs (UI, retro game, impacts, footsteps, sci-fi, items),
+ *   written by scripts/samples/import-packs.ts.
+ * Presets refer to sounds by `Category/Name`, so keep names stable once presets use them.
  */
 export interface SampleManifest {
   format: 'openclick-samples';
@@ -56,7 +59,8 @@ export function readManifest(manifest: SampleManifest): LibrarySound[] {
 }
 
 export const manifest = manifestJson as SampleManifest;
-export const library = readManifest(manifest);
+export const packs = packsJson as SampleManifest;
+export const library = [...readManifest(manifest), ...readManifest(packs)];
 const byKey = new Map(library.map((s) => [s.key, s]));
 
 export const findSound = (key: string): LibrarySound | undefined => byKey.get(key);

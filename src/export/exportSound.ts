@@ -35,6 +35,25 @@ export const defaultExportSettings: ExportSettings = {
   note: 60,
 };
 
+/**
+ * Roblox upload settings: Roblox takes WAV up to 48 kHz (and under 20 MB / 7 min). Mono keeps a
+ * sound fully positional when it plays from a part in 3D; 16-bit keeps files small.
+ */
+export const robloxExportSettings: Pick<
+  ExportSettings,
+  'bitDepth' | 'sampleRate' | 'channels' | 'normalize'
+> = {
+  bitDepth: 16,
+  sampleRate: 48000,
+  channels: 'mono',
+  normalize: true,
+};
+
+export const isRobloxReady = (s: ExportSettings): boolean =>
+  (Object.keys(robloxExportSettings) as (keyof typeof robloxExportSettings)[]).every(
+    (k) => s[k] === robloxExportSettings[k],
+  );
+
 export const MAX_VARIATIONS = 32;
 
 /** Everything renderPatch needs besides the per-file settings. */

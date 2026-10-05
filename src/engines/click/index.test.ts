@@ -17,7 +17,7 @@ import {
 import { registry } from '../../modules';
 import { createTestContext, renderForTest } from '../../test/audio';
 import { clickSchema, clickSource } from './index';
-import { findSound, library, manifest } from './library';
+import { findSound, library, manifest, packs } from './library';
 
 const SR = 48000;
 const sound = findSound(clickSchema.sound.default)!;
@@ -64,7 +64,7 @@ async function hitLevels(params: Params, hits: number, seed = 1): Promise<number
 }
 
 describe('sample library', () => {
-  it('lists every category and file, all present on disk and labelled placeholder', () => {
+  it('lists every category and file, all present on disk, stand-ins labelled placeholder', () => {
     expect(manifest.categories.map((c) => c.name)).toEqual([
       'Switches',
       'Keyboards',
@@ -72,8 +72,16 @@ describe('sample library', () => {
       'Toys',
       'Control panels',
     ]);
+    expect(packs.categories.map((c) => c.name)).toEqual([
+      'UI',
+      'Retro',
+      'Impacts',
+      'Footsteps',
+      'Sci-fi',
+      'Items',
+    ]);
     for (const s of library) {
-      expect(s.placeholder).toBe(true);
+      expect(s.placeholder).toBe(manifest.categories.some((c) => c.name === s.category));
       expect(s.files.length).toBeGreaterThan(1);
       for (const f of s.files)
         expect(existsSync(new URL(`../../../public/samples/${f}`, import.meta.url))).toBe(true);

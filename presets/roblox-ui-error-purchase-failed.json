@@ -1,0 +1,35 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-ui-error-purchase-failed",
+  "name": "Purchase Failed",
+  "category": "UI/Error",
+  "tags": ["roblox", "modern", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "UI/Error",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

@@ -131,6 +131,11 @@ test('export options open and remember the format', async ({ page }) => {
   await expect(format.getByRole('radio', { name: '24-bit' })).toHaveAttribute('aria-checked', 'true');
   await page.getByRole('button', { name: 'More variations' }).click();
   await expect(page.getByRole('button', { name: 'Export 2 WAVs' })).toBeVisible();
+  await page.getByRole('button', { name: 'Use Roblox settings' }).click();
+  await expect(page.getByRole('button', { name: 'Roblox ready ✓' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(
+    page.getByRole('radiogroup', { name: 'Channels' }).getByRole('radio', { name: 'Mono' }),
+  ).toHaveAttribute('aria-checked', 'true');
   await page.keyboard.press('Escape');
   await expect(format).toHaveCount(0);
 });
