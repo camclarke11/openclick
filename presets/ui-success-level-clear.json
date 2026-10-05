@@ -37,7 +37,26 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "bitcrusher",
+        "enabled": true,
+        "params": {
+          "bits": 7,
+          "rate": 22050,
+          "mix": 1
+        }
+      },
+      {
+        "type": "delay",
+        "enabled": true,
+        "params": {
+          "time": 105,
+          "feedback": 0.25,
+          "mix": 0.15
+        }
+      }
+    ],
     "master": {
       "gain": -6
     }

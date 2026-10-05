@@ -57,7 +57,26 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "eq",
+        "enabled": true,
+        "params": {
+          "lowGain": 6,
+          "lowFreq": 100
+        }
+      },
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.8,
+          "decay": 2.5,
+          "mix": 0.3,
+          "damping": 0.7
+        }
+      }
+    ],
     "master": {
       "gain": -2
     }

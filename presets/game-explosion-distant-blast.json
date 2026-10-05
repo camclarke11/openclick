@@ -36,7 +36,26 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "eq",
+        "enabled": true,
+        "params": {
+          "highCut": 2500
+        }
+      },
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.9,
+          "decay": 3.5,
+          "mix": 0.5,
+          "preDelay": 40,
+          "damping": 0.8
+        }
+      }
+    ],
     "master": {
       "gain": 0
     }

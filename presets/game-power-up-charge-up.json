@@ -38,7 +38,27 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "chorus",
+        "enabled": true,
+        "params": {
+          "rate": 3,
+          "depth": 5,
+          "voices": 3,
+          "mix": 0.5
+        }
+      },
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.5,
+          "decay": 1.2,
+          "mix": 0.18
+        }
+      }
+    ],
     "master": {
       "gain": -4
     }

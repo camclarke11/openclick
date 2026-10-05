@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { peak, sanitizePatch } from '../core';
+import { createRng, peak, sanitizePatch } from '../core';
 import { registry } from '../modules';
 import { renderForTest } from '../test/audio';
 import { CATEGORIES } from './categories';
@@ -35,5 +35,18 @@ describe('recipes', () => {
 
   it('varies with the seed', () => {
     expect(generatePatch(registry, 'Game/Coin', 1)).not.toEqual(generatePatch(registry, 'Game/Coin', 2));
+  });
+});
+
+describe('recipe effects', () => {
+  it('use effects that exist, so they are not silently dropped', () => {
+    const used = new Set<string>();
+    for (const category of CATEGORIES) {
+      for (let seed = 1; seed <= 20; seed++) {
+        for (const f of recipes[category](createRng(seed)).fx ?? []) used.add(f.type);
+      }
+    }
+    expect(used.size).toBeGreaterThan(0);
+    for (const t of used) expect(registry.effects.has(t), t).toBe(true);
   });
 });

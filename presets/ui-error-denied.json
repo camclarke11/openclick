@@ -37,7 +37,17 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "bitcrusher",
+        "enabled": true,
+        "params": {
+          "bits": 6,
+          "rate": 16000,
+          "mix": 1
+        }
+      }
+    ],
     "master": {
       "gain": -6
     }
