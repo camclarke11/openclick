@@ -1,0 +1,171 @@
+.oc-presets {
+  position: relative;
+  margin: 8px 0;
+}
+.oc-presets button,
+.oc-presets select,
+.oc-presets input[type='search'],
+.oc-presets-save input,
+.oc-presets-file {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #3a3c44;
+  background: #24262c;
+  color: inherit;
+  font: inherit;
+}
+.oc-presets button,
+.oc-presets-file {
+  cursor: pointer;
+}
+.oc-presets button:hover,
+.oc-presets-file:hover {
+  border-color: #5a5d68;
+}
+.oc-presets-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 4px;
+}
+.oc-presets-current {
+  display: grid;
+  flex: 1 1 180px;
+  min-width: 0;
+  text-align: left;
+}
+.oc-presets-current-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.oc-presets-current-cat,
+.oc-presets-item-meta,
+.oc-presets-count {
+  font-size: 0.75rem;
+  color: #9a9ca5;
+}
+.oc-presets-icon {
+  min-width: 32px;
+}
+.oc-presets-generate {
+  display: flex;
+  gap: 4px;
+}
+.oc-presets-save {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+.oc-presets-message {
+  font-size: 0.85rem;
+  color: #9a9ca5;
+}
+.oc-presets-panel {
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #3a3c44;
+  background: #1d1f24;
+}
+.oc-presets-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.oc-presets-tools input[type='search'] {
+  flex: 1 1 160px;
+}
+.oc-presets-check {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+.oc-presets-file input {
+  display: none;
+}
+.oc-presets-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 0;
+}
+.oc-presets .oc-presets-tag {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.oc-presets .is-active {
+  background: #2d6cdf;
+  border-color: #2d6cdf;
+}
+.oc-presets-body {
+  display: grid;
+  grid-template-columns: minmax(140px, 200px) 1fr;
+  gap: 10px;
+  max-height: 360px;
+}
+.oc-presets-nav,
+.oc-presets-list {
+  overflow-y: auto;
+  max-height: 360px;
+}
+.oc-presets .oc-presets-cat {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 3px 6px;
+  text-align: left;
+}
+.oc-presets .oc-presets-cat.is-group {
+  font-weight: 600;
+  margin-top: 4px;
+}
+.oc-presets .oc-presets-cat.is-leaf {
+  padding-left: 18px;
+}
+.oc-presets .oc-presets-cat.is-active {
+  background: #2d6cdf;
+}
+.oc-presets-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.oc-presets-list li {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.oc-presets-list li.is-current .oc-presets-item {
+  border-color: #2d6cdf;
+}
+.oc-presets .oc-presets-item {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+.oc-presets-item-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.oc-presets-empty {
+  color: #9a9ca5;
+}
+@media (max-width: 560px) {
+  .oc-presets-body {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+  .oc-presets-nav {
+    max-height: 160px;
+  }
+}

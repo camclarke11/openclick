@@ -1,0 +1,37 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-jump-boing",
+  "name": "Boing Jump",
+  "category": "Game/Jump",
+  "tags": ["retro", "8-bit", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 5,
+          "delay": 0
+        },
+        "params": {
+          "wave": "square",
+          "sweep": 19,
+          "sweepTime": 0.16,
+          "attack": 0.002,
+          "decay": 0.22
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -3
+    }
+  }
+}

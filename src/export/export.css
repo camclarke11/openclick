@@ -1,0 +1,54 @@
+.oc-export {
+  position: relative;
+  display: inline-block;
+}
+.oc-export-row {
+  display: flex;
+  gap: 4px;
+}
+.oc-export button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #3a3c44;
+  background: #24262c;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.oc-export-go {
+  background: #2d6cdf !important;
+  border-color: #2d6cdf !important;
+  font-weight: 600;
+}
+.oc-export button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+.oc-export-options {
+  position: absolute;
+  right: 0;
+  z-index: 20;
+  margin-top: 4px;
+  display: grid;
+  gap: 8px;
+  min-width: 220px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #3a3c44;
+  background: #1d1f24;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 40%);
+}
+.oc-export-options label {
+  display: grid;
+  gap: 2px;
+  font-size: 0.85rem;
+}
+.oc-export-options .oc-export-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.oc-export-error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+}
