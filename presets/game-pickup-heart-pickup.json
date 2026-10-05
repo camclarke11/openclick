@@ -5,7 +5,7 @@
   "name": "Heart Pickup",
   "category": "Game/Pickup",
   "tags": ["retro", "chiptune"],
-  "author": "OpenClick",
+  "author": "Sounds",
   "patch": {
     "layers": [
       {

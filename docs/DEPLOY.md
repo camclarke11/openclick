@@ -1,6 +1,6 @@
-# Deploying OpenClick
+# Deploying Sounds
 
-OpenClick is a static site. Every push to `main` runs `.github/workflows/deploy.yml`, which
+Sounds is a static site. Every push to `main` runs `.github/workflows/deploy.yml`, which
 builds `dist/` and publishes it to GitHub Pages at **https://sounds.camlc.dev**. You can also
 run it by hand from the Actions tab (Deploy → Run workflow).
 
@@ -67,7 +67,7 @@ locally, or switch to Cloudflare Pages above, which previews every PR automatica
 <link rel="canonical" href="https://sounds.camlc.dev/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sounds.camlc.dev/" />
-<meta property="og:title" content="OpenClick" />
+<meta property="og:title" content="Sounds" />
 <meta property="og:description" content="Design UI, foley and game sounds in your browser. Export WAVs." />
 <meta property="og:image" content="https://sounds.camlc.dev/og-image.png" />
 <meta property="og:image:width" content="1200" />

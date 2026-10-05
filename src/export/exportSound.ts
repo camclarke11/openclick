@@ -68,7 +68,7 @@ export function slugify(name: string): string {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 60);
-  return s || 'openclick-sound';
+  return s || 'sound';
 }
 
 /** Small random drift of every randomisable param, for "export variations". */

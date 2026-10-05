@@ -1,6 +1,6 @@
 {
-  "name": "OpenClick",
-  "short_name": "OpenClick",
+  "name": "Sounds",
+  "short_name": "Sounds",
   "description": "Design UI, foley and game sounds in your browser. Export WAVs.",
   "start_url": "/",
   "scope": "/",

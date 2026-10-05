@@ -1,7 +1,7 @@
 /**
  * Placeholder sample library generator.
  *
- * The real OpenClick library will be recorded. Until it exists, this script synthesises
+ * The real Sounds library will be recorded. Until it exists, this script synthesises
  * mechanical sounds (switches, keys, cameras, toys, control panels) with simple modal synthesis:
  * every "impact" is a handful of exponentially decaying sine modes plus a filtered noise burst,
  * which is roughly how small plastic and metal parts ring when they hit each other. Each sound
@@ -654,7 +654,7 @@ export function generateLibrary(variations = VARIATIONS): {
     manifest: {
       format: 'openclick-samples',
       version: 1,
-      name: 'OpenClick placeholder library (synthesised)',
+      name: 'Sounds placeholder library (synthesised)',
       placeholder: true,
       license: 'CC0-1.0',
       categories,

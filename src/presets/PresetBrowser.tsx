@@ -236,7 +236,7 @@ export function PresetSidebar(props: { notify: Notify }) {
       ...(cur?.author ? { author: cur.author } : {}),
       patch: patch.value,
     });
-    downloadText(`${presetSlug(preset.name)}.openclick.json`, presetToJson(preset));
+    downloadText(`${presetSlug(preset.name)}.preset.json`, presetToJson(preset));
   };
 
   return (

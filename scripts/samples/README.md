@@ -1,6 +1,6 @@
 # Placeholder sample library
 
-The recorded OpenClick library does not exist yet. `generate.ts` synthesises stand-in mechanical
+The recorded Sounds library does not exist yet. `generate.ts` synthesises stand-in mechanical
 sounds (modal synthesis: decaying sine modes plus filtered noise bursts) so the Click engine has
 something to play. Every sound is marked `"placeholder": true` in the manifest and is CC0. No
 third-party or UVI audio is used.
