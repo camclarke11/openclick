@@ -1,10 +1,10 @@
 {
   "format": "openclick-preset",
   "version": 1,
-  "id": "factory/game-coin-classic",
-  "name": "Classic Coin",
-  "category": "Game/Coin",
-  "tags": ["retro", "chiptune", "8-bit", "short"],
+  "id": "factory/ui-error-soft-nope",
+  "name": "Soft Nope",
+  "category": "UI/Error",
+  "tags": ["soft", "short"],
   "author": "OpenClick",
   "patch": {
     "layers": [
@@ -14,15 +14,18 @@
         "mix": {
           "gain": 0,
           "pan": 0,
-          "transpose": 23,
+          "transpose": 0,
           "delay": 0
         },
         "params": {
-          "wave": "square",
-          "sweep": 0,
-          "sweepTime": 0.08,
+          "shape": 0.2,
           "attack": 0.002,
-          "decay": 0.06
+          "hold": 0,
+          "decay": 0.12,
+          "sustain": 0,
+          "release": 0.12,
+          "sweep": 4,
+          "sweepTime": 0.1
         }
       },
       {
@@ -31,15 +34,18 @@
         "mix": {
           "gain": 0,
           "pan": 0,
-          "transpose": 28,
-          "delay": 70
+          "transpose": -3,
+          "delay": 120
         },
         "params": {
-          "wave": "square",
-          "sweep": 0,
-          "sweepTime": 0.08,
+          "shape": 0.2,
           "attack": 0.002,
-          "decay": 0.35
+          "hold": 0,
+          "decay": 0.14,
+          "sustain": 0,
+          "release": 0.14,
+          "sweep": 4,
+          "sweepTime": 0.1
         }
       }
     ],
@@ -48,7 +54,7 @@
     },
     "fx": [],
     "master": {
-      "gain": -6
+      "gain": -3
     }
   }
 }

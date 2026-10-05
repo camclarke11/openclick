@@ -1,0 +1,46 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-power-up-charge-up",
+  "name": "Charge Up",
+  "category": "Game/Power-up",
+  "tags": ["modern", "long"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "shape": 2,
+          "attack": 0.4,
+          "hold": 0,
+          "decay": 0.25,
+          "sustain": 0,
+          "release": 0.2,
+          "cutoff": 1200,
+          "filterEnv": -2,
+          "filterDecay": 0.5,
+          "sweep": -24,
+          "sweepTime": 0.5,
+          "sweepCurve": "exp",
+          "vibratoDepth": 30,
+          "vibratoRate": 18
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -4
+    }
+  }
+}

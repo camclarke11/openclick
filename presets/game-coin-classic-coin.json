@@ -1,0 +1,45 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-coin-classic-coin",
+  "name": "Classic Coin",
+  "category": "Game/Coin",
+  "tags": ["retro", "chiptune", "8-bit"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 23,
+          "delay": 0
+        },
+        "params": {
+          "shape": 3,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.45,
+          "sustain": 0,
+          "release": 0.45,
+          "seqOn": true,
+          "seqMode": "retrigger",
+          "seqScale": "chromatic",
+          "seqLoop": false,
+          "seqSteps": [0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "seqLength": 2,
+          "seqRate": 0.07
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -4
+    }
+  }
+}

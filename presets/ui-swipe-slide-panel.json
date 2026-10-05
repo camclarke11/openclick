@@ -1,0 +1,60 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-swipe-slide-panel",
+  "name": "Slide Panel",
+  "category": "UI/Swipe",
+  "tags": ["modern"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Switches/Slide",
+          "roundRobin": "random",
+          "humanize": 15,
+          "length": 0.25
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.05,
+          "hold": 0,
+          "decay": 0.2,
+          "sustain": 0,
+          "release": 0.2,
+          "oscLevel": 0,
+          "noiseLevel": 1,
+          "noiseType": "pink",
+          "filterType": "bandpass",
+          "cutoff": 2500,
+          "resonance": 2
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

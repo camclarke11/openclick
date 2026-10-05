@@ -1,0 +1,41 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-explosion-chip-boom",
+  "name": "Chip Boom",
+  "category": "Game/Explosion",
+  "tags": ["retro", "8-bit", "long"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": -24,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.8,
+          "sustain": 0,
+          "release": 0.8,
+          "oscLevel": 0,
+          "noiseLevel": 1,
+          "noiseType": "chip"
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -2
+    }
+  }
+}
