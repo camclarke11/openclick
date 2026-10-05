@@ -1,0 +1,44 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-laser-zap-laser",
+  "name": "Zap Laser",
+  "category": "Game/Laser",
+  "tags": ["retro", "chiptune", "harsh"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 7,
+          "delay": 0
+        },
+        "params": {
+          "shape": 2,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.22,
+          "sustain": 0,
+          "release": 0.22,
+          "sweep": 40,
+          "sweepTime": 0.2,
+          "sweepCurve": "exp",
+          "fmIndex": 2,
+          "fmRatio": 1.5,
+          "fmDecay": 0.1
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -4
+    }
+  }
+}

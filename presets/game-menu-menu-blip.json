@@ -1,9 +1,9 @@
 {
   "format": "openclick-preset",
   "version": 1,
-  "id": "factory/game-jump-boing",
-  "name": "Boing Jump",
-  "category": "Game/Jump",
+  "id": "factory/game-menu-menu-blip",
+  "name": "Menu Blip",
+  "category": "Game/Menu",
   "tags": ["retro", "8-bit", "short"],
   "author": "OpenClick",
   "patch": {
@@ -14,15 +14,16 @@
         "mix": {
           "gain": 0,
           "pan": 0,
-          "transpose": 5,
+          "transpose": 19,
           "delay": 0
         },
         "params": {
-          "wave": "square",
-          "sweep": 19,
-          "sweepTime": 0.16,
+          "shape": 3,
           "attack": 0.002,
-          "decay": 0.22
+          "hold": 0,
+          "decay": 0.05,
+          "sustain": 0,
+          "release": 0.05
         }
       }
     ],
@@ -31,7 +32,7 @@
     },
     "fx": [],
     "master": {
-      "gain": -3
+      "gain": -6
     }
   }
 }

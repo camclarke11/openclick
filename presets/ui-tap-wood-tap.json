@@ -1,0 +1,58 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-tap-wood-tap",
+  "name": "Wood Tap",
+  "category": "UI/Tap",
+  "tags": ["modern", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Switches/Push button",
+          "roundRobin": "random",
+          "humanize": 15,
+          "pitch": -4,
+          "length": 0.06,
+          "filter": "bandpass",
+          "cutoff": 1800,
+          "resonance": 2
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -12,
+          "pan": 0,
+          "transpose": 7,
+          "delay": 0
+        },
+        "params": {
+          "shape": 1,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.03,
+          "sustain": 0,
+          "release": 0.03
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

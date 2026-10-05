@@ -1,0 +1,46 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-swipe-swish-left",
+  "name": "Swish Left",
+  "category": "UI/Swipe",
+  "tags": ["modern", "soft"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 6,
+          "pan": -0.3,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.04,
+          "hold": 0,
+          "decay": 0.18,
+          "sustain": 0,
+          "release": 0.18,
+          "oscLevel": 0,
+          "noiseLevel": 1,
+          "noiseType": "white",
+          "filterType": "bandpass",
+          "cutoff": 4000,
+          "resonance": 3,
+          "filterEnv": -1.5,
+          "filterDecay": 0.15
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

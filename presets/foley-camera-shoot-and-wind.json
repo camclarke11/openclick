@@ -1,10 +1,10 @@
 {
   "format": "openclick-preset",
   "version": 1,
-  "id": "factory/ui-click-crisp",
-  "name": "Crisp Click",
-  "category": "UI/Click",
-  "tags": ["modern", "short"],
+  "id": "factory/foley-camera-shoot-and-wind",
+  "name": "Shoot and Wind",
+  "category": "Foley/Camera",
+  "tags": ["retro", "long"],
   "author": "OpenClick",
   "patch": {
     "layers": [
@@ -18,25 +18,24 @@
           "delay": 0
         },
         "params": {
-          "tone": 5200,
-          "length": 0.008
+          "sound": "Cameras/SLR shutter",
+          "roundRobin": "random",
+          "humanize": 15
         }
       },
       {
         "enabled": true,
-        "source": "beep",
+        "source": "click",
         "mix": {
-          "gain": -14,
+          "gain": -3,
           "pan": 0,
-          "transpose": 24,
-          "delay": 0
+          "transpose": 0,
+          "delay": 220
         },
         "params": {
-          "wave": "sine",
-          "sweep": 0,
-          "sweepTime": 0.08,
-          "attack": 0.002,
-          "decay": 0.02
+          "sound": "Cameras/Film advance",
+          "roundRobin": "random",
+          "humanize": 15
         }
       }
     ],

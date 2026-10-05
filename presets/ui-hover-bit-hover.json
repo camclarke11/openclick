@@ -1,0 +1,38 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-hover-bit-hover",
+  "name": "Bit Hover",
+  "category": "UI/Hover",
+  "tags": ["retro", "8-bit", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -6,
+          "pan": 0,
+          "transpose": 24,
+          "delay": 0
+        },
+        "params": {
+          "shape": 1,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.03,
+          "sustain": 0,
+          "release": 0.03
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

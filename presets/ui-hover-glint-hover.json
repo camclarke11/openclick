@@ -1,0 +1,42 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-hover-glint-hover",
+  "name": "Glint Hover",
+  "category": "UI/Hover",
+  "tags": ["modern", "soft", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -6,
+          "pan": 0,
+          "transpose": 24,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.008,
+          "hold": 0,
+          "decay": 0.06,
+          "sustain": 0,
+          "release": 0.06,
+          "fmIndex": 0.8,
+          "fmRatio": 4,
+          "fmDecay": 0.03,
+          "coarse": 7
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

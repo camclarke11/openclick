@@ -1,0 +1,46 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-success-warm-done",
+  "name": "Warm Done",
+  "category": "UI/Success",
+  "tags": ["soft"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 12,
+          "delay": 0
+        },
+        "params": {
+          "shape": 1,
+          "attack": 0.004,
+          "hold": 0,
+          "decay": 0.45,
+          "sustain": 0,
+          "release": 0.45,
+          "cutoff": 4000,
+          "seqOn": true,
+          "seqMode": "retrigger",
+          "seqScale": "chromatic",
+          "seqLoop": false,
+          "seqSteps": [0, 5, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "seqLength": 3,
+          "seqRate": 0.09
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -3
+    }
+  }
+}

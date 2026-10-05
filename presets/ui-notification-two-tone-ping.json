@@ -1,0 +1,62 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-notification-two-tone-ping",
+  "name": "Two Tone Ping",
+  "category": "UI/Notification",
+  "tags": ["modern", "soft"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 12,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.5,
+          "sustain": 0,
+          "release": 0.5,
+          "fmIndex": 1,
+          "fmRatio": 3.5,
+          "fmDecay": 0.1
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 19,
+          "delay": 110
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.6,
+          "sustain": 0,
+          "release": 0.6,
+          "fmIndex": 1,
+          "fmRatio": 3.5,
+          "fmDecay": 0.1
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -4
+    }
+  }
+}

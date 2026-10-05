@@ -1,0 +1,62 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-pickup-ammo-pickup",
+  "name": "Ammo Pickup",
+  "category": "Game/Pickup",
+  "tags": ["modern", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Control panels/Latch",
+          "roundRobin": "random",
+          "humanize": 15,
+          "pitch": 2
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -8,
+          "pan": 0,
+          "transpose": 12,
+          "delay": 0
+        },
+        "params": {
+          "shape": 3,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.08,
+          "sustain": 0,
+          "release": 0.08,
+          "cutoff": 3000,
+          "seqOn": true,
+          "seqMode": "retrigger",
+          "seqScale": "chromatic",
+          "seqLoop": false,
+          "seqSteps": [0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "seqLength": 2,
+          "seqRate": 0.04
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -2
+    }
+  }
+}

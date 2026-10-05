@@ -1,0 +1,38 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/foley-keyboard-spacebar-thock",
+  "name": "Spacebar Thock",
+  "category": "Foley/Keyboard",
+  "tags": ["short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Keyboards/Spacebar",
+          "roundRobin": "random",
+          "humanize": 15,
+          "pitch": -2,
+          "filter": "lowpass",
+          "cutoff": 4000
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

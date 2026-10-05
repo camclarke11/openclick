@@ -1,0 +1,57 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-toggle-switch-off",
+  "name": "Switch Off",
+  "category": "UI/Toggle",
+  "tags": ["modern", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Switches/Toggle",
+          "roundRobin": "random",
+          "humanize": 15,
+          "pitch": -2,
+          "length": 0.1
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -8,
+          "pan": 0,
+          "transpose": 12,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.07,
+          "sustain": 0,
+          "release": 0.07,
+          "sweep": 5,
+          "sweepTime": 0.04
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

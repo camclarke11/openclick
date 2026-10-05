@@ -1,0 +1,65 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-explosion-big-explosion",
+  "name": "Big Explosion",
+  "category": "Game/Explosion",
+  "tags": ["modern", "long", "harsh"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 1.2,
+          "sustain": 0,
+          "release": 1.2,
+          "oscLevel": 0,
+          "noiseLevel": 1,
+          "noiseType": "pink",
+          "cutoff": 1200,
+          "filterEnv": 2.5,
+          "filterDecay": 0.4
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -2,
+          "pan": 0,
+          "transpose": -24,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.6,
+          "sustain": 0,
+          "release": 0.6,
+          "sweep": 30,
+          "sweepTime": 0.25,
+          "sweepCurve": "exp"
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -2
+    }
+  }
+}
