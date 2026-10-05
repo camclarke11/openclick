@@ -1,0 +1,32 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  background: #15161a;
+  color: #e8e8ea;
+}
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.pad {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  border: none;
+  background: #ff9f1c;
+  color: #15161a;
+  font-size: 1.1rem;
+  font-weight: 600;
+  touch-action: manipulation;
+}
+.pad:active {
+  transform: scale(0.96);
+}
+.param {
+  display: grid;
+  grid-template-columns: 120px 1fr 90px;
+  gap: 8px;
+  align-items: center;
+  margin: 6px 0;
+}

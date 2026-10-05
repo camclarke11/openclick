@@ -19,18 +19,36 @@ UVI Click is a $149 instrument that only runs inside UVI's own player in a DAW. 
 - Play from on-screen pads, the computer keyboard or a MIDI controller
 - Export WAVs to drop into any project or game engine
 
+## Development
+
+Requires Node 22.
+
+```
+npm install
+npm run dev      # http://localhost:5173
+npm run check    # typecheck, lint, unit tests, build
+npm run e2e      # browser smoke test
+```
+
 ## Project layout
 
 ```
-src/engines/click   sample playback engine
+src/core            audio graph, module interfaces, param and preset schema, event bus
+src/state           app state (patch signal and actions)
 src/engines/beep    synthesis engine
+src/engines/click   sample playback engine
+src/arp             five-lane arpeggiator
 src/fx              effects chain
-src/ui              interface
-public/samples      recorded sound library
-presets             preset definitions
-docs                design notes
+src/ui, src/input   interface, pads, keyboard and MIDI
+src/presets         preset browser and factory library loader
+src/export          WAV export
+public/samples      sound library
+presets             factory preset definitions
+docs                plan and design notes
 ```
+
+See [docs/PLAN.md](docs/PLAN.md) for the architecture and build plan.
 
 ## Status
 
-Early development.
+Early development. The foundation plays a sine blip from a pad; engines, effects and UI are being built.
