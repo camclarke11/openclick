@@ -66,7 +66,18 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.6,
+          "decay": 1.8,
+          "mix": 0.28,
+          "damping": 0.6
+        }
+      }
+    ],
     "master": {
       "gain": -6
     }

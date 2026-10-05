@@ -33,7 +33,17 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.5,
+          "decay": 1.4,
+          "mix": 0.22
+        }
+      }
+    ],
     "master": {
       "gain": -3
     }

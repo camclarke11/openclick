@@ -35,7 +35,28 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "granulizer",
+        "enabled": true,
+        "params": {
+          "size": 60,
+          "density": 40,
+          "pitch": 12,
+          "pitchJitter": 0.5,
+          "mix": 0.3
+        }
+      },
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.5,
+          "decay": 1.5,
+          "mix": 0.2
+        }
+      }
+    ],
     "master": {
       "gain": -4
     }

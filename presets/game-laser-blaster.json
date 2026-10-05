@@ -58,7 +58,26 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "dispersion",
+        "enabled": true,
+        "params": {
+          "stages": 16,
+          "frequency": 2500,
+          "mix": 0.4
+        }
+      },
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.3,
+          "decay": 0.6,
+          "mix": 0.1
+        }
+      }
+    ],
     "master": {
       "gain": -4
     }

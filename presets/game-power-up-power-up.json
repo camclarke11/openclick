@@ -39,7 +39,17 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "delay",
+        "enabled": true,
+        "params": {
+          "time": 75,
+          "feedback": 0.25,
+          "mix": 0.12
+        }
+      }
+    ],
     "master": {
       "gain": -4
     }
