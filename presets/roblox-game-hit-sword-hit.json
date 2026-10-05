@@ -1,0 +1,50 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-game-hit-sword-hit",
+  "name": "Sword Hit",
+  "category": "Game/Hit",
+  "tags": ["roblox", "modern", "harsh"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Retro/Sword",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -4,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 15
+        },
+        "params": {
+          "sound": "Impacts/Punch",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

@@ -25,7 +25,17 @@ export const CATEGORIES = [
 
 export type Category = (typeof CATEGORIES)[number];
 
-export const TAGS = ['retro', 'chiptune', '8-bit', 'modern', 'soft', 'harsh', 'short', 'long'] as const;
+export const TAGS = [
+  'retro',
+  'chiptune',
+  '8-bit',
+  'modern',
+  'soft',
+  'harsh',
+  'short',
+  'long',
+  'roblox',
+] as const;
 
 export const isCategory = (c: string): c is Category => (CATEGORIES as readonly string[]).includes(c);
 

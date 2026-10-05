@@ -1,0 +1,1559 @@
+{
+  "format": "openclick-samples",
+  "version": 1,
+  "name": "CC0 sound packs by Kenney and Juhani Junkala",
+  "placeholder": false,
+  "license": "CC0-1.0",
+  "categories": [
+    {
+      "id": "ui",
+      "name": "UI",
+      "sounds": [
+        {
+          "id": "click",
+          "name": "Click",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: click_001.ogg, click_002.ogg, click_003.ogg, click_004.ogg, click_005.ogg",
+          "files": ["ui/click-1.wav", "ui/click-2.wav", "ui/click-3.wav", "ui/click-4.wav", "ui/click-5.wav"]
+        },
+        {
+          "id": "mouse-click",
+          "name": "Mouse click",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/ui-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, UI Audio: click1.ogg, click2.ogg, click3.ogg, click4.ogg, click5.ogg, mouseclick1.ogg",
+          "files": [
+            "ui/mouse-click-1.wav",
+            "ui/mouse-click-2.wav",
+            "ui/mouse-click-3.wav",
+            "ui/mouse-click-4.wav",
+            "ui/mouse-click-5.wav",
+            "ui/mouse-click-6.wav"
+          ]
+        },
+        {
+          "id": "tick",
+          "name": "Tick",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: tick_001.ogg, tick_002.ogg, tick_004.ogg",
+          "files": ["ui/tick-1.wav", "ui/tick-2.wav", "ui/tick-3.wav"]
+        },
+        {
+          "id": "toggle",
+          "name": "Toggle",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: toggle_001.ogg, toggle_002.ogg, toggle_003.ogg, toggle_004.ogg",
+          "files": ["ui/toggle-1.wav", "ui/toggle-2.wav", "ui/toggle-3.wav", "ui/toggle-4.wav"]
+        },
+        {
+          "id": "switch",
+          "name": "Switch",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/ui-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, UI Audio: switch1.ogg, switch2.ogg, switch3.ogg, switch4.ogg, switch5.ogg, switch6.ogg, switch7.ogg, switch8.ogg",
+          "files": [
+            "ui/switch-1.wav",
+            "ui/switch-2.wav",
+            "ui/switch-3.wav",
+            "ui/switch-4.wav",
+            "ui/switch-5.wav",
+            "ui/switch-6.wav",
+            "ui/switch-7.wav",
+            "ui/switch-8.wav"
+          ]
+        },
+        {
+          "id": "hover",
+          "name": "Hover",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/ui-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, UI Audio: rollover1.ogg, rollover2.ogg, rollover3.ogg, rollover4.ogg, rollover5.ogg, rollover6.ogg",
+          "files": [
+            "ui/hover-1.wav",
+            "ui/hover-2.wav",
+            "ui/hover-3.wav",
+            "ui/hover-4.wav",
+            "ui/hover-5.wav",
+            "ui/hover-6.wav"
+          ]
+        },
+        {
+          "id": "select",
+          "name": "Select",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: select_001.ogg, select_002.ogg, select_003.ogg, select_004.ogg, select_005.ogg, select_006.ogg, select_007.ogg, select_008.ogg",
+          "files": [
+            "ui/select-1.wav",
+            "ui/select-2.wav",
+            "ui/select-3.wav",
+            "ui/select-4.wav",
+            "ui/select-5.wav",
+            "ui/select-6.wav",
+            "ui/select-7.wav",
+            "ui/select-8.wav"
+          ]
+        },
+        {
+          "id": "confirm",
+          "name": "Confirm",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: confirmation_001.ogg, confirmation_002.ogg, confirmation_003.ogg, confirmation_004.ogg",
+          "files": ["ui/confirm-1.wav", "ui/confirm-2.wav", "ui/confirm-3.wav", "ui/confirm-4.wav"]
+        },
+        {
+          "id": "error",
+          "name": "Error",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: error_001.ogg, error_002.ogg, error_003.ogg, error_004.ogg, error_005.ogg, error_006.ogg, error_007.ogg, error_008.ogg",
+          "files": [
+            "ui/error-1.wav",
+            "ui/error-2.wav",
+            "ui/error-3.wav",
+            "ui/error-4.wav",
+            "ui/error-5.wav",
+            "ui/error-6.wav",
+            "ui/error-7.wav",
+            "ui/error-8.wav"
+          ]
+        },
+        {
+          "id": "back",
+          "name": "Back",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: back_001.ogg, back_002.ogg, back_003.ogg, back_004.ogg",
+          "files": ["ui/back-1.wav", "ui/back-2.wav", "ui/back-3.wav", "ui/back-4.wav"]
+        },
+        {
+          "id": "open",
+          "name": "Open",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: open_001.ogg, open_002.ogg, open_003.ogg, open_004.ogg",
+          "files": ["ui/open-1.wav", "ui/open-2.wav", "ui/open-3.wav", "ui/open-4.wav"]
+        },
+        {
+          "id": "close",
+          "name": "Close",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: close_001.ogg, close_002.ogg, close_003.ogg, close_004.ogg",
+          "files": ["ui/close-1.wav", "ui/close-2.wav", "ui/close-3.wav", "ui/close-4.wav"]
+        },
+        {
+          "id": "pop-up",
+          "name": "Pop up",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: maximize_001.ogg, maximize_002.ogg, maximize_003.ogg, maximize_004.ogg, maximize_005.ogg, maximize_006.ogg",
+          "files": [
+            "ui/pop-up-1.wav",
+            "ui/pop-up-2.wav",
+            "ui/pop-up-3.wav",
+            "ui/pop-up-4.wav",
+            "ui/pop-up-5.wav",
+            "ui/pop-up-6.wav"
+          ]
+        },
+        {
+          "id": "pop-down",
+          "name": "Pop down",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: minimize_001.ogg, minimize_002.ogg, minimize_003.ogg, minimize_004.ogg, minimize_005.ogg, minimize_006.ogg",
+          "files": [
+            "ui/pop-down-1.wav",
+            "ui/pop-down-2.wav",
+            "ui/pop-down-3.wav",
+            "ui/pop-down-4.wav",
+            "ui/pop-down-5.wav",
+            "ui/pop-down-6.wav"
+          ]
+        },
+        {
+          "id": "scroll",
+          "name": "Scroll",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: scroll_001.ogg, scroll_002.ogg, scroll_003.ogg, scroll_004.ogg, scroll_005.ogg",
+          "files": [
+            "ui/scroll-1.wav",
+            "ui/scroll-2.wav",
+            "ui/scroll-3.wav",
+            "ui/scroll-4.wav",
+            "ui/scroll-5.wav"
+          ]
+        },
+        {
+          "id": "glass",
+          "name": "Glass",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: glass_001.ogg, glass_002.ogg, glass_003.ogg, glass_004.ogg, glass_005.ogg, glass_006.ogg",
+          "files": [
+            "ui/glass-1.wav",
+            "ui/glass-2.wav",
+            "ui/glass-3.wav",
+            "ui/glass-4.wav",
+            "ui/glass-5.wav",
+            "ui/glass-6.wav"
+          ]
+        },
+        {
+          "id": "drop",
+          "name": "Drop",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: drop_001.ogg, drop_002.ogg, drop_003.ogg, drop_004.ogg",
+          "files": ["ui/drop-1.wav", "ui/drop-2.wav", "ui/drop-3.wav", "ui/drop-4.wav"]
+        },
+        {
+          "id": "question",
+          "name": "Question",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: question_001.ogg, question_002.ogg, question_003.ogg, question_004.ogg",
+          "files": ["ui/question-1.wav", "ui/question-2.wav", "ui/question-3.wav", "ui/question-4.wav"]
+        },
+        {
+          "id": "pluck",
+          "name": "Pluck",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: pluck_001.ogg, pluck_002.ogg",
+          "files": ["ui/pluck-1.wav", "ui/pluck-2.wav"]
+        },
+        {
+          "id": "glitch",
+          "name": "Glitch",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/interface-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Interface Sounds: glitch_001.ogg, glitch_002.ogg, glitch_003.ogg, glitch_004.ogg",
+          "files": ["ui/glitch-1.wav", "ui/glitch-2.wav", "ui/glitch-3.wav", "ui/glitch-4.wav"]
+        }
+      ]
+    },
+    {
+      "id": "retro",
+      "name": "Retro",
+      "sounds": [
+        {
+          "id": "jump",
+          "name": "Jump",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_movement_jump1.wav, sfx_movement_jump2.wav, sfx_movement_jump3.wav, sfx_movement_jump4.wav, sfx_movement_jump5.wav, sfx_movement_jump6.wav, sfx_movement_jump7.wav, sfx_movement_jump8.wav",
+          "files": [
+            "retro/jump-1.wav",
+            "retro/jump-2.wav",
+            "retro/jump-3.wav",
+            "retro/jump-4.wav",
+            "retro/jump-5.wav",
+            "retro/jump-6.wav",
+            "retro/jump-7.wav",
+            "retro/jump-8.wav"
+          ]
+        },
+        {
+          "id": "land",
+          "name": "Land",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_movement_jump9_landing.wav, sfx_movement_jump10_landing.wav, sfx_movement_jump11_landing.wav, sfx_movement_jump12_landing.wav, sfx_movement_jump13_landing.wav, sfx_movement_jump14_landing.wav, sfx_movement_jump15_landing.wav, sfx_movement_jump16_landing.wav",
+          "files": [
+            "retro/land-1.wav",
+            "retro/land-2.wav",
+            "retro/land-3.wav",
+            "retro/land-4.wav",
+            "retro/land-5.wav",
+            "retro/land-6.wav",
+            "retro/land-7.wav",
+            "retro/land-8.wav"
+          ]
+        },
+        {
+          "id": "coin",
+          "name": "Coin",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_coin_single1.wav, sfx_coin_single2.wav, sfx_coin_single3.wav, sfx_coin_single4.wav, sfx_coin_single5.wav, sfx_coin_single6.wav",
+          "files": [
+            "retro/coin-1.wav",
+            "retro/coin-2.wav",
+            "retro/coin-3.wav",
+            "retro/coin-4.wav",
+            "retro/coin-5.wav",
+            "retro/coin-6.wav"
+          ]
+        },
+        {
+          "id": "coin-double",
+          "name": "Coin double",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_coin_double1.wav, sfx_coin_double2.wav, sfx_coin_double3.wav, sfx_coin_double4.wav, sfx_coin_double5.wav, sfx_coin_double6.wav, sfx_coin_double7.wav",
+          "files": [
+            "retro/coin-double-1.wav",
+            "retro/coin-double-2.wav",
+            "retro/coin-double-3.wav",
+            "retro/coin-double-4.wav",
+            "retro/coin-double-5.wav",
+            "retro/coin-double-6.wav",
+            "retro/coin-double-7.wav"
+          ]
+        },
+        {
+          "id": "coin-cluster",
+          "name": "Coin cluster",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_coin_cluster1.wav, sfx_coin_cluster2.wav, sfx_coin_cluster3.wav, sfx_coin_cluster4.wav, sfx_coin_cluster5.wav",
+          "files": [
+            "retro/coin-cluster-1.wav",
+            "retro/coin-cluster-2.wav",
+            "retro/coin-cluster-3.wav",
+            "retro/coin-cluster-4.wav",
+            "retro/coin-cluster-5.wav"
+          ]
+        },
+        {
+          "id": "power-up",
+          "name": "Power-up",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_powerup1.wav, sfx_sounds_powerup2.wav, sfx_sounds_powerup3.wav, sfx_sounds_powerup4.wav, sfx_sounds_powerup5.wav, sfx_sounds_powerup6.wav, sfx_sounds_powerup7.wav, sfx_sounds_powerup8.wav",
+          "files": [
+            "retro/power-up-1.wav",
+            "retro/power-up-2.wav",
+            "retro/power-up-3.wav",
+            "retro/power-up-4.wav",
+            "retro/power-up-5.wav",
+            "retro/power-up-6.wav",
+            "retro/power-up-7.wav",
+            "retro/power-up-8.wav"
+          ]
+        },
+        {
+          "id": "power-up-2",
+          "name": "Power-up 2",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_powerup9.wav, sfx_sounds_powerup10.wav, sfx_sounds_powerup11.wav, sfx_sounds_powerup12.wav, sfx_sounds_powerup13.wav, sfx_sounds_powerup14.wav, sfx_sounds_powerup15.wav, sfx_sounds_powerup16.wav",
+          "files": [
+            "retro/power-up-2-1.wav",
+            "retro/power-up-2-2.wav",
+            "retro/power-up-2-3.wav",
+            "retro/power-up-2-4.wav",
+            "retro/power-up-2-5.wav",
+            "retro/power-up-2-6.wav",
+            "retro/power-up-2-7.wav",
+            "retro/power-up-2-8.wav"
+          ]
+        },
+        {
+          "id": "fanfare",
+          "name": "Fanfare",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_fanfare1.wav, sfx_sounds_fanfare2.wav, sfx_sounds_fanfare3.wav",
+          "files": ["retro/fanfare-1.wav", "retro/fanfare-2.wav", "retro/fanfare-3.wav"]
+        },
+        {
+          "id": "menu-move",
+          "name": "Menu move",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_menu_move1.wav, sfx_menu_move2.wav, sfx_menu_move3.wav, sfx_menu_move4.wav, sfx_menu_move5.wav",
+          "files": [
+            "retro/menu-move-1.wav",
+            "retro/menu-move-2.wav",
+            "retro/menu-move-3.wav",
+            "retro/menu-move-4.wav",
+            "retro/menu-move-5.wav"
+          ]
+        },
+        {
+          "id": "menu-select",
+          "name": "Menu select",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_menu_select1.wav, sfx_menu_select2.wav, sfx_menu_select3.wav, sfx_menu_select4.wav, sfx_menu_select5.wav",
+          "files": [
+            "retro/menu-select-1.wav",
+            "retro/menu-select-2.wav",
+            "retro/menu-select-3.wav",
+            "retro/menu-select-4.wav",
+            "retro/menu-select-5.wav"
+          ]
+        },
+        {
+          "id": "button",
+          "name": "Button",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_button1.wav, sfx_sounds_button2.wav, sfx_sounds_button3.wav, sfx_sounds_button4.wav, sfx_sounds_button5.wav, sfx_sounds_button6.wav, sfx_sounds_button7.wav, sfx_sounds_button8.wav",
+          "files": [
+            "retro/button-1.wav",
+            "retro/button-2.wav",
+            "retro/button-3.wav",
+            "retro/button-4.wav",
+            "retro/button-5.wav",
+            "retro/button-6.wav",
+            "retro/button-7.wav",
+            "retro/button-8.wav"
+          ]
+        },
+        {
+          "id": "blip",
+          "name": "Blip",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_Blip1.wav, sfx_sounds_Blip2.wav, sfx_sounds_Blip3.wav, sfx_sounds_Blip4.wav, sfx_sounds_Blip5.wav, sfx_sounds_Blip6.wav, sfx_sounds_Blip7.wav, sfx_sounds_Blip8.wav",
+          "files": [
+            "retro/blip-1.wav",
+            "retro/blip-2.wav",
+            "retro/blip-3.wav",
+            "retro/blip-4.wav",
+            "retro/blip-5.wav",
+            "retro/blip-6.wav",
+            "retro/blip-7.wav",
+            "retro/blip-8.wav"
+          ]
+        },
+        {
+          "id": "pause",
+          "name": "Pause",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_pause1_in.wav, sfx_sounds_pause2_in.wav, sfx_sounds_pause3_in.wav, sfx_sounds_pause4_in.wav, sfx_sounds_pause5_in.wav, sfx_sounds_pause6_in.wav, sfx_sounds_pause7_in.wav",
+          "files": [
+            "retro/pause-1.wav",
+            "retro/pause-2.wav",
+            "retro/pause-3.wav",
+            "retro/pause-4.wav",
+            "retro/pause-5.wav",
+            "retro/pause-6.wav",
+            "retro/pause-7.wav"
+          ]
+        },
+        {
+          "id": "unpause",
+          "name": "Unpause",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_pause1_out.wav, sfx_sounds_pause2_out.wav, sfx_sounds_pause3_out.wav, sfx_sounds_pause4_out.wav, sfx_sounds_pause5_out.wav, sfx_sounds_pause6_out.wav, sfx_sounds_pause7_out.wav",
+          "files": [
+            "retro/unpause-1.wav",
+            "retro/unpause-2.wav",
+            "retro/unpause-3.wav",
+            "retro/unpause-4.wav",
+            "retro/unpause-5.wav",
+            "retro/unpause-6.wav",
+            "retro/unpause-7.wav"
+          ]
+        },
+        {
+          "id": "interact",
+          "name": "Interact",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_interaction1.wav, sfx_sounds_interaction2.wav, sfx_sounds_interaction3.wav, sfx_sounds_interaction4.wav, sfx_sounds_interaction5.wav, sfx_sounds_interaction6.wav",
+          "files": [
+            "retro/interact-1.wav",
+            "retro/interact-2.wav",
+            "retro/interact-3.wav",
+            "retro/interact-4.wav",
+            "retro/interact-5.wav",
+            "retro/interact-6.wav"
+          ]
+        },
+        {
+          "id": "error",
+          "name": "Error",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_error1.wav, sfx_sounds_error2.wav, sfx_sounds_error3.wav, sfx_sounds_error4.wav, sfx_sounds_error5.wav, sfx_sounds_error6.wav, sfx_sounds_error7.wav, sfx_sounds_error8.wav",
+          "files": [
+            "retro/error-1.wav",
+            "retro/error-2.wav",
+            "retro/error-3.wav",
+            "retro/error-4.wav",
+            "retro/error-5.wav",
+            "retro/error-6.wav",
+            "retro/error-7.wav",
+            "retro/error-8.wav"
+          ]
+        },
+        {
+          "id": "damage",
+          "name": "Damage",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_damage_hit1.wav, sfx_damage_hit2.wav, sfx_damage_hit3.wav, sfx_damage_hit4.wav, sfx_damage_hit5.wav, sfx_damage_hit6.wav, sfx_damage_hit7.wav, sfx_damage_hit8.wav",
+          "files": [
+            "retro/damage-1.wav",
+            "retro/damage-2.wav",
+            "retro/damage-3.wav",
+            "retro/damage-4.wav",
+            "retro/damage-5.wav",
+            "retro/damage-6.wav",
+            "retro/damage-7.wav",
+            "retro/damage-8.wav"
+          ]
+        },
+        {
+          "id": "impact",
+          "name": "Impact",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_impact1.wav, sfx_sounds_impact2.wav, sfx_sounds_impact3.wav, sfx_sounds_impact4.wav, sfx_sounds_impact5.wav, sfx_sounds_impact6.wav, sfx_sounds_impact7.wav, sfx_sounds_impact8.wav",
+          "files": [
+            "retro/impact-1.wav",
+            "retro/impact-2.wav",
+            "retro/impact-3.wav",
+            "retro/impact-4.wav",
+            "retro/impact-5.wav",
+            "retro/impact-6.wav",
+            "retro/impact-7.wav",
+            "retro/impact-8.wav"
+          ]
+        },
+        {
+          "id": "punch",
+          "name": "Punch",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_wpn_punch1.wav, sfx_wpn_punch2.wav, sfx_wpn_punch3.wav, sfx_wpn_punch4.wav",
+          "files": ["retro/punch-1.wav", "retro/punch-2.wav", "retro/punch-3.wav", "retro/punch-4.wav"]
+        },
+        {
+          "id": "sword",
+          "name": "Sword",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_wpn_sword1.wav, sfx_wpn_sword2.wav, sfx_wpn_sword3.wav, sfx_wpn_dagger.wav",
+          "files": ["retro/sword-1.wav", "retro/sword-2.wav", "retro/sword-3.wav", "retro/sword-4.wav"]
+        },
+        {
+          "id": "laser",
+          "name": "Laser",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_wpn_laser1.wav, sfx_wpn_laser2.wav, sfx_wpn_laser3.wav, sfx_wpn_laser4.wav, sfx_wpn_laser5.wav, sfx_wpn_laser6.wav, sfx_wpn_laser7.wav, sfx_wpn_laser8.wav",
+          "files": [
+            "retro/laser-1.wav",
+            "retro/laser-2.wav",
+            "retro/laser-3.wav",
+            "retro/laser-4.wav",
+            "retro/laser-5.wav",
+            "retro/laser-6.wav",
+            "retro/laser-7.wav",
+            "retro/laser-8.wav"
+          ]
+        },
+        {
+          "id": "shot",
+          "name": "Shot",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_weapon_singleshot1.wav, sfx_weapon_singleshot2.wav, sfx_weapon_singleshot3.wav, sfx_weapon_singleshot4.wav, sfx_weapon_singleshot5.wav, sfx_weapon_singleshot6.wav, sfx_weapon_singleshot7.wav, sfx_weapon_singleshot8.wav",
+          "files": [
+            "retro/shot-1.wav",
+            "retro/shot-2.wav",
+            "retro/shot-3.wav",
+            "retro/shot-4.wav",
+            "retro/shot-5.wav",
+            "retro/shot-6.wav",
+            "retro/shot-7.wav",
+            "retro/shot-8.wav"
+          ]
+        },
+        {
+          "id": "no-ammo",
+          "name": "No ammo",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_wpn_noammo1.wav, sfx_wpn_noammo2.wav, sfx_wpn_noammo3.wav, sfx_wpn_reload.wav",
+          "files": [
+            "retro/no-ammo-1.wav",
+            "retro/no-ammo-2.wav",
+            "retro/no-ammo-3.wav",
+            "retro/no-ammo-4.wav"
+          ]
+        },
+        {
+          "id": "explosion-small",
+          "name": "Explosion small",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_exp_shortest_hard1.wav, sfx_exp_shortest_hard2.wav, sfx_exp_shortest_hard3.wav, sfx_exp_shortest_hard4.wav, sfx_exp_shortest_hard5.wav, sfx_exp_shortest_hard6.wav, sfx_exp_shortest_hard7.wav, sfx_exp_shortest_hard8.wav",
+          "files": [
+            "retro/explosion-small-1.wav",
+            "retro/explosion-small-2.wav",
+            "retro/explosion-small-3.wav",
+            "retro/explosion-small-4.wav",
+            "retro/explosion-small-5.wav",
+            "retro/explosion-small-6.wav",
+            "retro/explosion-small-7.wav",
+            "retro/explosion-small-8.wav"
+          ]
+        },
+        {
+          "id": "explosion",
+          "name": "Explosion",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_exp_short_hard1.wav, sfx_exp_short_hard2.wav, sfx_exp_short_hard3.wav, sfx_exp_short_hard4.wav, sfx_exp_short_hard5.wav, sfx_exp_short_hard6.wav",
+          "files": [
+            "retro/explosion-1.wav",
+            "retro/explosion-2.wav",
+            "retro/explosion-3.wav",
+            "retro/explosion-4.wav",
+            "retro/explosion-5.wav",
+            "retro/explosion-6.wav"
+          ]
+        },
+        {
+          "id": "explosion-big",
+          "name": "Explosion big",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_exp_medium1.wav, sfx_exp_medium2.wav, sfx_exp_medium3.wav, sfx_exp_medium4.wav",
+          "files": [
+            "retro/explosion-big-1.wav",
+            "retro/explosion-big-2.wav",
+            "retro/explosion-big-3.wav",
+            "retro/explosion-big-4.wav"
+          ]
+        },
+        {
+          "id": "portal",
+          "name": "Portal",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_movement_portal1.wav, sfx_movement_portal2.wav, sfx_movement_portal3.wav, sfx_movement_portal4.wav",
+          "files": ["retro/portal-1.wav", "retro/portal-2.wav", "retro/portal-3.wav", "retro/portal-4.wav"]
+        },
+        {
+          "id": "fall",
+          "name": "Fall",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_falling1.wav, sfx_sounds_falling2.wav, sfx_sounds_falling3.wav, sfx_sounds_falling4.wav",
+          "files": ["retro/fall-1.wav", "retro/fall-2.wav", "retro/fall-3.wav", "retro/fall-4.wav"]
+        },
+        {
+          "id": "door",
+          "name": "Door",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_movement_dooropen1.wav, sfx_movement_dooropen2.wav, sfx_movement_dooropen3.wav, sfx_movement_dooropen4.wav",
+          "files": ["retro/door-1.wav", "retro/door-2.wav", "retro/door-3.wav", "retro/door-4.wav"]
+        },
+        {
+          "id": "death",
+          "name": "Death",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_deathscream_human1.wav, sfx_deathscream_human2.wav, sfx_deathscream_human3.wav, sfx_deathscream_human4.wav, sfx_deathscream_human5.wav, sfx_deathscream_human6.wav, sfx_deathscream_human7.wav, sfx_deathscream_human8.wav",
+          "files": [
+            "retro/death-1.wav",
+            "retro/death-2.wav",
+            "retro/death-3.wav",
+            "retro/death-4.wav",
+            "retro/death-5.wav",
+            "retro/death-6.wav",
+            "retro/death-7.wav",
+            "retro/death-8.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "impacts",
+      "name": "Impacts",
+      "sounds": [
+        {
+          "id": "punch",
+          "name": "Punch",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactPunch_medium_000.ogg, impactPunch_medium_001.ogg, impactPunch_medium_002.ogg, impactPunch_medium_003.ogg, impactPunch_medium_004.ogg",
+          "files": [
+            "impacts/punch-1.wav",
+            "impacts/punch-2.wav",
+            "impacts/punch-3.wav",
+            "impacts/punch-4.wav",
+            "impacts/punch-5.wav"
+          ]
+        },
+        {
+          "id": "punch-heavy",
+          "name": "Punch heavy",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactPunch_heavy_000.ogg, impactPunch_heavy_001.ogg, impactPunch_heavy_002.ogg, impactPunch_heavy_003.ogg, impactPunch_heavy_004.ogg",
+          "files": [
+            "impacts/punch-heavy-1.wav",
+            "impacts/punch-heavy-2.wav",
+            "impacts/punch-heavy-3.wav",
+            "impacts/punch-heavy-4.wav",
+            "impacts/punch-heavy-5.wav"
+          ]
+        },
+        {
+          "id": "soft",
+          "name": "Soft",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactSoft_medium_000.ogg, impactSoft_medium_001.ogg, impactSoft_medium_002.ogg, impactSoft_medium_003.ogg, impactSoft_medium_004.ogg",
+          "files": [
+            "impacts/soft-1.wav",
+            "impacts/soft-2.wav",
+            "impacts/soft-3.wav",
+            "impacts/soft-4.wav",
+            "impacts/soft-5.wav"
+          ]
+        },
+        {
+          "id": "soft-heavy",
+          "name": "Soft heavy",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactSoft_heavy_000.ogg, impactSoft_heavy_001.ogg, impactSoft_heavy_002.ogg, impactSoft_heavy_003.ogg, impactSoft_heavy_004.ogg",
+          "files": [
+            "impacts/soft-heavy-1.wav",
+            "impacts/soft-heavy-2.wav",
+            "impacts/soft-heavy-3.wav",
+            "impacts/soft-heavy-4.wav",
+            "impacts/soft-heavy-5.wav"
+          ]
+        },
+        {
+          "id": "wood-light",
+          "name": "Wood light",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactWood_light_000.ogg, impactWood_light_001.ogg, impactWood_light_002.ogg, impactWood_light_003.ogg, impactWood_light_004.ogg",
+          "files": [
+            "impacts/wood-light-1.wav",
+            "impacts/wood-light-2.wav",
+            "impacts/wood-light-3.wav",
+            "impacts/wood-light-4.wav",
+            "impacts/wood-light-5.wav"
+          ]
+        },
+        {
+          "id": "wood",
+          "name": "Wood",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactWood_medium_000.ogg, impactWood_medium_001.ogg, impactWood_medium_002.ogg, impactWood_medium_003.ogg, impactWood_medium_004.ogg",
+          "files": [
+            "impacts/wood-1.wav",
+            "impacts/wood-2.wav",
+            "impacts/wood-3.wav",
+            "impacts/wood-4.wav",
+            "impacts/wood-5.wav"
+          ]
+        },
+        {
+          "id": "wood-heavy",
+          "name": "Wood heavy",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactWood_heavy_000.ogg, impactWood_heavy_001.ogg, impactWood_heavy_002.ogg, impactWood_heavy_003.ogg, impactWood_heavy_004.ogg",
+          "files": [
+            "impacts/wood-heavy-1.wav",
+            "impacts/wood-heavy-2.wav",
+            "impacts/wood-heavy-3.wav",
+            "impacts/wood-heavy-4.wav",
+            "impacts/wood-heavy-5.wav"
+          ]
+        },
+        {
+          "id": "plank",
+          "name": "Plank",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactPlank_medium_000.ogg, impactPlank_medium_001.ogg, impactPlank_medium_002.ogg, impactPlank_medium_003.ogg, impactPlank_medium_004.ogg",
+          "files": [
+            "impacts/plank-1.wav",
+            "impacts/plank-2.wav",
+            "impacts/plank-3.wav",
+            "impacts/plank-4.wav",
+            "impacts/plank-5.wav"
+          ]
+        },
+        {
+          "id": "metal-light",
+          "name": "Metal light",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactMetal_light_000.ogg, impactMetal_light_001.ogg, impactMetal_light_002.ogg, impactMetal_light_003.ogg, impactMetal_light_004.ogg",
+          "files": [
+            "impacts/metal-light-1.wav",
+            "impacts/metal-light-2.wav",
+            "impacts/metal-light-3.wav",
+            "impacts/metal-light-4.wav",
+            "impacts/metal-light-5.wav"
+          ]
+        },
+        {
+          "id": "metal",
+          "name": "Metal",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactMetal_medium_000.ogg, impactMetal_medium_001.ogg, impactMetal_medium_002.ogg, impactMetal_medium_003.ogg, impactMetal_medium_004.ogg",
+          "files": [
+            "impacts/metal-1.wav",
+            "impacts/metal-2.wav",
+            "impacts/metal-3.wav",
+            "impacts/metal-4.wav",
+            "impacts/metal-5.wav"
+          ]
+        },
+        {
+          "id": "metal-heavy",
+          "name": "Metal heavy",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactMetal_heavy_000.ogg, impactMetal_heavy_001.ogg, impactMetal_heavy_002.ogg, impactMetal_heavy_003.ogg, impactMetal_heavy_004.ogg",
+          "files": [
+            "impacts/metal-heavy-1.wav",
+            "impacts/metal-heavy-2.wav",
+            "impacts/metal-heavy-3.wav",
+            "impacts/metal-heavy-4.wav",
+            "impacts/metal-heavy-5.wav"
+          ]
+        },
+        {
+          "id": "plate",
+          "name": "Plate",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactPlate_medium_000.ogg, impactPlate_medium_001.ogg, impactPlate_medium_002.ogg, impactPlate_medium_003.ogg, impactPlate_medium_004.ogg",
+          "files": [
+            "impacts/plate-1.wav",
+            "impacts/plate-2.wav",
+            "impacts/plate-3.wav",
+            "impacts/plate-4.wav",
+            "impacts/plate-5.wav"
+          ]
+        },
+        {
+          "id": "tin",
+          "name": "Tin",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactTin_medium_000.ogg, impactTin_medium_001.ogg, impactTin_medium_002.ogg, impactTin_medium_003.ogg, impactTin_medium_004.ogg",
+          "files": [
+            "impacts/tin-1.wav",
+            "impacts/tin-2.wav",
+            "impacts/tin-3.wav",
+            "impacts/tin-4.wav",
+            "impacts/tin-5.wav"
+          ]
+        },
+        {
+          "id": "glass-light",
+          "name": "Glass light",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactGlass_light_000.ogg, impactGlass_light_001.ogg, impactGlass_light_002.ogg, impactGlass_light_003.ogg, impactGlass_light_004.ogg",
+          "files": [
+            "impacts/glass-light-1.wav",
+            "impacts/glass-light-2.wav",
+            "impacts/glass-light-3.wav",
+            "impacts/glass-light-4.wav",
+            "impacts/glass-light-5.wav"
+          ]
+        },
+        {
+          "id": "glass",
+          "name": "Glass",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactGlass_medium_000.ogg, impactGlass_medium_001.ogg, impactGlass_medium_002.ogg, impactGlass_medium_003.ogg, impactGlass_medium_004.ogg",
+          "files": [
+            "impacts/glass-1.wav",
+            "impacts/glass-2.wav",
+            "impacts/glass-3.wav",
+            "impacts/glass-4.wav",
+            "impacts/glass-5.wav"
+          ]
+        },
+        {
+          "id": "glass-heavy",
+          "name": "Glass heavy",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactGlass_heavy_000.ogg, impactGlass_heavy_001.ogg, impactGlass_heavy_002.ogg, impactGlass_heavy_003.ogg, impactGlass_heavy_004.ogg",
+          "files": [
+            "impacts/glass-heavy-1.wav",
+            "impacts/glass-heavy-2.wav",
+            "impacts/glass-heavy-3.wav",
+            "impacts/glass-heavy-4.wav",
+            "impacts/glass-heavy-5.wav"
+          ]
+        },
+        {
+          "id": "bell",
+          "name": "Bell",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactBell_heavy_000.ogg, impactBell_heavy_001.ogg, impactBell_heavy_002.ogg, impactBell_heavy_003.ogg, impactBell_heavy_004.ogg",
+          "files": [
+            "impacts/bell-1.wav",
+            "impacts/bell-2.wav",
+            "impacts/bell-3.wav",
+            "impacts/bell-4.wav",
+            "impacts/bell-5.wav"
+          ]
+        },
+        {
+          "id": "mining",
+          "name": "Mining",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactMining_000.ogg, impactMining_001.ogg, impactMining_002.ogg, impactMining_003.ogg, impactMining_004.ogg",
+          "files": [
+            "impacts/mining-1.wav",
+            "impacts/mining-2.wav",
+            "impacts/mining-3.wav",
+            "impacts/mining-4.wav",
+            "impacts/mining-5.wav"
+          ]
+        },
+        {
+          "id": "generic",
+          "name": "Generic",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: impactGeneric_light_000.ogg, impactGeneric_light_001.ogg, impactGeneric_light_002.ogg, impactGeneric_light_003.ogg, impactGeneric_light_004.ogg",
+          "files": [
+            "impacts/generic-1.wav",
+            "impacts/generic-2.wav",
+            "impacts/generic-3.wav",
+            "impacts/generic-4.wav",
+            "impacts/generic-5.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "footsteps",
+      "name": "Footsteps",
+      "sounds": [
+        {
+          "id": "grass",
+          "name": "Grass",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: footstep_grass_000.ogg, footstep_grass_001.ogg, footstep_grass_002.ogg, footstep_grass_003.ogg, footstep_grass_004.ogg",
+          "files": [
+            "footsteps/grass-1.wav",
+            "footsteps/grass-2.wav",
+            "footsteps/grass-3.wav",
+            "footsteps/grass-4.wav",
+            "footsteps/grass-5.wav"
+          ]
+        },
+        {
+          "id": "wood",
+          "name": "Wood",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: footstep_wood_000.ogg, footstep_wood_001.ogg, footstep_wood_002.ogg, footstep_wood_003.ogg, footstep_wood_004.ogg",
+          "files": [
+            "footsteps/wood-1.wav",
+            "footsteps/wood-2.wav",
+            "footsteps/wood-3.wav",
+            "footsteps/wood-4.wav",
+            "footsteps/wood-5.wav"
+          ]
+        },
+        {
+          "id": "concrete",
+          "name": "Concrete",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: footstep_concrete_000.ogg, footstep_concrete_001.ogg, footstep_concrete_002.ogg, footstep_concrete_003.ogg, footstep_concrete_004.ogg",
+          "files": [
+            "footsteps/concrete-1.wav",
+            "footsteps/concrete-2.wav",
+            "footsteps/concrete-3.wav",
+            "footsteps/concrete-4.wav",
+            "footsteps/concrete-5.wav"
+          ]
+        },
+        {
+          "id": "carpet",
+          "name": "Carpet",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: footstep_carpet_000.ogg, footstep_carpet_001.ogg, footstep_carpet_002.ogg, footstep_carpet_003.ogg, footstep_carpet_004.ogg",
+          "files": [
+            "footsteps/carpet-1.wav",
+            "footsteps/carpet-2.wav",
+            "footsteps/carpet-3.wav",
+            "footsteps/carpet-4.wav",
+            "footsteps/carpet-5.wav"
+          ]
+        },
+        {
+          "id": "snow",
+          "name": "Snow",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/impact-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Impact Sounds: footstep_snow_000.ogg, footstep_snow_001.ogg, footstep_snow_002.ogg, footstep_snow_003.ogg, footstep_snow_004.ogg",
+          "files": [
+            "footsteps/snow-1.wav",
+            "footsteps/snow-2.wav",
+            "footsteps/snow-3.wav",
+            "footsteps/snow-4.wav",
+            "footsteps/snow-5.wav"
+          ]
+        },
+        {
+          "id": "boots",
+          "name": "Boots",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: footstep00.ogg, footstep01.ogg, footstep02.ogg, footstep03.ogg, footstep04.ogg, footstep05.ogg, footstep06.ogg, footstep07.ogg",
+          "files": [
+            "footsteps/boots-1.wav",
+            "footsteps/boots-2.wav",
+            "footsteps/boots-3.wav",
+            "footsteps/boots-4.wav",
+            "footsteps/boots-5.wav",
+            "footsteps/boots-6.wav",
+            "footsteps/boots-7.wav",
+            "footsteps/boots-8.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sci-fi",
+      "name": "Sci-fi",
+      "sounds": [
+        {
+          "id": "laser-small",
+          "name": "Laser small",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: laserSmall_000.ogg, laserSmall_001.ogg, laserSmall_002.ogg, laserSmall_003.ogg, laserSmall_004.ogg",
+          "files": [
+            "sci-fi/laser-small-1.wav",
+            "sci-fi/laser-small-2.wav",
+            "sci-fi/laser-small-3.wav",
+            "sci-fi/laser-small-4.wav",
+            "sci-fi/laser-small-5.wav"
+          ]
+        },
+        {
+          "id": "laser-large",
+          "name": "Laser large",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: laserLarge_000.ogg, laserLarge_001.ogg, laserLarge_002.ogg, laserLarge_003.ogg, laserLarge_004.ogg",
+          "files": [
+            "sci-fi/laser-large-1.wav",
+            "sci-fi/laser-large-2.wav",
+            "sci-fi/laser-large-3.wav",
+            "sci-fi/laser-large-4.wav",
+            "sci-fi/laser-large-5.wav"
+          ]
+        },
+        {
+          "id": "laser-retro",
+          "name": "Laser retro",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: laserRetro_000.ogg, laserRetro_001.ogg, laserRetro_002.ogg, laserRetro_003.ogg, laserRetro_004.ogg",
+          "files": [
+            "sci-fi/laser-retro-1.wav",
+            "sci-fi/laser-retro-2.wav",
+            "sci-fi/laser-retro-3.wav",
+            "sci-fi/laser-retro-4.wav",
+            "sci-fi/laser-retro-5.wav"
+          ]
+        },
+        {
+          "id": "blaster",
+          "name": "Blaster",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/digital-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Digital Audio: laser1.ogg, laser2.ogg, laser3.ogg, laser4.ogg, laser5.ogg, laser6.ogg, laser7.ogg, laser8.ogg",
+          "files": [
+            "sci-fi/blaster-1.wav",
+            "sci-fi/blaster-2.wav",
+            "sci-fi/blaster-3.wav",
+            "sci-fi/blaster-4.wav",
+            "sci-fi/blaster-5.wav",
+            "sci-fi/blaster-6.wav",
+            "sci-fi/blaster-7.wav",
+            "sci-fi/blaster-8.wav"
+          ]
+        },
+        {
+          "id": "zap",
+          "name": "Zap",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/digital-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Digital Audio: zap1.ogg, zap2.ogg, zapTwoTone.ogg, zapTwoTone2.ogg",
+          "files": ["sci-fi/zap-1.wav", "sci-fi/zap-2.wav", "sci-fi/zap-3.wav", "sci-fi/zap-4.wav"]
+        },
+        {
+          "id": "phaser-up",
+          "name": "Phaser up",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/digital-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Digital Audio: phaserUp1.ogg, phaserUp2.ogg, phaserUp3.ogg, phaserUp4.ogg, phaserUp5.ogg, phaserUp6.ogg, phaserUp7.ogg",
+          "files": [
+            "sci-fi/phaser-up-1.wav",
+            "sci-fi/phaser-up-2.wav",
+            "sci-fi/phaser-up-3.wav",
+            "sci-fi/phaser-up-4.wav",
+            "sci-fi/phaser-up-5.wav",
+            "sci-fi/phaser-up-6.wav",
+            "sci-fi/phaser-up-7.wav"
+          ]
+        },
+        {
+          "id": "phaser-down",
+          "name": "Phaser down",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/digital-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Digital Audio: phaserDown1.ogg, phaserDown2.ogg, phaserDown3.ogg",
+          "files": ["sci-fi/phaser-down-1.wav", "sci-fi/phaser-down-2.wav", "sci-fi/phaser-down-3.wav"]
+        },
+        {
+          "id": "power-up",
+          "name": "Power-up",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/digital-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Digital Audio: powerUp1.ogg, powerUp2.ogg, powerUp3.ogg, powerUp4.ogg, powerUp5.ogg, powerUp6.ogg, powerUp7.ogg, powerUp8.ogg",
+          "files": [
+            "sci-fi/power-up-1.wav",
+            "sci-fi/power-up-2.wav",
+            "sci-fi/power-up-3.wav",
+            "sci-fi/power-up-4.wav",
+            "sci-fi/power-up-5.wav",
+            "sci-fi/power-up-6.wav",
+            "sci-fi/power-up-7.wav",
+            "sci-fi/power-up-8.wav"
+          ]
+        },
+        {
+          "id": "phase-jump",
+          "name": "Phase jump",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/digital-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Digital Audio: phaseJump1.ogg, phaseJump2.ogg, phaseJump3.ogg, phaseJump4.ogg, phaseJump5.ogg",
+          "files": [
+            "sci-fi/phase-jump-1.wav",
+            "sci-fi/phase-jump-2.wav",
+            "sci-fi/phase-jump-3.wav",
+            "sci-fi/phase-jump-4.wav",
+            "sci-fi/phase-jump-5.wav"
+          ]
+        },
+        {
+          "id": "pep",
+          "name": "Pep",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/digital-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Digital Audio: pepSound1.ogg, pepSound2.ogg, pepSound3.ogg, pepSound4.ogg, pepSound5.ogg",
+          "files": [
+            "sci-fi/pep-1.wav",
+            "sci-fi/pep-2.wav",
+            "sci-fi/pep-3.wav",
+            "sci-fi/pep-4.wav",
+            "sci-fi/pep-5.wav"
+          ]
+        },
+        {
+          "id": "tones",
+          "name": "Tones",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/digital-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Digital Audio: twoTone1.ogg, twoTone2.ogg, threeTone1.ogg, threeTone2.ogg, zapThreeToneUp.ogg, zapThreeToneDown.ogg",
+          "files": [
+            "sci-fi/tones-1.wav",
+            "sci-fi/tones-2.wav",
+            "sci-fi/tones-3.wav",
+            "sci-fi/tones-4.wav",
+            "sci-fi/tones-5.wav",
+            "sci-fi/tones-6.wav"
+          ]
+        },
+        {
+          "id": "force-field",
+          "name": "Force field",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: forceField_000.ogg, forceField_001.ogg, forceField_002.ogg, forceField_003.ogg, forceField_004.ogg",
+          "files": [
+            "sci-fi/force-field-1.wav",
+            "sci-fi/force-field-2.wav",
+            "sci-fi/force-field-3.wav",
+            "sci-fi/force-field-4.wav",
+            "sci-fi/force-field-5.wav"
+          ]
+        },
+        {
+          "id": "explosion",
+          "name": "Explosion",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: explosionCrunch_000.ogg, explosionCrunch_001.ogg, explosionCrunch_002.ogg, explosionCrunch_003.ogg, explosionCrunch_004.ogg",
+          "files": [
+            "sci-fi/explosion-1.wav",
+            "sci-fi/explosion-2.wav",
+            "sci-fi/explosion-3.wav",
+            "sci-fi/explosion-4.wav",
+            "sci-fi/explosion-5.wav"
+          ]
+        },
+        {
+          "id": "explosion-low",
+          "name": "Explosion low",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: lowFrequency_explosion_000.ogg, lowFrequency_explosion_001.ogg",
+          "files": ["sci-fi/explosion-low-1.wav", "sci-fi/explosion-low-2.wav"]
+        },
+        {
+          "id": "metal-hit",
+          "name": "Metal hit",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: impactMetal_000.ogg, impactMetal_001.ogg, impactMetal_002.ogg, impactMetal_003.ogg, impactMetal_004.ogg",
+          "files": [
+            "sci-fi/metal-hit-1.wav",
+            "sci-fi/metal-hit-2.wav",
+            "sci-fi/metal-hit-3.wav",
+            "sci-fi/metal-hit-4.wav",
+            "sci-fi/metal-hit-5.wav"
+          ]
+        },
+        {
+          "id": "door-open",
+          "name": "Door open",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: doorOpen_000.ogg, doorOpen_001.ogg, doorOpen_002.ogg",
+          "files": ["sci-fi/door-open-1.wav", "sci-fi/door-open-2.wav", "sci-fi/door-open-3.wav"]
+        },
+        {
+          "id": "door-close",
+          "name": "Door close",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: doorClose_000.ogg, doorClose_001.ogg, doorClose_002.ogg",
+          "files": ["sci-fi/door-close-1.wav", "sci-fi/door-close-2.wav", "sci-fi/door-close-3.wav"]
+        },
+        {
+          "id": "slime",
+          "name": "Slime",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/sci-fi-sounds",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Sci-fi Sounds: slime_000.ogg, slime_001.ogg",
+          "files": ["sci-fi/slime-1.wav", "sci-fi/slime-2.wav"]
+        }
+      ]
+    },
+    {
+      "id": "items",
+      "name": "Items",
+      "sounds": [
+        {
+          "id": "coins",
+          "name": "Coins",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: handleCoins.ogg, handleCoins2.ogg",
+          "files": ["items/coins-1.wav", "items/coins-2.wav"]
+        },
+        {
+          "id": "chips",
+          "name": "Chips",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/casino-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Casino Audio: chips-stack-1.ogg, chips-stack-2.ogg, chips-stack-3.ogg, chips-stack-4.ogg, chips-stack-5.ogg, chips-stack-6.ogg",
+          "files": [
+            "items/chips-1.wav",
+            "items/chips-2.wav",
+            "items/chips-3.wav",
+            "items/chips-4.wav",
+            "items/chips-5.wav",
+            "items/chips-6.wav"
+          ]
+        },
+        {
+          "id": "chip-lay",
+          "name": "Chip lay",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/casino-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Casino Audio: chip-lay-1.ogg, chip-lay-2.ogg, chip-lay-3.ogg",
+          "files": ["items/chip-lay-1.wav", "items/chip-lay-2.wav", "items/chip-lay-3.wav"]
+        },
+        {
+          "id": "dice",
+          "name": "Dice",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/casino-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Casino Audio: dice-throw-1.ogg, dice-throw-2.ogg, dice-throw-3.ogg, die-throw-1.ogg, die-throw-2.ogg, die-throw-3.ogg, die-throw-4.ogg",
+          "files": [
+            "items/dice-1.wav",
+            "items/dice-2.wav",
+            "items/dice-3.wav",
+            "items/dice-4.wav",
+            "items/dice-5.wav",
+            "items/dice-6.wav",
+            "items/dice-7.wav"
+          ]
+        },
+        {
+          "id": "card",
+          "name": "Card",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/casino-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Casino Audio: card-place-1.ogg, card-place-2.ogg, card-place-3.ogg, card-place-4.ogg",
+          "files": ["items/card-1.wav", "items/card-2.wav", "items/card-3.wav", "items/card-4.wav"]
+        },
+        {
+          "id": "card-slide",
+          "name": "Card slide",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/casino-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Casino Audio: card-slide-1.ogg, card-slide-2.ogg, card-slide-3.ogg, card-slide-4.ogg, card-slide-5.ogg, card-slide-6.ogg, card-slide-7.ogg, card-slide-8.ogg",
+          "files": [
+            "items/card-slide-1.wav",
+            "items/card-slide-2.wav",
+            "items/card-slide-3.wav",
+            "items/card-slide-4.wav",
+            "items/card-slide-5.wav",
+            "items/card-slide-6.wav",
+            "items/card-slide-7.wav",
+            "items/card-slide-8.wav"
+          ]
+        },
+        {
+          "id": "door-open",
+          "name": "Door open",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: doorOpen_1.ogg, doorOpen_2.ogg",
+          "files": ["items/door-open-1.wav", "items/door-open-2.wav"]
+        },
+        {
+          "id": "door-close",
+          "name": "Door close",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: doorClose_1.ogg, doorClose_2.ogg, doorClose_3.ogg, doorClose_4.ogg",
+          "files": [
+            "items/door-close-1.wav",
+            "items/door-close-2.wav",
+            "items/door-close-3.wav",
+            "items/door-close-4.wav"
+          ]
+        },
+        {
+          "id": "creak",
+          "name": "Creak",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: creak1.ogg, creak2.ogg, creak3.ogg",
+          "files": ["items/creak-1.wav", "items/creak-2.wav", "items/creak-3.wav"]
+        },
+        {
+          "id": "latch",
+          "name": "Latch",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: metalLatch.ogg, metalClick.ogg",
+          "files": ["items/latch-1.wav", "items/latch-2.wav"]
+        },
+        {
+          "id": "book",
+          "name": "Book",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: bookFlip1.ogg, bookFlip2.ogg, bookFlip3.ogg, bookOpen.ogg, bookClose.ogg",
+          "files": [
+            "items/book-1.wav",
+            "items/book-2.wav",
+            "items/book-3.wav",
+            "items/book-4.wav",
+            "items/book-5.wav"
+          ]
+        },
+        {
+          "id": "draw-knife",
+          "name": "Draw knife",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: drawKnife1.ogg, drawKnife2.ogg, drawKnife3.ogg",
+          "files": ["items/draw-knife-1.wav", "items/draw-knife-2.wav", "items/draw-knife-3.wav"]
+        },
+        {
+          "id": "slice",
+          "name": "Slice",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: knifeSlice.ogg, knifeSlice2.ogg, chop.ogg",
+          "files": ["items/slice-1.wav", "items/slice-2.wav", "items/slice-3.wav"]
+        },
+        {
+          "id": "cloth",
+          "name": "Cloth",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: cloth1.ogg, cloth2.ogg, cloth3.ogg, cloth4.ogg",
+          "files": ["items/cloth-1.wav", "items/cloth-2.wav", "items/cloth-3.wav", "items/cloth-4.wav"]
+        },
+        {
+          "id": "leather",
+          "name": "Leather",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: handleSmallLeather.ogg, handleSmallLeather2.ogg, dropLeather.ogg, beltHandle1.ogg, beltHandle2.ogg",
+          "files": [
+            "items/leather-1.wav",
+            "items/leather-2.wav",
+            "items/leather-3.wav",
+            "items/leather-4.wav",
+            "items/leather-5.wav"
+          ]
+        },
+        {
+          "id": "pot",
+          "name": "Pot",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/rpg-audio",
+          "license": "CC0-1.0",
+          "credit": "Kenney, RPG Audio: metalPot1.ogg, metalPot2.ogg, metalPot3.ogg",
+          "files": ["items/pot-1.wav", "items/pot-2.wav", "items/pot-3.wav"]
+        }
+      ]
+    }
+  ]
+}
