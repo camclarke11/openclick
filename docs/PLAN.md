@@ -91,7 +91,8 @@ change needs a real migration, bump `PRESET_VERSION` and migrate in `parsePreset
 - `Foley/Switch`, `Foley/Keyboard`, `Foley/Camera`, `Foley/Toy`, `Foley/Mechanism`
 - `Game/Jump`, `Game/Coin`, `Game/Power-up`, `Game/Laser`, `Game/Hit`, `Game/Explosion`, `Game/Menu`, `Game/Pickup`
 
-Style goes in `tags`: `retro`, `chiptune`, `8-bit`, `modern`, `soft`, `harsh`, `short`, `long`.
+Style goes in `tags`: `retro`, `chiptune`, `8-bit`, `modern`, `soft`, `harsh`, `short`, `long`,
+and `roblox` for presets made for Roblox games.
 
 ### 2.4 Events (`src/core/bus.ts`)
 

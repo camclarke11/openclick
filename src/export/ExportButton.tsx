@@ -5,7 +5,9 @@ import {
   defaultExportSettings,
   download,
   exportSound,
+  isRobloxReady,
   MAX_VARIATIONS,
+  robloxExportSettings,
   type ExportSettings,
 } from './exportSound';
 import type { BitDepth } from './wav';
@@ -91,6 +93,18 @@ export function ExportButton() {
       )}
       {open.value && (
         <div class="oc-export-options" role="group" aria-label="Export options">
+          <button
+            type="button"
+            class="oc-export-target"
+            aria-pressed={isRobloxReady(s)}
+            title="16-bit, 48 kHz, mono, normalised: ready to upload to Roblox"
+            onClick={() => {
+              settings.value = { ...settings.value, ...robloxExportSettings };
+              saveSettings(settings.value);
+            }}
+          >
+            {isRobloxReady(s) ? 'Roblox ready ✓' : 'Use Roblox settings'}
+          </button>
           <label>
             Format
             <select

@@ -52,3 +52,7 @@
   color: #ff6b6b;
   font-size: 0.85rem;
 }
+.oc-export-options .oc-export-target[aria-pressed='true'] {
+  border-color: #2fa86b;
+  color: #7be0a8;
+}

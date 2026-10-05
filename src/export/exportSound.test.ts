@@ -3,7 +3,14 @@ import { defaultPatch, peak } from '../core';
 import { registry } from '../modules';
 import { createTestContext } from '../test/audio';
 import { sampleAssets } from '../presets/testAssets';
-import { defaultExportSettings, exportSound, mutatePatch, slugify } from './exportSound';
+import {
+  defaultExportSettings,
+  exportSound,
+  isRobloxReady,
+  mutatePatch,
+  robloxExportSettings,
+  slugify,
+} from './exportSound';
 import { decodeWav } from './wav';
 import { readZip } from './zip';
 
@@ -33,6 +40,19 @@ describe('exportSound', () => {
     expect(wav.channels).toHaveLength(1);
     expect(wav.sampleRate).toBe(44100);
     expect(wav.bitDepth).toBe(24);
+  });
+
+  it('Roblox settings export a mono 16-bit WAV within Roblox upload limits', async () => {
+    const s = { ...defaultExportSettings, ...robloxExportSettings };
+    expect(isRobloxReady(defaultExportSettings)).toBe(false);
+    expect(isRobloxReady(s)).toBe(true);
+    const res = await exportSound(defaultPatch(registry), 'Coin', s, env);
+    const wav = decodeWav(res.data);
+    expect(wav.channels).toHaveLength(1);
+    expect(wav.bitDepth).toBe(16);
+    expect(wav.sampleRate).toBeLessThanOrEqual(48000);
+    expect(res.data.byteLength).toBeLessThan(20 * 1024 * 1024);
+    expect(peak(wav)).toBeLessThanOrEqual(0.9);
   });
 
   it('exports variations as a zip of distinct WAVs', async () => {
