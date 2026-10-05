@@ -18,7 +18,7 @@ export function Knob(props: {
   onChange: (v: number) => void;
   size?: number;
 }) {
-  const { id, spec, value, onChange, size = 44 } = props;
+  const { id, spec, value, onChange, size = 54 } = props;
   const drag = useRef<{ y: number; start: number; acc: number } | null>(null);
   const t = Math.min(1, Math.max(0, toNormalized(spec, value)));
   const angle = -ARC / 2 + t * ARC;
@@ -87,16 +87,8 @@ export function Knob(props: {
     set(next);
   };
 
-  const r = size / 2 - 4;
-  const c = size / 2;
-  const arc = (from: number, to: number) => {
-    const a0 = ((-ARC / 2 + from * ARC - 90) * Math.PI) / 180;
-    const a1 = ((-ARC / 2 + to * ARC - 90) * Math.PI) / 180;
-    const large = Math.abs(to - from) * ARC > 180 ? 1 : 0;
-    const sweep = to > from ? 1 : 0;
-    return `M ${c + r * Math.cos(a0)} ${c + r * Math.sin(a0)} A ${r} ${r} 0 ${large} ${sweep} ${c + r * Math.cos(a1)} ${c + r * Math.sin(a1)}`;
-  };
-
+  // Design geometry: a 270° arc of radius 23 in a 56-unit box, drawn with dash offsets.
+  const ARC_LEN = 108.4;
   return (
     <div
       id={id}
@@ -117,17 +109,28 @@ export function Knob(props: {
       onDblClick={() => set(spec.default)}
       onKeyDown={onKeyDown}
     >
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
-        <path class="knob-track" d={arc(0, 1)} />
-        {t !== zeroT && <path class="knob-value" d={arc(Math.min(zeroT, t), Math.max(zeroT, t))} />}
-        <line
-          class="knob-pointer"
-          x1={c}
-          y1={c}
-          x2={c}
-          y2={c - r + 3}
-          transform={`rotate(${angle} ${c} ${c})`}
+      <svg width={size} height={size} viewBox="0 0 56 56" aria-hidden="true">
+        <circle
+          class="knob-track"
+          cx="28"
+          cy="28"
+          r="23"
+          stroke-dasharray={`${ARC_LEN} 200`}
+          transform="rotate(135 28 28)"
         />
+        {t !== zeroT && (
+          <circle
+            class="knob-value"
+            cx="28"
+            cy="28"
+            r="23"
+            stroke-dasharray={`${(ARC_LEN * Math.abs(t - zeroT)).toFixed(2)} 200`}
+            stroke-dashoffset={(-ARC_LEN * Math.min(t, zeroT)).toFixed(2)}
+            transform="rotate(135 28 28)"
+          />
+        )}
+        <circle class="knob-cap" cx="28" cy="28" r="16" />
+        <line class="knob-pointer" x1="28" y1="28" x2="28" y2="16" transform={`rotate(${angle} 28 28)`} />
       </svg>
     </div>
   );
@@ -138,7 +141,7 @@ function nudgeFrom(spec: NumberParam, start: number, acc: number): number {
   return snap(spec, nudge({ ...spec, step: undefined }, start, acc));
 }
 
-function snap(spec: NumberParam, v: number): number {
+export function snap(spec: NumberParam, v: number): number {
   if (!spec.step) return v;
   const x = Math.round((v - spec.min) / spec.step) * spec.step + spec.min;
   return Math.min(spec.max, Math.max(spec.min, x));

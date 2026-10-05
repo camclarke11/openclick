@@ -1,72 +1,78 @@
-import type { NumberParam } from '../core';
-import { ExportButton } from '../export';
-import { PresetBrowser } from '../presets';
-import { actions, patch } from '../state/store';
-import { ArpPanel } from './ArpPanel';
-import { formatValue } from './controls';
-import { FxChain } from './FxChain';
-import { InputBar } from './InputBar';
-import { Knob } from './Knob';
-import { LayerStrip } from './Layers';
-import { Pads } from './Pads';
-import { Scope } from './Scope';
+import { useEffect } from 'preact/hooks';
+import { bus } from '../core';
+import { isTypingTarget } from '../input';
+import { PresetSidebar } from '../presets';
+import { Dock } from './Dock';
+import { Header } from './Header';
+import { Hero } from './Hero';
+import { LayerCards } from './Layers';
+import { ModulePanel } from './ModulePanel';
+import { startPlayback } from './playback';
+import { PlayPanel } from './PlayPanel';
+import { notify, Toast } from './Toast';
 
-const masterSpec: NumberParam = {
-  kind: 'number',
-  label: 'Master',
-  min: -60,
-  max: 6,
-  default: 0,
-  unit: 'dB',
-};
+const SPACE_NOTE = 60;
+
+/**
+ * Space plays middle C from anywhere except text fields and pads (which use Space to play
+ * themselves). It takes over Space from focused buttons too, so tweaking a control and then
+ * auditioning never re-triggers the control.
+ */
+function attachSpaceToPlay(): () => void {
+  let down = false;
+  const ours = (e: KeyboardEvent) =>
+    e.code === 'Space' &&
+    !e.ctrlKey &&
+    !e.metaKey &&
+    !e.altKey &&
+    !isTypingTarget(e.target) &&
+    !(e.target instanceof Element && e.target.closest('.pads'));
+  const onDown = (e: KeyboardEvent) => {
+    if (!ours(e)) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.repeat || down) return;
+    down = true;
+    bus.emit('noteOn', { note: SPACE_NOTE, velocity: 0.9, source: 'keyboard' });
+  };
+  const onUp = (e: KeyboardEvent) => {
+    if (!ours(e)) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (!down) return;
+    down = false;
+    bus.emit('noteOff', { note: SPACE_NOTE, source: 'keyboard' });
+  };
+  window.addEventListener('keydown', onDown, true);
+  window.addEventListener('keyup', onUp, true);
+  return () => {
+    window.removeEventListener('keydown', onDown, true);
+    window.removeEventListener('keyup', onUp, true);
+  };
+}
 
 export function App() {
-  const gain = patch.value.master.gain;
-  return (
-    <div class="app">
-      <header class="topbar">
-        <h1 class="logo">OpenClick</h1>
-        <div class="topbar-presets">
-          <PresetBrowser />
-        </div>
-        <button
-          type="button"
-          class="btn accent"
-          onClick={() => actions.randomizeAll()}
-          title="Randomise every module"
-        >
-          Randomise all
-        </button>
-        <ExportButton />
-        <div class="master">
-          <Knob
-            id="master-gain"
-            spec={masterSpec}
-            value={gain}
-            onChange={(v) => actions.setMasterGain(v)}
-            size={36}
-          />
-          <span class="master-text">
-            <span class="param-label">Master</span>
-            <output for="master-gain">{formatValue(masterSpec, gain)}</output>
-          </span>
-        </div>
-        <Scope />
-      </header>
+  useEffect(() => {
+    const stopPlayback = startPlayback();
+    const detachSpace = attachSpaceToPlay();
+    return () => {
+      stopPlayback();
+      detachSpace();
+    };
+  }, []);
 
-      <main class="workspace">
-        <section class="panel play" aria-label="Play">
-          <Pads />
-          <InputBar />
-          <p class="hint keys-hint">
-            Keys <kbd>A</kbd>–<kbd>K</kbd> play, <kbd>W</kbd> <kbd>E</kbd> <kbd>T</kbd> <kbd>Y</kbd>{' '}
-            <kbd>U</kbd> sharps, <kbd>Z</kbd>/<kbd>X</kbd> octave, <kbd>Esc</kbd> stop.
-          </p>
-        </section>
-        <LayerStrip />
-        <ArpPanel />
-        <FxChain />
+  return (
+    <div class="studio">
+      <Header />
+      <PresetSidebar notify={notify} />
+      <main class="main">
+        <Hero />
+        <LayerCards />
+        <ModulePanel />
       </main>
+      <PlayPanel />
+      <Dock />
+      <Toast />
     </div>
   );
 }

@@ -28,3 +28,9 @@ export function collectErrors(page: Page): string[] {
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
   return errors;
 }
+
+/** Serve the web fonts as empty stylesheets so tests don't depend on Google Fonts being reachable. */
+export const stubFonts = (page: Page) =>
+  page.route(/fonts\.(googleapis|gstatic)\.com/, (route) =>
+    route.fulfill({ status: 200, contentType: 'text/css', body: '' }),
+  );

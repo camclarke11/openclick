@@ -1,58 +1,71 @@
 .oc-export {
   position: relative;
-  display: inline-block;
-}
-.oc-export-row {
   display: flex;
-  gap: 4px;
-}
-.oc-export button {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid #3a3c44;
-  background: #24262c;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
+  gap: 2px;
+  height: 36px;
+  flex: none;
 }
 .oc-export-go {
-  background: #2d6cdf !important;
-  border-color: #2d6cdf !important;
+  padding: 0 16px;
+  border-radius: 8px 3px 3px 8px;
+  border: 1px solid var(--blue, #2d6cdf);
+  background: var(--blue, #2d6cdf);
   font-weight: 600;
+  min-width: 118px;
 }
-.oc-export button:disabled {
-  opacity: 0.7;
-  cursor: progress;
+.oc-export-go:hover:not(:disabled) {
+  background: var(--blue-hover, #3a78ea);
+}
+.oc-export-toggle {
+  width: 32px;
+  border-radius: 3px 8px 8px 3px;
+  border: 1px solid var(--blue, #2d6cdf);
+  background: #2459bd;
+  font-size: 10px;
 }
 .oc-export-options {
-  position: absolute;
   right: 0;
-  z-index: 20;
-  margin-top: 4px;
-  display: grid;
-  gap: 8px;
-  min-width: 220px;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #3a3c44;
-  background: #1d1f24;
-  box-shadow: 0 8px 24px rgb(0 0 0 / 40%);
+  width: 280px;
+  max-width: calc(100vw - 32px);
+  gap: 14px;
 }
-.oc-export-options label {
-  display: grid;
-  gap: 2px;
-  font-size: 0.85rem;
-}
-.oc-export-options .oc-export-check {
+.export-field {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 6px;
 }
-.oc-export-error {
-  color: #ff6b6b;
-  font-size: 0.85rem;
+.export-field-label {
+  font-size: 12px;
+  color: var(--text-2, #c9cad0);
 }
-.oc-export-options .oc-export-target[aria-pressed='true'] {
+.export-variations,
+.export-vary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.export-vary input {
+  flex: 1;
+  accent-color: var(--blue, #2d6cdf);
+}
+.export-vary .mono {
+  width: 36px;
+  text-align: right;
+  font-size: 11px;
+}
+
+.oc-export-target {
+  min-height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #3a3c44);
+  background: var(--raised, #24262c);
+  font-weight: 500;
+}
+.oc-export-target:hover {
+  border-color: var(--border-hover, #5a5d68);
+}
+.oc-export-target[aria-pressed='true'] {
   border-color: #2fa86b;
   color: #7be0a8;
 }

@@ -11,8 +11,15 @@ export function StepLane(props: {
   spec: StepsParam;
   value: number[];
   onChange: (v: number[]) => void;
+  /** Steps that play; later steps are drawn dimmed (lane length, sequencer length). */
+  activeLength?: number;
+  /** Step being played right now, highlighted. */
+  playing?: number;
+  /** Show each active step's value as text: signed ('+7'), times ('×2') or none. */
+  text?: 'signed' | 'times';
+  color?: string;
 }) {
-  const { id, spec, value, onChange } = props;
+  const { id, spec, value, onChange, activeLength = spec.length, playing = -1, text } = props;
   const [cursor, setCursor] = useState(0);
   const [focused, setFocused] = useState(false);
   const drawing = useRef(false);
@@ -72,6 +79,7 @@ export function StepLane(props: {
     <div
       id={id}
       class={`steplane${focused ? ' focused' : ''}`}
+      style={props.color ? { '--lane': props.color } : undefined}
       role="group"
       tabIndex={0}
       aria-label={`${spec.label}: ${value.map(fmt).join(', ')}`}
@@ -93,13 +101,23 @@ export function StepLane(props: {
     >
       {value.map((v, i) => {
         const a = norm(zero);
-        const b = norm(v);
+        let lo = Math.min(a, norm(v));
+        let h = Math.abs(norm(v) - a);
+        // Zero-height steps still show a sliver so the lane reads as drawable.
+        if (h < 0.05) {
+          h = 0.05;
+          lo = a > 0 ? a - 0.025 : 0;
+        }
+        const active = i < activeLength;
+        const label = !active || !text ? '' : text === 'times' ? `×${v}` : v > 0 ? `+${fmt(v)}` : fmt(v);
         return (
-          <div key={i} class={`step${i === cursor && focused ? ' cursor' : ''}`} title={fmt(v)}>
-            <div
-              class="step-bar"
-              style={{ bottom: `${Math.min(a, b) * 100}%`, height: `${Math.abs(b - a) * 100}%` }}
-            />
+          <div
+            key={i}
+            class={`step${i === cursor && focused ? ' cursor' : ''}${active ? '' : ' inactive'}${i === playing ? ' playing' : ''}`}
+            title={fmt(v)}
+          >
+            <div class="step-bar" style={{ bottom: `${lo * 100}%`, height: `${h * 100}%` }} />
+            {label && <span class="step-text">{label}</span>}
           </div>
         );
       })}

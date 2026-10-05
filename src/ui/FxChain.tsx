@@ -1,77 +1,51 @@
 import { useState } from 'preact/hooks';
+import type { NumberParam, ParamSpec } from '../core';
 import { registry } from '../modules';
 import { actions, patch } from '../state/store';
-import { SchemaPanel } from './SchemaPanel';
-
-const fxLabel = (type: string) => registry.effects.get(type)?.label ?? type;
+import { Scrub, Switch } from './widgets';
 
 /**
- * The serial effects chain: add from the registry, reorder by dragging the handle (or the
- * arrow buttons on touch and keyboard), bypass, remove, randomise, collapse.
+ * The serial effects chain as a row of cards: drag a card to reorder (or use the arrow buttons),
+ * bypass, randomise, remove, and add from the catalogue at the end.
  */
 export function FxChain() {
   const fx = patch.value.fx;
   const available = [...registry.effects.values()];
   const [dragFrom, setDragFrom] = useState<number | null>(null);
   const [dropAt, setDropAt] = useState<number | null>(null);
-  const [collapsed, setCollapsed] = useState<ReadonlySet<number>>(new Set());
-
-  const toggleCollapsed = (i: number) =>
-    setCollapsed((s) => {
-      const next = new Set(s);
-      if (next.has(i)) next.delete(i);
-      else next.add(i);
-      return next;
-    });
 
   const move = (from: number, to: number) => {
     if (to < 0 || to >= fx.length || from === to) return;
     actions.moveFx(from, to);
-    // Collapse state follows positions, so reset it rather than show the wrong slots folded.
-    setCollapsed(new Set());
-  };
-
-  const remove = (i: number) => {
-    actions.removeFx(i);
-    setCollapsed(new Set());
   };
 
   return (
-    <section class="panel fx" aria-label="Effects">
-      <div class="panel-head">
-        <h2>Effects</h2>
-        <span class="spacer" />
-        <select
-          aria-label="Add effect"
-          value=""
-          disabled={!available.length}
-          onChange={(e) => {
-            const type = e.currentTarget.value;
-            e.currentTarget.value = '';
-            if (type) actions.addFx(type);
-          }}
-        >
-          <option value="">{available.length ? '+ Add effect' : 'No effects available yet'}</option>
-          {available.map((m) => (
-            <option key={m.type} value={m.type}>
-              {m.label}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {fx.length === 0 && <p class="empty">No effects. Add one to colour the sound.</p>}
-
+    <div class="fx" role="group" aria-label="Effects">
       <ol class="fx-list">
         {fx.map((slot, i) => {
           const mod = registry.effects.get(slot.type);
           if (!mod) return null;
-          const open = !collapsed.has(i);
+          const entries = Object.entries(mod.schema) as [string, ParamSpec][];
           return (
             <li
               key={`${i}-${slot.type}`}
-              class={`fx-slot${slot.enabled ? '' : ' bypassed'}${dropAt === i && dragFrom !== i ? ' drop' : ''}`}
-              aria-label={`${fxLabel(slot.type)} (slot ${i + 1})`}
+              class={`fx-card${slot.enabled ? '' : ' bypassed'}${dropAt === i && dragFrom !== i ? ' drop' : ''}`}
+              aria-label={`${mod.label} (slot ${i + 1})`}
+              draggable
+              onDragStart={(e) => {
+                // Let scrubs and buttons inside the card keep their own pointer handling.
+                if ((e.target as HTMLElement).closest('.scrub, button, select')) {
+                  e.preventDefault();
+                  return;
+                }
+                setDragFrom(i);
+                e.dataTransfer?.setData('text/plain', String(i));
+                if (e.dataTransfer) e.dataTransfer.effectAllowed = 'move';
+              }}
+              onDragEnd={() => {
+                setDragFrom(null);
+                setDropAt(null);
+              }}
               onDragOver={(e) => {
                 if (dragFrom === null) return;
                 e.preventDefault();
@@ -84,91 +58,123 @@ export function FxChain() {
                 setDropAt(null);
               }}
             >
-              <div class="panel-head fx-head">
-                <span
-                  class="drag-handle"
-                  draggable
-                  title="Drag to reorder"
-                  aria-hidden="true"
-                  onDragStart={(e) => {
-                    setDragFrom(i);
-                    e.dataTransfer?.setData('text/plain', String(i));
-                    if (e.dataTransfer) e.dataTransfer.effectAllowed = 'move';
-                  }}
-                  onDragEnd={() => {
-                    setDragFrom(null);
-                    setDropAt(null);
-                  }}
-                >
+              <div class="fx-head">
+                <span class="drag-handle" title="Drag to reorder" aria-hidden="true">
                   ⋮⋮
                 </span>
-                <label class="toggle" title="Bypass">
-                  <input
-                    type="checkbox"
-                    role="switch"
-                    checked={slot.enabled}
-                    aria-label={`${fxLabel(slot.type)} enabled`}
-                    onChange={(e) => actions.setFxEnabled(i, e.currentTarget.checked)}
-                  />
-                  <span class="toggle-track" aria-hidden="true" />
-                </label>
-                <button
-                  type="button"
-                  class="fx-title"
-                  aria-expanded={open}
-                  onClick={() => toggleCollapsed(i)}
-                >
-                  {mod.label}
-                </button>
+                <span class="fx-num mono">{String(i + 1).padStart(2, '0')}</span>
+                <span class="fx-title">{mod.label}</span>
                 <span class="spacer" />
+                <Switch
+                  small
+                  on={slot.enabled}
+                  label={`${mod.label} enabled`}
+                  title="Bypass"
+                  onChange={(on) => actions.setFxEnabled(i, on)}
+                />
                 <button
                   type="button"
-                  class="icon-btn"
-                  aria-label={`Move ${mod.label} up`}
+                  class="icon-ghost die"
+                  aria-label={`Randomise ${mod.label}`}
+                  title="Randomise effect"
+                  onClick={() => actions.randomizeFx(i)}
+                >
+                  ⚄
+                </button>
+                <button
+                  type="button"
+                  class="icon-ghost danger"
+                  aria-label={`Remove ${mod.label}`}
+                  title="Remove"
+                  onClick={() => actions.removeFx(i)}
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="fx-params">
+                {entries.map(([k, spec]) => {
+                  const id = `fx${i}-${k}`;
+                  if (spec.kind === 'number') {
+                    return (
+                      <Scrub
+                        key={k}
+                        id={id}
+                        spec={spec as NumberParam}
+                        value={slot.params[k] as number}
+                        onChange={(v) => actions.setFxParam(i, k, v)}
+                      />
+                    );
+                  }
+                  if (spec.kind === 'bool') {
+                    return (
+                      <Switch
+                        key={k}
+                        small
+                        on={slot.params[k] === true}
+                        label={spec.label}
+                        text={spec.label}
+                        title={spec.hint}
+                        onChange={(on) => actions.setFxParam(i, k, on)}
+                      />
+                    );
+                  }
+                  if (spec.kind === 'enum') {
+                    return (
+                      <select
+                        key={k}
+                        id={id}
+                        aria-label={spec.label}
+                        value={String(slot.params[k])}
+                        onChange={(e) => actions.setFxParam(i, k, e.currentTarget.value)}
+                      >
+                        {spec.options.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </select>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+              <div class="fx-move">
+                <button
+                  type="button"
+                  aria-label={`Move ${mod.label} earlier`}
                   disabled={i === 0}
                   onClick={() => move(i, i - 1)}
                 >
-                  ↑
+                  ←
                 </button>
                 <button
                   type="button"
-                  class="icon-btn"
-                  aria-label={`Move ${mod.label} down`}
+                  aria-label={`Move ${mod.label} later`}
                   disabled={i === fx.length - 1}
                   onClick={() => move(i, i + 1)}
                 >
-                  ↓
-                </button>
-                <button
-                  type="button"
-                  class="btn"
-                  onClick={() => actions.randomizeFx(i)}
-                  title="Randomise this effect"
-                >
-                  Randomise
-                </button>
-                <button
-                  type="button"
-                  class="icon-btn"
-                  aria-label={`Remove ${mod.label}`}
-                  title="Remove"
-                  onClick={() => remove(i)}
-                >
-                  ×
+                  →
                 </button>
               </div>
-              {open && (
-                <SchemaPanel
-                  idPrefix={`fx${i}`}
-                  schema={mod.schema}
-                  params={slot.params}
-                  onChange={(k, v) => actions.setFxParam(i, k, v)}
-                />
-              )}
             </li>
           );
         })}
+        <li class="fx-add">
+          <span class="muted">Add effect</span>
+          <div class="fx-add-grid">
+            {available.map((m) => (
+              <button
+                key={m.type}
+                type="button"
+                aria-label={`Add ${m.label}`}
+                onClick={() => actions.addFx(m.type)}
+              >
+                {m.label}
+              </button>
+            ))}
+          </div>
+        </li>
       </ol>
-    </section>
+    </div>
   );
 }

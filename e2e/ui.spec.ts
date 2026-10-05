@@ -1,7 +1,8 @@
 import { expect, test } from '@playwright/test';
-import { collectErrors, events, lastEvent } from './helpers';
+import { collectErrors, events, lastEvent, stubFonts } from './helpers';
 
 test.beforeEach(async ({ page }) => {
+  await stubFonts(page);
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'OpenClick' })).toBeVisible();
 });
@@ -56,18 +57,22 @@ test('keys typed into a text field do not play notes', async ({ page }) => {
 test('layers can be added, selected and removed', async ({ page }) => {
   const tabs = page.getByRole('tablist', { name: 'Layers' }).getByRole('tab');
   await expect(tabs).toHaveCount(1);
-  const add = page.getByRole('button', { name: 'Add layer' });
-  await add.click();
+  await page.getByRole('button', { name: 'Add Beep layer' }).click();
   await expect(tabs).toHaveCount(2);
   await expect(tabs.nth(1)).toHaveAttribute('aria-selected', 'true');
+  await expect(page.getByRole('heading', { name: 'Beep · Layer 2' })).toBeVisible();
 
-  await page.getByRole('combobox', { name: 'Layer 2 source' }).selectOption('click');
+  await page
+    .getByRole('radiogroup', { name: 'Layer 2 source' })
+    .getByRole('radio', { name: 'Click' })
+    .click();
   await expect(tabs.nth(1)).toContainText('Click');
+  await expect(page.getByRole('heading', { name: 'Click · Layer 2' })).toBeVisible();
 
-  await add.click();
-  await add.click();
+  await page.getByRole('button', { name: 'Add Click layer' }).click();
+  await page.getByRole('button', { name: 'Add Beep layer' }).click();
   await expect(tabs).toHaveCount(4);
-  await expect(add).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Add Beep layer' })).toHaveCount(0);
 
   await page.getByRole('button', { name: 'Remove layer 4' }).click();
   await expect(tabs).toHaveCount(3);
@@ -75,6 +80,76 @@ test('layers can be added, selected and removed', async ({ page }) => {
   await page.getByRole('button', { name: 'Remove layer 1' }).click();
   await expect(tabs).toHaveCount(2);
   await expect(tabs.first()).toContainText('Click');
+});
+
+test('module panel switches parameter groups', async ({ page }) => {
+  await expect(page.getByRole('slider', { name: 'Cutoff' })).toBeVisible();
+  await page.getByRole('group', { name: 'Parameter groups' }).getByRole('button', { name: 'FM' }).click();
+  await expect(page.getByRole('slider', { name: 'Cutoff' })).toHaveCount(0);
+  await expect(page.getByRole('slider', { name: 'FM decay' })).toBeVisible();
+});
+
+test('space plays middle C, even with a button focused', async ({ page }) => {
+  await page.getByRole('button', { name: 'Mutate' }).focus();
+  const before = await page.evaluate(() =>
+    JSON.stringify(
+      (window as unknown as { __openclick: { patch: { value: unknown } } }).__openclick.patch.value,
+    ),
+  );
+  await page.keyboard.press('Space');
+  const log = await events(page);
+  expect(log.at(-2)).toMatchObject({ type: 'noteOn', note: 60 });
+  expect(log.at(-1)).toMatchObject({ type: 'noteOff', note: 60 });
+  const after = await page.evaluate(() =>
+    JSON.stringify(
+      (window as unknown as { __openclick: { patch: { value: unknown } } }).__openclick.patch.value,
+    ),
+  );
+  expect(after).toBe(before);
+});
+
+test('effects tab adds, bypasses and removes effects', async ({ page }) => {
+  const errors = collectErrors(page);
+  await page.getByRole('tab', { name: /Effects/ }).click();
+  await page.getByRole('button', { name: 'Add Reverb' }).click();
+  await page.getByRole('button', { name: 'Add Delay' }).click();
+  const cards = page.getByRole('group', { name: 'Effects' }).getByRole('listitem', { name: /slot/ });
+  await expect(cards).toHaveCount(2);
+  await page.getByRole('button', { name: 'Move Delay earlier' }).click();
+  await expect(cards.first()).toHaveAccessibleName('Delay (slot 1)');
+  await page.getByRole('switch', { name: 'Reverb enabled' }).click();
+  await expect(page.getByRole('switch', { name: 'Reverb enabled' })).toHaveAttribute('aria-checked', 'false');
+  await page.getByRole('button', { name: 'Remove Delay' }).click();
+  await expect(cards).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+
+test('export options open and remember the format', async ({ page }) => {
+  await page.getByRole('button', { name: 'Export options' }).click();
+  const format = page.getByRole('radiogroup', { name: 'Format' });
+  await format.getByRole('radio', { name: '24-bit' }).click();
+  await expect(format.getByRole('radio', { name: '24-bit' })).toHaveAttribute('aria-checked', 'true');
+  await page.getByRole('button', { name: 'More variations' }).click();
+  await expect(page.getByRole('button', { name: 'Export 2 WAVs' })).toBeVisible();
+  await page.getByRole('button', { name: 'Use Roblox settings' }).click();
+  await expect(page.getByRole('button', { name: 'Roblox ready ✓' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(
+    page.getByRole('radiogroup', { name: 'Channels' }).getByRole('radio', { name: 'Mono' }),
+  ).toHaveAttribute('aria-checked', 'true');
+  await page.keyboard.press('Escape');
+  await expect(format).toHaveCount(0);
+});
+
+test('preset browser filters by group and loads a preset', async ({ page }) => {
+  await page.getByRole('radiogroup', { name: 'Preset group' }).getByRole('radio', { name: 'Game' }).click();
+  const list = page.getByRole('list', { name: 'Presets' });
+  const metas = await list.locator('.preset-item-meta').allTextContents();
+  expect(metas.length).toBeGreaterThan(0);
+  expect(metas.every((m) => m.startsWith('Game/'))).toBe(true);
+  const first = list.locator('.preset-item').first();
+  const name = await first.locator('.preset-item-name').textContent();
+  await first.click();
+  await expect(page.locator('.hero h2')).toHaveText(name!);
 });
 
 test('knobs respond to keyboard and double-click reset', async ({ page }) => {
@@ -105,7 +180,9 @@ test('randomise all changes the patch without errors', async ({ page }) => {
 
 test('shows the MIDI control without errors', async ({ page }) => {
   const errors = collectErrors(page);
-  await expect(page.getByRole('button', { name: /MIDI/ }).or(page.getByText(/MIDI/).first())).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: /MIDI/ }).or(page.getByText(/MIDI not|MIDI isn't/)),
+  ).toBeVisible();
   expect(errors).toEqual([]);
 });
 
