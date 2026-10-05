@@ -382,14 +382,13 @@ select:disabled {
 }
 .param-steps {
   align-items: stretch;
-  flex: 1 1 320px;
+  flex: 1 1 220px;
   max-width: 560px;
 }
 .param-group:has(.param-steps) {
   flex-basis: 100%;
 }
 .param-group:has(.param-steps) .param-grid {
-  flex-wrap: nowrap;
   align-items: center;
 }
 
