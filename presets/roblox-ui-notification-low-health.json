@@ -1,0 +1,35 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-ui-notification-low-health",
+  "name": "Low Health",
+  "category": "UI/Notification",
+  "tags": ["roblox", "retro"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Retro/Low health",
+          "roundRobin": "random",
+          "humanize": 0
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

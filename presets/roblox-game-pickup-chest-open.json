@@ -1,0 +1,60 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-game-pickup-chest-open",
+  "name": "Chest Open",
+  "category": "Game/Pickup",
+  "tags": ["roblox", "modern"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -2,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Items/Creak",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -5,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 280
+        },
+        "params": {
+          "sound": "Retro/Fanfare",
+          "roundRobin": "random",
+          "humanize": 0
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.4,
+          "decay": 1.0,
+          "mix": 0.15
+        }
+      }
+    ],
+    "master": {
+      "gain": -3
+    }
+  }
+}

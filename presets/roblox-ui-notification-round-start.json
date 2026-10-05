@@ -1,0 +1,50 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-ui-notification-round-start",
+  "name": "Round Start",
+  "category": "UI/Notification",
+  "tags": ["roblox", "modern"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Retro/Whistle",
+          "roundRobin": "random",
+          "humanize": 0
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -1,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 380
+        },
+        "params": {
+          "sound": "Voice/Go",
+          "roundRobin": "random",
+          "humanize": 0
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -3
+    }
+  }
+}

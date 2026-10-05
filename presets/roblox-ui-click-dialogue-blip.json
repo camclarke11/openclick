@@ -1,0 +1,42 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-ui-click-dialogue-blip",
+  "name": "Dialogue Blip",
+  "category": "UI/Click",
+  "tags": ["roblox", "retro", "8-bit"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -4,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Retro/Blip",
+          "roundRobin": "fixed",
+          "humanize": 30
+        }
+      }
+    ],
+    "arp": {
+      "enabled": true,
+      "rateMode": "ms",
+      "rateMs": 75,
+      "steps": 8,
+      "pitch": [0, 2, -1, 3, 0, 5, 1, -2, 0, 2, -1, 3, 0, 5, 1, -2],
+      "pitchLength": 8,
+      "velocity": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "velocityLength": 1
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

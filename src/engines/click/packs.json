@@ -722,6 +722,205 @@
             "retro/death-7.wav",
             "retro/death-8.wav"
           ]
+        },
+        {
+          "id": "robot-death",
+          "name": "Robot death",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_deathscream_robot1.wav, sfx_deathscream_robot2.wav, sfx_deathscream_robot3.wav, sfx_deathscream_robot4.wav",
+          "files": [
+            "retro/robot-death-1.wav",
+            "retro/robot-death-2.wav",
+            "retro/robot-death-3.wav",
+            "retro/robot-death-4.wav"
+          ]
+        },
+        {
+          "id": "alien-death",
+          "name": "Alien death",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_deathscream_alien1.wav, sfx_deathscream_alien2.wav, sfx_deathscream_alien3.wav, sfx_deathscream_alien4.wav, sfx_deathscream_alien5.wav, sfx_deathscream_alien6.wav",
+          "files": [
+            "retro/alien-death-1.wav",
+            "retro/alien-death-2.wav",
+            "retro/alien-death-3.wav",
+            "retro/alien-death-4.wav",
+            "retro/alien-death-5.wav",
+            "retro/alien-death-6.wav"
+          ]
+        },
+        {
+          "id": "defeat",
+          "name": "Defeat",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sounds_negative1.wav, sfx_sounds_negative2.wav, sfx_sounds_damage1.wav, sfx_sounds_damage2.wav, sfx_sounds_damage3.wav",
+          "files": [
+            "retro/defeat-1.wav",
+            "retro/defeat-2.wav",
+            "retro/defeat-3.wav",
+            "retro/defeat-4.wav",
+            "retro/defeat-5.wav"
+          ]
+        },
+        {
+          "id": "ladder",
+          "name": "Ladder",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_movement_ladder1a.wav, sfx_movement_ladder1b.wav, sfx_movement_ladder2a.wav, sfx_movement_ladder2b.wav, sfx_movement_ladder3a.wav, sfx_movement_ladder3b.wav",
+          "files": [
+            "retro/ladder-1.wav",
+            "retro/ladder-2.wav",
+            "retro/ladder-3.wav",
+            "retro/ladder-4.wav",
+            "retro/ladder-5.wav",
+            "retro/ladder-6.wav"
+          ]
+        },
+        {
+          "id": "stairs",
+          "name": "Stairs",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_movement_stairs1a.wav, sfx_movement_stairs1b.wav, sfx_movement_stairs2a.wav, sfx_movement_stairs2b.wav, sfx_movement_stairs3a.wav, sfx_movement_stairs3b.wav",
+          "files": [
+            "retro/stairs-1.wav",
+            "retro/stairs-2.wav",
+            "retro/stairs-3.wav",
+            "retro/stairs-4.wav",
+            "retro/stairs-5.wav",
+            "retro/stairs-6.wav"
+          ]
+        },
+        {
+          "id": "low-health",
+          "name": "Low health",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_lowhealth_alarmloop1.wav, sfx_lowhealth_alarmloop2.wav, sfx_lowhealth_alarmloop3.wav, sfx_lowhealth_alarmloop4.wav",
+          "files": [
+            "retro/low-health-1.wav",
+            "retro/low-health-2.wav",
+            "retro/low-health-3.wav",
+            "retro/low-health-4.wav"
+          ]
+        },
+        {
+          "id": "alarm",
+          "name": "Alarm",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_alarm_loop1.wav, sfx_alarm_loop2.wav, sfx_alarm_loop3.wav, sfx_alarm_loop4.wav",
+          "files": ["retro/alarm-1.wav", "retro/alarm-2.wav", "retro/alarm-3.wav", "retro/alarm-4.wav"]
+        },
+        {
+          "id": "whistle",
+          "name": "Whistle",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sound_refereewhistle.wav",
+          "files": ["retro/whistle-1.wav"]
+        },
+        {
+          "id": "shotgun",
+          "name": "Shotgun",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_weapon_shotgun1.wav, sfx_weapon_shotgun2.wav, sfx_weapon_shotgun3.wav",
+          "files": ["retro/shotgun-1.wav", "retro/shotgun-2.wav", "retro/shotgun-3.wav"]
+        },
+        {
+          "id": "machine-gun",
+          "name": "Machine gun",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_wpn_machinegun_loop1.wav, sfx_wpn_machinegun_loop2.wav, sfx_wpn_machinegun_loop3.wav, sfx_wpn_machinegun_loop4.wav",
+          "files": [
+            "retro/machine-gun-1.wav",
+            "retro/machine-gun-2.wav",
+            "retro/machine-gun-3.wav",
+            "retro/machine-gun-4.wav"
+          ]
+        },
+        {
+          "id": "cannon",
+          "name": "Cannon",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_wpn_cannon1.wav, sfx_wpn_cannon2.wav, sfx_wpn_cannon3.wav, sfx_wpn_cannon4.wav, sfx_wpn_cannon5.wav, sfx_wpn_cannon6.wav",
+          "files": [
+            "retro/cannon-1.wav",
+            "retro/cannon-2.wav",
+            "retro/cannon-3.wav",
+            "retro/cannon-4.wav",
+            "retro/cannon-5.wav",
+            "retro/cannon-6.wav"
+          ]
+        },
+        {
+          "id": "missile",
+          "name": "Missile",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_wpn_missilelaunch.wav, sfx_wpn_grenadewhistle1.wav, sfx_wpn_grenadewhistle2.wav",
+          "files": ["retro/missile-1.wav", "retro/missile-2.wav", "retro/missile-3.wav"]
+        },
+        {
+          "id": "explosion-cluster",
+          "name": "Explosion cluster",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_exp_cluster1.wav, sfx_exp_cluster2.wav, sfx_exp_cluster3.wav, sfx_exp_cluster4.wav, sfx_exp_cluster5.wav",
+          "files": [
+            "retro/explosion-cluster-1.wav",
+            "retro/explosion-cluster-2.wav",
+            "retro/explosion-cluster-3.wav",
+            "retro/explosion-cluster-4.wav",
+            "retro/explosion-cluster-5.wav"
+          ]
+        },
+        {
+          "id": "power-on",
+          "name": "Power on",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sound_poweron.wav, sfx_sound_bling.wav",
+          "files": ["retro/power-on-1.wav", "retro/power-on-2.wav"]
+        },
+        {
+          "id": "power-down",
+          "name": "Power down",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sound_shutdown1.wav, sfx_sound_shutdown2.wav",
+          "files": ["retro/power-down-1.wav", "retro/power-down-2.wav"]
+        },
+        {
+          "id": "vaporize",
+          "name": "Vaporize",
+          "placeholder": false,
+          "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+          "license": "CC0-1.0",
+          "credit": "Juhani Junkala, The Essential Retro Video Game Sound Effects Collection [512 sounds]: sfx_sound_vaporizing.wav, sfx_sound_depressurizing.wav",
+          "files": ["retro/vaporize-1.wav", "retro/vaporize-2.wav"]
         }
       ]
     },
@@ -1552,6 +1751,320 @@
           "license": "CC0-1.0",
           "credit": "Kenney, RPG Audio: metalPot1.ogg, metalPot2.ogg, metalPot3.ogg",
           "files": ["items/pot-1.wav", "items/pot-2.wav", "items/pot-3.wav"]
+        }
+      ]
+    },
+    {
+      "id": "voice",
+      "name": "Voice",
+      "sounds": [
+        {
+          "id": "go",
+          "name": "Go",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/go.ogg, Female/go.ogg",
+          "files": ["voice/go-1.wav", "voice/go-2.wav"]
+        },
+        {
+          "id": "ready",
+          "name": "Ready",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/ready.ogg, Female/ready.ogg",
+          "files": ["voice/ready-1.wav", "voice/ready-2.wav"]
+        },
+        {
+          "id": "set",
+          "name": "Set",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/set.ogg, Female/set.ogg",
+          "files": ["voice/set-1.wav", "voice/set-2.wav"]
+        },
+        {
+          "id": "round",
+          "name": "Round",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/round.ogg, Female/round.ogg",
+          "files": ["voice/round-1.wav", "voice/round-2.wav"]
+        },
+        {
+          "id": "final-round",
+          "name": "Final round",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/final_round.ogg, Female/final_round.ogg",
+          "files": ["voice/final-round-1.wav", "voice/final-round-2.wav"]
+        },
+        {
+          "id": "you-win",
+          "name": "You win",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/you_win.ogg, Female/you_win.ogg",
+          "files": ["voice/you-win-1.wav", "voice/you-win-2.wav"]
+        },
+        {
+          "id": "you-lose",
+          "name": "You lose",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/you_lose.ogg, Female/you_lose.ogg",
+          "files": ["voice/you-lose-1.wav", "voice/you-lose-2.wav"]
+        },
+        {
+          "id": "game-over",
+          "name": "Game over",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/game_over.ogg, Female/game_over.ogg",
+          "files": ["voice/game-over-1.wav", "voice/game-over-2.wav"]
+        },
+        {
+          "id": "its-a-tie",
+          "name": "Its a tie",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/its_a_tie.ogg, Female/its_a_tie.ogg",
+          "files": ["voice/its-a-tie-1.wav", "voice/its-a-tie-2.wav"]
+        },
+        {
+          "id": "level-up",
+          "name": "Level up",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/level_up.ogg, Female/level_up.ogg",
+          "files": ["voice/level-up-1.wav", "voice/level-up-2.wav"]
+        },
+        {
+          "id": "power-up",
+          "name": "Power up",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/power_up.ogg, Female/power_up.ogg",
+          "files": ["voice/power-up-1.wav", "voice/power-up-2.wav"]
+        },
+        {
+          "id": "congratulations",
+          "name": "Congratulations",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/congratulations.ogg, Female/congratulations.ogg",
+          "files": ["voice/congratulations-1.wav", "voice/congratulations-2.wav"]
+        },
+        {
+          "id": "new-highscore",
+          "name": "New highscore",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/new_highscore.ogg, Female/new_highscore.ogg",
+          "files": ["voice/new-highscore-1.wav", "voice/new-highscore-2.wav"]
+        },
+        {
+          "id": "mission-completed",
+          "name": "Mission completed",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/mission_completed.ogg, Female/mission_completed.ogg",
+          "files": ["voice/mission-completed-1.wav", "voice/mission-completed-2.wav"]
+        },
+        {
+          "id": "mission-failed",
+          "name": "Mission failed",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/mission_failed.ogg, Female/mission_failed.ogg",
+          "files": ["voice/mission-failed-1.wav", "voice/mission-failed-2.wav"]
+        },
+        {
+          "id": "objective-achieved",
+          "name": "Objective achieved",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/objective_achieved.ogg, Female/objective_achieved.ogg",
+          "files": ["voice/objective-achieved-1.wav", "voice/objective-achieved-2.wav"]
+        },
+        {
+          "id": "time-over",
+          "name": "Time over",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/time_over.ogg, Female/time_over.ogg",
+          "files": ["voice/time-over-1.wav", "voice/time-over-2.wav"]
+        },
+        {
+          "id": "hurry-up",
+          "name": "Hurry up",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/hurry_up.ogg, Female/hurry_up.ogg",
+          "files": ["voice/hurry-up-1.wav", "voice/hurry-up-2.wav"]
+        },
+        {
+          "id": "correct",
+          "name": "Correct",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/correct.ogg, Female/correct.ogg",
+          "files": ["voice/correct-1.wav", "voice/correct-2.wav"]
+        },
+        {
+          "id": "wrong",
+          "name": "Wrong",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/wrong.ogg, Female/wrong.ogg",
+          "files": ["voice/wrong-1.wav", "voice/wrong-2.wav"]
+        },
+        {
+          "id": "countdown",
+          "name": "Countdown",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/3.ogg, Male/2.ogg, Male/1.ogg, Male/go.ogg",
+          "files": [
+            "voice/countdown-1.wav",
+            "voice/countdown-2.wav",
+            "voice/countdown-3.wav",
+            "voice/countdown-4.wav"
+          ]
+        },
+        {
+          "id": "numbers",
+          "name": "Numbers",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/voiceover-pack",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Voiceover Pack: Male/1.ogg, Male/2.ogg, Male/3.ogg, Male/4.ogg, Male/5.ogg, Male/6.ogg, Male/7.ogg, Male/8.ogg",
+          "files": [
+            "voice/numbers-1.wav",
+            "voice/numbers-2.wav",
+            "voice/numbers-3.wav",
+            "voice/numbers-4.wav",
+            "voice/numbers-5.wav",
+            "voice/numbers-6.wav",
+            "voice/numbers-7.wav",
+            "voice/numbers-8.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jingles",
+      "name": "Jingles",
+      "sounds": [
+        {
+          "id": "8-bit",
+          "name": "8-bit",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/music-jingles",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Music Jingles: jingles_NES00.ogg, jingles_NES01.ogg, jingles_NES02.ogg, jingles_NES03.ogg, jingles_NES04.ogg, jingles_NES05.ogg, jingles_NES06.ogg, jingles_NES07.ogg",
+          "files": [
+            "jingles/8-bit-1.wav",
+            "jingles/8-bit-2.wav",
+            "jingles/8-bit-3.wav",
+            "jingles/8-bit-4.wav",
+            "jingles/8-bit-5.wav",
+            "jingles/8-bit-6.wav",
+            "jingles/8-bit-7.wav",
+            "jingles/8-bit-8.wav"
+          ]
+        },
+        {
+          "id": "hit",
+          "name": "Hit",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/music-jingles",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Music Jingles: jingles_HIT00.ogg, jingles_HIT01.ogg, jingles_HIT02.ogg, jingles_HIT03.ogg, jingles_HIT04.ogg, jingles_HIT05.ogg, jingles_HIT06.ogg, jingles_HIT07.ogg",
+          "files": [
+            "jingles/hit-1.wav",
+            "jingles/hit-2.wav",
+            "jingles/hit-3.wav",
+            "jingles/hit-4.wav",
+            "jingles/hit-5.wav",
+            "jingles/hit-6.wav",
+            "jingles/hit-7.wav",
+            "jingles/hit-8.wav"
+          ]
+        },
+        {
+          "id": "pizzicato",
+          "name": "Pizzicato",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/music-jingles",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Music Jingles: jingles_PIZZI00.ogg, jingles_PIZZI01.ogg, jingles_PIZZI02.ogg, jingles_PIZZI03.ogg, jingles_PIZZI04.ogg, jingles_PIZZI05.ogg, jingles_PIZZI06.ogg, jingles_PIZZI07.ogg",
+          "files": [
+            "jingles/pizzicato-1.wav",
+            "jingles/pizzicato-2.wav",
+            "jingles/pizzicato-3.wav",
+            "jingles/pizzicato-4.wav",
+            "jingles/pizzicato-5.wav",
+            "jingles/pizzicato-6.wav",
+            "jingles/pizzicato-7.wav",
+            "jingles/pizzicato-8.wav"
+          ]
+        },
+        {
+          "id": "sax",
+          "name": "Sax",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/music-jingles",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Music Jingles: jingles_SAX00.ogg, jingles_SAX01.ogg, jingles_SAX02.ogg, jingles_SAX03.ogg, jingles_SAX04.ogg, jingles_SAX05.ogg, jingles_SAX06.ogg, jingles_SAX07.ogg",
+          "files": [
+            "jingles/sax-1.wav",
+            "jingles/sax-2.wav",
+            "jingles/sax-3.wav",
+            "jingles/sax-4.wav",
+            "jingles/sax-5.wav",
+            "jingles/sax-6.wav",
+            "jingles/sax-7.wav",
+            "jingles/sax-8.wav"
+          ]
+        },
+        {
+          "id": "steel",
+          "name": "Steel drum",
+          "placeholder": false,
+          "source": "https://kenney.nl/assets/music-jingles",
+          "license": "CC0-1.0",
+          "credit": "Kenney, Music Jingles: jingles_STEEL00.ogg, jingles_STEEL01.ogg, jingles_STEEL02.ogg, jingles_STEEL03.ogg, jingles_STEEL04.ogg, jingles_STEEL05.ogg, jingles_STEEL06.ogg, jingles_STEEL07.ogg",
+          "files": [
+            "jingles/steel-1.wav",
+            "jingles/steel-2.wav",
+            "jingles/steel-3.wav",
+            "jingles/steel-4.wav",
+            "jingles/steel-5.wav",
+            "jingles/steel-6.wav",
+            "jingles/steel-7.wav",
+            "jingles/steel-8.wav"
+          ]
         }
       ]
     }

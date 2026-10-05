@@ -1,0 +1,50 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-foley-mechanism-break-block",
+  "name": "Break Block",
+  "category": "Foley/Mechanism",
+  "tags": ["roblox", "modern", "harsh"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Impacts/Wood heavy",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -3,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 25
+        },
+        "params": {
+          "sound": "Impacts/Plank",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -3
+    }
+  }
+}

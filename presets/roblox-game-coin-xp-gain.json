@@ -1,0 +1,36 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-game-coin-xp-gain",
+  "name": "XP Gain",
+  "category": "Game/Coin",
+  "tags": ["roblox", "retro", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Retro/Blip",
+          "roundRobin": "random",
+          "humanize": 10,
+          "pitch": 7
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

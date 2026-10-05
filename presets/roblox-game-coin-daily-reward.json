@@ -1,0 +1,60 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-game-coin-daily-reward",
+  "name": "Daily Reward",
+  "category": "Game/Coin",
+  "tags": ["roblox", "modern"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Retro/Power-up",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -3,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 200
+        },
+        "params": {
+          "sound": "Retro/Coin cluster",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.4,
+          "decay": 1.0,
+          "mix": 0.12
+        }
+      }
+    ],
+    "master": {
+      "gain": -3
+    }
+  }
+}

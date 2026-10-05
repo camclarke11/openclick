@@ -1,0 +1,42 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-game-jump-ladder-climb",
+  "name": "Ladder Climb",
+  "category": "Game/Jump",
+  "tags": ["roblox", "retro"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Retro/Ladder",
+          "roundRobin": "cycle",
+          "humanize": 10
+        }
+      }
+    ],
+    "arp": {
+      "enabled": true,
+      "rateMode": "ms",
+      "rateMs": 220,
+      "steps": 4,
+      "pitch": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "pitchLength": 1,
+      "velocity": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "velocityLength": 1
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

@@ -17,7 +17,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const SAMPLE_RATE = 48000;
@@ -93,6 +93,20 @@ export const PACKS = {
     zip: 'https://opengameart.org/sites/default/files/The%20Essential%20Retro%20Video%20Game%20Sound%20Effects%20Collection%20%5B512%20sounds%5D.zip',
     license: 'CC0-1.0',
   },
+  'kenney-voiceover': {
+    title: 'Voiceover Pack',
+    author: 'Kenney',
+    url: 'https://kenney.nl/assets/voiceover-pack',
+    zip: 'https://kenney.nl/media/pages/assets/voiceover-pack/3f7f168698-1677589897/kenney_voiceover-pack.zip',
+    license: 'CC0-1.0',
+  },
+  'kenney-jingles': {
+    title: 'Music Jingles',
+    author: 'Kenney',
+    url: 'https://kenney.nl/assets/music-jingles',
+    zip: 'https://kenney.nl/media/pages/assets/music-jingles/f37e530b9e-1677590399/kenney_music-jingles.zip',
+    license: 'CC0-1.0',
+  },
 } satisfies Record<string, Pack>;
 
 export type PackId = keyof typeof PACKS;
@@ -101,7 +115,7 @@ export interface SelectedSound {
   id: string;
   name: string;
   pack: PackId;
-  /** File basenames inside the pack (unique per pack), in take order. */
+  /** File basenames inside the pack, or `Folder/name` where a basename repeats, in take order. */
   files: string[];
 }
 
@@ -118,6 +132,8 @@ const s = (id: string, name: string, pack: PackId, files: string[]): SelectedSou
   pack,
   files,
 });
+const v = (id: string, name: string, file: string): SelectedSound =>
+  s(id, name, 'kenney-voiceover', [`Male/${file}.ogg`, `Female/${file}.ogg`]);
 
 /**
  * What goes into the library. Category and sound names form the `Category/Name` keys presets
@@ -184,6 +200,40 @@ export const SELECTION: { id: string; name: string; sounds: SelectedSound[] }[] 
       s('fall', 'Fall', 'junkala-512', seq('sfx_sounds_falling#.wav', 1, 4)),
       s('door', 'Door', 'junkala-512', seq('sfx_movement_dooropen#.wav', 1, 4)),
       s('death', 'Death', 'junkala-512', seq('sfx_deathscream_human#.wav', 1, 8)),
+      s('robot-death', 'Robot death', 'junkala-512', seq('sfx_deathscream_robot#.wav', 1, 4)),
+      s('alien-death', 'Alien death', 'junkala-512', seq('sfx_deathscream_alien#.wav', 1, 6)),
+      s('defeat', 'Defeat', 'junkala-512', [
+        'sfx_sounds_negative1.wav',
+        'sfx_sounds_negative2.wav',
+        ...seq('sfx_sounds_damage#.wav', 1, 3),
+      ]),
+      s(
+        'ladder',
+        'Ladder',
+        'junkala-512',
+        ['1a', '1b', '2a', '2b', '3a', '3b'].map((n) => `sfx_movement_ladder${n}.wav`),
+      ),
+      s(
+        'stairs',
+        'Stairs',
+        'junkala-512',
+        ['1a', '1b', '2a', '2b', '3a', '3b'].map((n) => `sfx_movement_stairs${n}.wav`),
+      ),
+      s('low-health', 'Low health', 'junkala-512', seq('sfx_lowhealth_alarmloop#.wav', 1, 4)),
+      s('alarm', 'Alarm', 'junkala-512', seq('sfx_alarm_loop#.wav', 1, 4)),
+      s('whistle', 'Whistle', 'junkala-512', ['sfx_sound_refereewhistle.wav']),
+      s('shotgun', 'Shotgun', 'junkala-512', seq('sfx_weapon_shotgun#.wav', 1, 3)),
+      s('machine-gun', 'Machine gun', 'junkala-512', seq('sfx_wpn_machinegun_loop#.wav', 1, 4)),
+      s('cannon', 'Cannon', 'junkala-512', seq('sfx_wpn_cannon#.wav', 1, 6)),
+      s('missile', 'Missile', 'junkala-512', [
+        'sfx_wpn_missilelaunch.wav',
+        'sfx_wpn_grenadewhistle1.wav',
+        'sfx_wpn_grenadewhistle2.wav',
+      ]),
+      s('explosion-cluster', 'Explosion cluster', 'junkala-512', seq('sfx_exp_cluster#.wav', 1, 5)),
+      s('power-on', 'Power on', 'junkala-512', ['sfx_sound_poweron.wav', 'sfx_sound_bling.wav']),
+      s('power-down', 'Power down', 'junkala-512', seq('sfx_sound_shutdown#.wav', 1, 2)),
+      s('vaporize', 'Vaporize', 'junkala-512', ['sfx_sound_vaporizing.wav', 'sfx_sound_depressurizing.wav']),
     ],
   },
   {
@@ -280,6 +330,51 @@ export const SELECTION: { id: string; name: string; sounds: SelectedSound[] }[] 
         'beltHandle2.ogg',
       ]),
       s('pot', 'Pot', 'kenney-rpg', seq('metalPot#.ogg', 1, 3)),
+    ],
+  },
+  {
+    id: 'voice',
+    name: 'Voice',
+    sounds: [
+      // Take 1 is the male announcer, take 2 the female one.
+      v('go', 'Go', 'go'),
+      v('ready', 'Ready', 'ready'),
+      v('set', 'Set', 'set'),
+      v('round', 'Round', 'round'),
+      v('final-round', 'Final round', 'final_round'),
+      v('you-win', 'You win', 'you_win'),
+      v('you-lose', 'You lose', 'you_lose'),
+      v('game-over', 'Game over', 'game_over'),
+      v('its-a-tie', 'Its a tie', 'its_a_tie'),
+      v('level-up', 'Level up', 'level_up'),
+      v('power-up', 'Power up', 'power_up'),
+      v('congratulations', 'Congratulations', 'congratulations'),
+      v('new-highscore', 'New highscore', 'new_highscore'),
+      v('mission-completed', 'Mission completed', 'mission_completed'),
+      v('mission-failed', 'Mission failed', 'mission_failed'),
+      v('objective-achieved', 'Objective achieved', 'objective_achieved'),
+      v('time-over', 'Time over', 'time_over'),
+      v('hurry-up', 'Hurry up', 'hurry_up'),
+      v('correct', 'Correct', 'correct'),
+      v('wrong', 'Wrong', 'wrong'),
+      s('countdown', 'Countdown', 'kenney-voiceover', [
+        'Male/3.ogg',
+        'Male/2.ogg',
+        'Male/1.ogg',
+        'Male/go.ogg',
+      ]),
+      s('numbers', 'Numbers', 'kenney-voiceover', seq('Male/#.ogg', 1, 8)),
+    ],
+  },
+  {
+    id: 'jingles',
+    name: 'Jingles',
+    sounds: [
+      s('8-bit', '8-bit', 'kenney-jingles', seq('jingles_NES0#.ogg', 0, 7)),
+      s('hit', 'Hit', 'kenney-jingles', seq('jingles_HIT0#.ogg', 0, 7)),
+      s('pizzicato', 'Pizzicato', 'kenney-jingles', seq('jingles_PIZZI0#.ogg', 0, 7)),
+      s('sax', 'Sax', 'kenney-jingles', seq('jingles_SAX0#.ogg', 0, 7)),
+      s('steel', 'Steel drum', 'kenney-jingles', seq('jingles_STEEL0#.ogg', 0, 7)),
     ],
   },
 ];
@@ -400,11 +495,15 @@ export function encodeWav16(samples: Float32Array, sampleRate = SAMPLE_RATE): Ui
 // ---------------------------------------------------------------------------------------------
 // Import
 
+/** Index audio files by basename and by `Folder/basename` (for packs that repeat basenames). */
 function findFiles(dir: string, out = new Map<string, string>()): Map<string, string> {
   for (const name of readdirSync(dir)) {
     const path = join(dir, name);
     if (statSync(path).isDirectory()) findFiles(path, out);
-    else if (/\.(ogg|wav)$/i.test(name)) out.set(name, path);
+    else if (/\.(ogg|wav)$/i.test(name)) {
+      if (!out.has(name)) out.set(name, path);
+      out.set(`${basename(dir)}/${name}`, path);
+    }
   }
   return out;
 }
