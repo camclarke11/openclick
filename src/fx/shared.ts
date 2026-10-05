@@ -8,6 +8,15 @@ export function glide(ctx: BaseAudioContext, param: AudioParam, value: number, t
   param.setTargetAtTime(value, ctx.currentTime, tc);
 }
 
+/**
+ * Set a param now (immediate) or glide to it. Immediate sets are scheduled events rather than
+ * `.value =` so they stay ordered with later automation.
+ */
+export function setParam(ctx: BaseAudioContext, param: AudioParam, value: number, immediate: boolean): void {
+  if (immediate) param.setValueAtTime(value, ctx.currentTime);
+  else glide(ctx, param, value);
+}
+
 /** The standard wet/dry mix param every effect carries. */
 export const mixParam = (def: number, randomRange: [number, number] = [0.2, 0.8]): NumberParam => ({
   kind: 'number',
@@ -58,13 +67,8 @@ export function createMixFrame(ctx: BaseAudioContext, mix: number, law: MixLaw):
   wet.connect(output);
   const setMix = (m: number, immediate = false) => {
     const g = mixGains(m, law);
-    if (immediate) {
-      dry.gain.value = g.dry;
-      wet.gain.value = g.wet;
-    } else {
-      glide(ctx, dry.gain, g.dry);
-      glide(ctx, wet.gain, g.wet);
-    }
+    setParam(ctx, dry.gain, g.dry, immediate);
+    setParam(ctx, wet.gain, g.wet, immediate);
   };
   setMix(mix, true);
   return {

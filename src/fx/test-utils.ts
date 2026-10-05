@@ -3,11 +3,6 @@ import { createRng, type EffectModule, type Params } from '../core';
 import { createTestContext } from '../test/audio';
 
 export const SR = 48000;
-/**
- * The input starts a couple of render quanta in. node-web-audio-api occasionally applies a
- * start(0) a few samples late under load, which made exact comparisons flaky.
- */
-const LEAD = 256;
 
 /** 60 ms of a 440 Hz tone with a sharp onset and a short fade, peaking at 0.8. */
 export function testSignal(seconds = 0.06, freq = 440, amp = 0.8): Float32Array {
@@ -33,7 +28,7 @@ export async function renderEffect(
   opts: { input?: Float32Array; seconds?: number; seed?: number; update?: Params } = {},
 ): Promise<EffectRender> {
   const input = opts.input ?? testSignal();
-  const ctx = createTestContext(2, Math.round((opts.seconds ?? 0.5) * SR) + LEAD, SR);
+  const ctx = createTestContext(2, Math.round((opts.seconds ?? 0.5) * SR), SR);
   const buf = ctx.createBuffer(1, input.length, SR);
   buf.copyToChannel(input as Float32Array<ArrayBuffer>, 0);
   const src = ctx.createBufferSource();
@@ -42,10 +37,12 @@ export async function renderEffect(
   src.connect(fx.input);
   fx.output.connect(ctx.destination);
   if (opts.update) fx.update(opts.update);
-  src.start(LEAD / SR);
+  src.start(0);
   const out = await ctx.startRendering();
   fx.dispose();
-  return { left: out.getChannelData(0).subarray(LEAD), right: out.getChannelData(1).subarray(LEAD) };
+  // Copy out: node-web-audio-api's channel data can alias native memory that is reused once
+  // the buffer is collected, which silently changed earlier renders under load.
+  return { left: out.getChannelData(0).slice(), right: out.getChannelData(1).slice() };
 }
 
 export function peakOf(...chs: Float32Array[]): number {

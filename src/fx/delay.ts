@@ -1,5 +1,5 @@
 import { bool, num, type EffectModule, type ParamSchema, type Params } from '../core';
-import { createMixFrame, glide, mixParam } from './shared';
+import { createMixFrame, glide, mixParam, setParam } from './shared';
 
 const MAX_DELAY = 2;
 /** Tails are cut once the echoes fall this far below the input (dB). */
@@ -117,13 +117,13 @@ export const delay: EffectModule = {
     merge.connect(frame.wet);
 
     const apply = (p: Params, immediate: boolean) => {
-      const set = (param: AudioParam, v: number) => (immediate ? (param.value = v) : glide(ctx, param, v));
+      const set = (param: AudioParam, v: number) => setParam(ctx, param, v, immediate);
       const pp = bool(p, 'pingPong');
       const fb = num(p, 'feedback');
       const time = num(p, 'time') / 1000;
       for (const s of [L, R]) {
         // Delay time glides a little slower, like tape, instead of jumping.
-        if (immediate) s.d.delayTime.value = time;
+        if (immediate) setParam(ctx, s.d.delayTime, time, true);
         else glide(ctx, s.d.delayTime, time, 0.05);
         set(s.hp.frequency, num(p, 'lowCut'));
         set(s.lp.frequency, Math.min(num(p, 'tone'), ctx.sampleRate / 2 - 100));

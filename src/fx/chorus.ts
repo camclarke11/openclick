@@ -1,5 +1,5 @@
 import { num, type EffectModule, type ParamSchema, type Params } from '../core';
-import { createMixFrame, glide, mixParam } from './shared';
+import { createMixFrame, mixParam, setParam } from './shared';
 
 const MAX_VOICES = 4;
 /** LFO phase (degrees) and rate multiplier per voice; voices 1 and 2 are opposite. */
@@ -95,7 +95,7 @@ export const chorus: EffectModule = {
     });
 
     const apply = (p: Params, immediate: boolean) => {
-      const set = (param: AudioParam, v: number) => (immediate ? (param.value = v) : glide(ctx, param, v));
+      const set = (param: AudioParam, v: number) => setParam(ctx, param, v, immediate);
       const n = Math.round(num(p, 'voices'));
       const spread = num(p, 'spread');
       // Mean delay must stay above the swing so delayTime never goes negative.

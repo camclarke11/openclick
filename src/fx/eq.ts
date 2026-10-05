@@ -1,5 +1,5 @@
 import { num, type EffectModule, type NumberParam, type ParamSchema, type Params } from '../core';
-import { createMixFrame, glide, mixParam } from './shared';
+import { createMixFrame, mixParam, setParam } from './shared';
 
 const freq = (label: string, def: number, group: string, randomRange: [number, number]): NumberParam => ({
   kind: 'number',
@@ -96,7 +96,7 @@ export const eq: EffectModule = {
       .connect(frame.wet);
 
     const apply = (p: Params, immediate: boolean) => {
-      const set = (param: AudioParam, v: number) => (immediate ? (param.value = v) : glide(ctx, param, v));
+      const set = (param: AudioParam, v: number) => setParam(ctx, param, v, immediate);
       set(lowCut.frequency, num(p, 'lowCut'));
       lowCut.Q.value = Math.SQRT1_2;
       set(highCut.frequency, Math.min(num(p, 'highCut'), ctx.sampleRate / 2 - 100));

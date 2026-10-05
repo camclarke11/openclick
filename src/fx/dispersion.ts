@@ -1,5 +1,5 @@
 import { num, type EffectModule, type ParamSchema, type Params } from '../core';
-import { createMixFrame, glide, mixParam } from './shared';
+import { createMixFrame, mixParam, setParam } from './shared';
 
 const MAX_STAGES = 64;
 
@@ -78,7 +78,7 @@ export const dispersion: EffectModule = {
     }
 
     const apply = (p: Params, immediate: boolean) => {
-      const set = (param: AudioParam, v: number) => (immediate ? (param.value = v) : glide(ctx, param, v));
+      const set = (param: AudioParam, v: number) => setParam(ctx, param, v, immediate);
       const stages = Math.round(num(p, 'stages'));
       const freq = Math.min(num(p, 'frequency'), ctx.sampleRate / 2 - 100);
       for (const f of filters) {

@@ -1,5 +1,5 @@
 import { createRng, num, type EffectModule, type ParamSchema, type Params } from '../core';
-import { createMixFrame, glide, mixParam } from './shared';
+import { createMixFrame, glide, mixParam, setParam } from './shared';
 
 const schema = {
   size: {
@@ -160,7 +160,7 @@ export const reverb: EffectModule = {
       conv.normalize = false;
       conv.buffer = buf;
       const gain = ctx.createGain();
-      gain.gain.value = immediate ? 1 : 0;
+      setParam(ctx, gain.gain, immediate ? 1 : 0, true);
       lowCut.connect(conv).connect(gain).connect(bus);
       if (fading) {
         fading.conv.disconnect();
@@ -176,8 +176,8 @@ export const reverb: EffectModule = {
 
     const apply = (p: Params, immediate: boolean) => {
       if (immediate) {
-        pre.delayTime.value = num(p, 'preDelay') / 1000;
-        lowCut.frequency.value = num(p, 'lowCut');
+        setParam(ctx, pre.delayTime, num(p, 'preDelay') / 1000, true);
+        setParam(ctx, lowCut.frequency, num(p, 'lowCut'), true);
       } else {
         glide(ctx, pre.delayTime, num(p, 'preDelay') / 1000, 0.05);
         glide(ctx, lowCut.frequency, num(p, 'lowCut'));
