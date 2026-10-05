@@ -72,7 +72,9 @@ export async function exportPack(
   ];
   for (let i = 0; i < presets.length; i++) {
     signal?.throwIfAborted();
-    files.push({ name: paths[i]!, data: await renderWav(presets[i]!.patch, single, env, 1) });
+    const data = await renderWav(presets[i]!.patch, single, env, 1);
+    signal?.throwIfAborted();
+    files.push({ name: paths[i]!, data });
     onProgress?.(i + 1, presets.length);
     await new Promise((r) => setTimeout(r, 0));
   }

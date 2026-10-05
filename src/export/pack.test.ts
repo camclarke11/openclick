@@ -62,6 +62,17 @@ describe('exportPack', () => {
     }
   });
 
+  it('does not finish when aborted during the last render', async () => {
+    const ctrl = new AbortController();
+    const slow = {
+      ...env,
+      createContext: (c: number, l: number, r: number) => (ctrl.abort(), createTestContext(c, l, r)),
+    };
+    await expect(
+      exportPack(factoryPresets.slice(0, 1), 'x', defaultExportSettings, slow, undefined, ctrl.signal),
+    ).rejects.toThrow();
+  });
+
   it('stops when aborted', async () => {
     const ctrl = new AbortController();
     ctrl.abort();
