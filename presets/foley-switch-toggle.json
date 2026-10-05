@@ -1,0 +1,48 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/foley-switch-toggle",
+  "name": "Toggle Switch",
+  "category": "Foley/Switch",
+  "tags": ["short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "tone": 3200,
+          "length": 0.01
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -4,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 35
+        },
+        "params": {
+          "tone": 1600,
+          "length": 0.012
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

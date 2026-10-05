@@ -1,0 +1,383 @@
+{
+  "format": "openclick-samples",
+  "version": 1,
+  "name": "OpenClick placeholder library (synthesised)",
+  "placeholder": true,
+  "license": "CC0-1.0",
+  "categories": [
+    {
+      "id": "switches",
+      "name": "Switches",
+      "sounds": [
+        {
+          "id": "toggle",
+          "name": "Toggle",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "switches/toggle-1.wav",
+            "switches/toggle-2.wav",
+            "switches/toggle-3.wav",
+            "switches/toggle-4.wav"
+          ]
+        },
+        {
+          "id": "rocker",
+          "name": "Rocker",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "switches/rocker-1.wav",
+            "switches/rocker-2.wav",
+            "switches/rocker-3.wav",
+            "switches/rocker-4.wav"
+          ]
+        },
+        {
+          "id": "push-button",
+          "name": "Push button",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "switches/push-button-1.wav",
+            "switches/push-button-2.wav",
+            "switches/push-button-3.wav",
+            "switches/push-button-4.wav"
+          ]
+        },
+        {
+          "id": "slide",
+          "name": "Slide",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "switches/slide-1.wav",
+            "switches/slide-2.wav",
+            "switches/slide-3.wav",
+            "switches/slide-4.wav"
+          ]
+        },
+        {
+          "id": "rotary-detent",
+          "name": "Rotary detent",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "switches/rotary-detent-1.wav",
+            "switches/rotary-detent-2.wav",
+            "switches/rotary-detent-3.wav",
+            "switches/rotary-detent-4.wav"
+          ]
+        },
+        {
+          "id": "light-switch",
+          "name": "Light switch",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "switches/light-switch-1.wav",
+            "switches/light-switch-2.wav",
+            "switches/light-switch-3.wav",
+            "switches/light-switch-4.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboards",
+      "name": "Keyboards",
+      "sounds": [
+        {
+          "id": "clicky-key",
+          "name": "Clicky key",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "keyboards/clicky-key-1.wav",
+            "keyboards/clicky-key-2.wav",
+            "keyboards/clicky-key-3.wav",
+            "keyboards/clicky-key-4.wav"
+          ]
+        },
+        {
+          "id": "linear-key",
+          "name": "Linear key",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "keyboards/linear-key-1.wav",
+            "keyboards/linear-key-2.wav",
+            "keyboards/linear-key-3.wav",
+            "keyboards/linear-key-4.wav"
+          ]
+        },
+        {
+          "id": "spacebar",
+          "name": "Spacebar",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "keyboards/spacebar-1.wav",
+            "keyboards/spacebar-2.wav",
+            "keyboards/spacebar-3.wav",
+            "keyboards/spacebar-4.wav"
+          ]
+        },
+        {
+          "id": "laptop-key",
+          "name": "Laptop key",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "keyboards/laptop-key-1.wav",
+            "keyboards/laptop-key-2.wav",
+            "keyboards/laptop-key-3.wav",
+            "keyboards/laptop-key-4.wav"
+          ]
+        },
+        {
+          "id": "typewriter",
+          "name": "Typewriter",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "keyboards/typewriter-1.wav",
+            "keyboards/typewriter-2.wav",
+            "keyboards/typewriter-3.wav",
+            "keyboards/typewriter-4.wav"
+          ]
+        },
+        {
+          "id": "enter-key",
+          "name": "Enter key",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "keyboards/enter-key-1.wav",
+            "keyboards/enter-key-2.wav",
+            "keyboards/enter-key-3.wav",
+            "keyboards/enter-key-4.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cameras",
+      "name": "Cameras",
+      "sounds": [
+        {
+          "id": "slr-shutter",
+          "name": "SLR shutter",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "cameras/slr-shutter-1.wav",
+            "cameras/slr-shutter-2.wav",
+            "cameras/slr-shutter-3.wav",
+            "cameras/slr-shutter-4.wav"
+          ]
+        },
+        {
+          "id": "compact-shutter",
+          "name": "Compact shutter",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "cameras/compact-shutter-1.wav",
+            "cameras/compact-shutter-2.wav",
+            "cameras/compact-shutter-3.wav",
+            "cameras/compact-shutter-4.wav"
+          ]
+        },
+        {
+          "id": "film-advance",
+          "name": "Film advance",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "cameras/film-advance-1.wav",
+            "cameras/film-advance-2.wav",
+            "cameras/film-advance-3.wav",
+            "cameras/film-advance-4.wav"
+          ]
+        },
+        {
+          "id": "lens-cap",
+          "name": "Lens cap",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "cameras/lens-cap-1.wav",
+            "cameras/lens-cap-2.wav",
+            "cameras/lens-cap-3.wav",
+            "cameras/lens-cap-4.wav"
+          ]
+        },
+        {
+          "id": "mode-dial",
+          "name": "Mode dial",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "cameras/mode-dial-1.wav",
+            "cameras/mode-dial-2.wav",
+            "cameras/mode-dial-3.wav",
+            "cameras/mode-dial-4.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toys",
+      "name": "Toys",
+      "sounds": [
+        {
+          "id": "squeaker",
+          "name": "Squeaker",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "toys/squeaker-1.wav",
+            "toys/squeaker-2.wav",
+            "toys/squeaker-3.wav",
+            "toys/squeaker-4.wav"
+          ]
+        },
+        {
+          "id": "clicker",
+          "name": "Clicker",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": ["toys/clicker-1.wav", "toys/clicker-2.wav", "toys/clicker-3.wav", "toys/clicker-4.wav"]
+        },
+        {
+          "id": "wind-up",
+          "name": "Wind-up",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": ["toys/wind-up-1.wav", "toys/wind-up-2.wav", "toys/wind-up-3.wav", "toys/wind-up-4.wav"]
+        },
+        {
+          "id": "spring",
+          "name": "Spring",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": ["toys/spring-1.wav", "toys/spring-2.wav", "toys/spring-3.wav", "toys/spring-4.wav"]
+        },
+        {
+          "id": "rattle",
+          "name": "Rattle",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": ["toys/rattle-1.wav", "toys/rattle-2.wav", "toys/rattle-3.wav", "toys/rattle-4.wav"]
+        }
+      ]
+    },
+    {
+      "id": "control-panels",
+      "name": "Control panels",
+      "sounds": [
+        {
+          "id": "big-button",
+          "name": "Big button",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "control-panels/big-button-1.wav",
+            "control-panels/big-button-2.wav",
+            "control-panels/big-button-3.wav",
+            "control-panels/big-button-4.wav"
+          ]
+        },
+        {
+          "id": "knob-detent",
+          "name": "Knob detent",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "control-panels/knob-detent-1.wav",
+            "control-panels/knob-detent-2.wav",
+            "control-panels/knob-detent-3.wav",
+            "control-panels/knob-detent-4.wav"
+          ]
+        },
+        {
+          "id": "lever",
+          "name": "Lever",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "control-panels/lever-1.wav",
+            "control-panels/lever-2.wav",
+            "control-panels/lever-3.wav",
+            "control-panels/lever-4.wav"
+          ]
+        },
+        {
+          "id": "key-switch",
+          "name": "Key switch",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "control-panels/key-switch-1.wav",
+            "control-panels/key-switch-2.wav",
+            "control-panels/key-switch-3.wav",
+            "control-panels/key-switch-4.wav"
+          ]
+        },
+        {
+          "id": "relay",
+          "name": "Relay",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "control-panels/relay-1.wav",
+            "control-panels/relay-2.wav",
+            "control-panels/relay-3.wav",
+            "control-panels/relay-4.wav"
+          ]
+        },
+        {
+          "id": "latch",
+          "name": "Latch",
+          "placeholder": true,
+          "source": "Synthesised by scripts/samples/generate.ts",
+          "license": "CC0-1.0",
+          "files": [
+            "control-panels/latch-1.wav",
+            "control-panels/latch-2.wav",
+            "control-panels/latch-3.wav",
+            "control-panels/latch-4.wav"
+          ]
+        }
+      ]
+    }
+  ]
+}
