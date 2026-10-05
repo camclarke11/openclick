@@ -27,8 +27,8 @@ and its drift test.
 
 `import-packs.ts` adds real recordings alongside the placeholders: a curated selection from
 Kenney's CC0 audio packs (Interface, UI, Impact, Digital, Sci-fi, RPG, Casino) and Juhani
-Junkala's CC0 "512 Sound Effects (8-bit style)". They make up the UI, Retro, Impacts, Footsteps,
-Sci-fi and Items categories, picked for game sound effects (Roblox in particular).
+Junkala's CC0 "512 Sound Effects (8-bit style)", plus Kenney's Voiceover Pack and Music Jingles. They make up the UI, Retro, Impacts, Footsteps,
+Sci-fi, Items, Voice and Jingles categories, picked for game sound effects (Roblox in particular).
 
 ```sh
 node scripts/samples/import-packs.ts [cacheDir]

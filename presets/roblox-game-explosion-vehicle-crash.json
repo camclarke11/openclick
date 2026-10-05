@@ -1,0 +1,75 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-game-explosion-vehicle-crash",
+  "name": "Vehicle Crash",
+  "category": "Game/Explosion",
+  "tags": ["roblox", "modern", "harsh"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Impacts/Metal heavy",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -3,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 40
+        },
+        "params": {
+          "sound": "Impacts/Glass heavy",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -5,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 90
+        },
+        "params": {
+          "sound": "Impacts/Plate",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.4,
+          "decay": 0.8,
+          "mix": 0.1
+        }
+      }
+    ],
+    "master": {
+      "gain": -3
+    }
+  }
+}

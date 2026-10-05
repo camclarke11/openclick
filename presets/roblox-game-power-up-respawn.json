@@ -1,0 +1,60 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-game-power-up-respawn",
+  "name": "Respawn",
+  "category": "Game/Power-up",
+  "tags": ["roblox", "modern", "soft"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Retro/Portal",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -8,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 120
+        },
+        "params": {
+          "sound": "UI/Glass",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.5,
+          "decay": 1.2,
+          "mix": 0.2
+        }
+      }
+    ],
+    "master": {
+      "gain": -3
+    }
+  }
+}

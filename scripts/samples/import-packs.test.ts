@@ -29,7 +29,7 @@ describe('CC0 pack import', () => {
       expect(s.placeholder).toBe(false);
       expect(s.license).toBe('CC0-1.0');
       expect(s.source).toMatch(/^https:\/\//);
-      expect(s.files.length).toBeGreaterThan(1);
+      expect(s.files.length).toBeGreaterThanOrEqual(1);
       expect(s.files.length).toBeLessThanOrEqual(MAX_TAKES);
     }
   });
@@ -63,7 +63,7 @@ describe('CC0 pack import', () => {
         }
       }
     }
-    expect(bytes).toBeLessThan(24 * 1024 * 1024);
+    expect(bytes).toBeLessThan(40 * 1024 * 1024);
   });
 });
 

@@ -1,0 +1,50 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/roblox-ui-success-new-highscore",
+  "name": "New Highscore",
+  "category": "UI/Success",
+  "tags": ["roblox", "modern", "long"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -3,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Retro/Fanfare",
+          "roundRobin": "random",
+          "humanize": 0
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 300
+        },
+        "params": {
+          "sound": "Voice/New highscore",
+          "roundRobin": "random",
+          "humanize": 0
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -3
+    }
+  }
+}

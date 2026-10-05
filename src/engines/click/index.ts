@@ -16,7 +16,7 @@ export const clickSchema = {
     options: soundKeys,
     default: DEFAULT_SOUND,
     hint: library.some((s) => s.placeholder)
-      ? 'Mechanical categories are synthesised stand-ins until the recorded library lands; UI, Retro, Impacts, Footsteps, Sci-fi and Items are CC0 recordings (Kenney, Juhani Junkala)'
+      ? 'Mechanical categories are synthesised stand-ins until the recorded library lands; the other categories are CC0 recordings (Kenney, Juhani Junkala)'
       : undefined,
   },
   roundRobin: {

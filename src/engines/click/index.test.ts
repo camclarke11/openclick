@@ -79,10 +79,12 @@ describe('sample library', () => {
       'Footsteps',
       'Sci-fi',
       'Items',
+      'Voice',
+      'Jingles',
     ]);
     for (const s of library) {
       expect(s.placeholder).toBe(manifest.categories.some((c) => c.name === s.category));
-      expect(s.files.length).toBeGreaterThan(1);
+      expect(s.files.length).toBeGreaterThanOrEqual(1);
       for (const f of s.files)
         expect(existsSync(new URL(`../../../public/samples/${f}`, import.meta.url))).toBe(true);
     }
