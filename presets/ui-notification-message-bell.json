@@ -5,7 +5,7 @@
   "name": "Message Bell",
   "category": "UI/Notification",
   "tags": ["modern", "long"],
-  "author": "OpenClick",
+  "author": "Sounds",
   "patch": {
     "layers": [
       {

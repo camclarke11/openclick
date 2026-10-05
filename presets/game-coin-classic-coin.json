@@ -5,7 +5,7 @@
   "name": "Classic Coin",
   "category": "Game/Coin",
   "tags": ["retro", "chiptune", "8-bit"],
-  "author": "OpenClick",
+  "author": "Sounds",
   "patch": {
     "layers": [
       {

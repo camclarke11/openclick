@@ -5,7 +5,7 @@
   "name": "Soft Chime",
   "category": "UI/Notification",
   "tags": ["soft", "long"],
-  "author": "OpenClick",
+  "author": "Sounds",
   "patch": {
     "layers": [
       {

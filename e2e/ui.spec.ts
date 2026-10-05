@@ -4,7 +4,7 @@ import { collectErrors, events, lastEvent, stubFonts } from './helpers';
 test.beforeEach(async ({ page }) => {
   await stubFonts(page);
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'OpenClick' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Sounds' })).toBeVisible();
 });
 
 test('pads play chromatic notes and light up', async ({ page }) => {

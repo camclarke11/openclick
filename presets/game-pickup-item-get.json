@@ -5,7 +5,7 @@
   "name": "Item Get",
   "category": "Game/Pickup",
   "tags": ["retro", "chiptune", "8-bit"],
-  "author": "OpenClick",
+  "author": "Sounds",
   "patch": {
     "layers": [
       {

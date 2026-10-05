@@ -1,8 +1,8 @@
-# OpenClick
+# Sounds
 
 A free, browser-based sound design tool for interface, foley and video game sounds. Nothing to install and no DAW needed. Live at [sounds.camlc.dev](https://sounds.camlc.dev).
 
-UVI Click is a $149 instrument that only runs inside UVI's own player in a DAW. OpenClick is our own take on it that runs entirely in the browser, aiming to match Click's depth as a free or low-cost tool built on a sound library we recorded ourselves. The goal is to get a designer from idea to a usable sound in under a minute.
+UVI Click is a $149 instrument that only runs inside UVI's own player in a DAW. Sounds is our own take on it that runs entirely in the browser, aiming to match Click's depth as a free or low-cost tool built on a sound library we recorded ourselves. The goal is to get a designer from idea to a usable sound in under a minute.
 
 ## Engines
 

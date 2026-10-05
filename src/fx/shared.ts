@@ -99,7 +99,7 @@ export async function prepareProcessor(ctx: BaseAudioContext, url: string, name:
     if (!set) readyProcessors.set(ctx, (set = new Set()));
     set.add(name);
   } catch (err) {
-    console.warn(`OpenClick: could not load the ${name} worklet`, err);
+    console.warn(`Sounds: could not load the ${name} worklet`, err);
   }
 }
 
