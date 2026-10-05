@@ -59,7 +59,27 @@
     "arp": {
       "enabled": false
     },
-    "fx": [],
+    "fx": [
+      {
+        "type": "delay",
+        "enabled": true,
+        "params": {
+          "time": 90,
+          "feedback": 0.3,
+          "mix": 0.18,
+          "pingPong": true
+        }
+      },
+      {
+        "type": "reverb",
+        "enabled": true,
+        "params": {
+          "size": 0.5,
+          "decay": 1.4,
+          "mix": 0.2
+        }
+      }
+    ],
     "master": {
       "gain": -4
     }

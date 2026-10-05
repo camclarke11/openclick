@@ -79,6 +79,29 @@ const click = (r: Rng, sounds: readonly string[], extra: Params = {}): Params =>
   ...extra,
 });
 
+/** Effect slots. Names and ranges follow src/fx; unknown effects are dropped by sanitizePatch. */
+const reverb = (r: Rng, size: [number, number], mix: [number, number]) => ({
+  type: 'reverb',
+  params: {
+    size: between(r, ...size),
+    decay: logBetween(r, 0.5 + size[0], 1 + size[1] * 2),
+    mix: between(r, ...mix),
+  },
+});
+const crush = (r: Rng) => ({
+  type: 'bitcrusher',
+  params: { bits: r.pick([5, 6, 7, 8]), rate: r.pick([11025, 16000, 22050]) },
+});
+const echo = (r: Rng) => ({
+  type: 'delay',
+  params: {
+    time: between(r, 70, 140),
+    feedback: between(r, 0.15, 0.35),
+    mix: between(r, 0.1, 0.25),
+    pingPong: chance(r, 0.5),
+  },
+});
+
 const SWITCHES = [
   'Switches/Toggle',
   'Switches/Rocker',
@@ -224,6 +247,7 @@ export const recipes: Record<Category, Recipe> = {
         { source: 'beep', params: p, mix: { transpose: 12 } },
         { source: 'beep', params: p, mix: { transpose: 12 + interval, delay: gap } },
       ],
+      fx: [reverb(r, [0.3, 0.6], [0.12, 0.25])],
       master: -4,
     };
   },
@@ -246,6 +270,7 @@ export const recipes: Record<Category, Recipe> = {
           mix: { transpose: 12 },
         },
       ],
+      fx: chance(r, 0.6) ? [reverb(r, [0.3, 0.5], [0.1, 0.2])] : [],
       master: -3,
     };
   },
@@ -362,6 +387,7 @@ export const recipes: Record<Category, Recipe> = {
         mix: { transpose: 23 },
       },
     ],
+    fx: chance(r, 0.4) ? [crush(r)] : [],
     master: -4,
   }),
   'Game/Power-up': (r) => {
@@ -402,6 +428,14 @@ export const recipes: Record<Category, Recipe> = {
         mix: { transpose: semis(r, [0, 7, 12]) },
       },
     ],
+    fx: chance(r, 0.4)
+      ? [
+          {
+            type: 'dispersion',
+            params: { stages: r.int(12, 40), frequency: logBetween(r, 800, 3000), mix: between(r, 0.3, 0.7) },
+          },
+        ]
+      : [],
     master: -4,
   }),
   'Game/Hit': (r) => ({
@@ -452,6 +486,7 @@ export const recipes: Record<Category, Recipe> = {
         mix: { transpose: -24, gain: -2 },
       },
     ],
+    fx: chance(r, 0.6) ? [reverb(r, [0.6, 0.9], [0.2, 0.4])] : [],
     master: -3,
   }),
   'Game/Menu': (r) => ({
@@ -487,6 +522,7 @@ export const recipes: Record<Category, Recipe> = {
         mix: { transpose: semis(r, [12, 17, 19]) },
       },
     ],
+    fx: chance(r, 0.4) ? [echo(r)] : [],
     master: -4,
   }),
 };

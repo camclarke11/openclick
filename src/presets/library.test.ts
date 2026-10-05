@@ -56,7 +56,11 @@ describe('factory preset files', () => {
       for (const [key, value] of Object.entries(params)) {
         const spec = schema[key];
         expect(spec, `${where}.${key} is not a param`).toBeDefined();
-        expect(sanitizeParam(spec!, value), `${where}.${key} out of range`).toEqual(value);
+        const clean = sanitizeParam(spec!, value);
+        // Stepped params can round-trip with float noise (0.7 -> 0.7000000000000001).
+        if (typeof value === 'number')
+          expect(clean as number, `${where}.${key} out of range`).toBeCloseTo(value, 9);
+        else expect(clean, `${where}.${key} out of range`).toEqual(value);
       }
     };
     patch.layers.forEach((l, i) => {
