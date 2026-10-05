@@ -110,7 +110,7 @@ export function ExportButton(props: { notify?: (message: string) => void }) {
       const s = settings.value;
       const result = await exportSound(
         patch.value,
-        currentPreset.value?.name ?? 'openclick-sound',
+        currentPreset.value?.name ?? 'sound',
         s,
         { registry, assets },
         (done, total) => {

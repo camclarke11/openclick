@@ -30,7 +30,7 @@ export function Header() {
     <header class="top">
       <div class="brand">
         <img src={logoUrl} alt="" width={28} height={28} />
-        <h1>OpenClick</h1>
+        <h1>Sounds</h1>
       </div>
       <PresetBar notify={notify} />
       <span class="spacer" />

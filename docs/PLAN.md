@@ -1,6 +1,6 @@
-# OpenClick build plan
+# Sounds build plan
 
-OpenClick is a browser-based sound design tool for UI, foley and game sounds, deployed as a static
+Sounds (formerly OpenClick) is a browser-based sound design tool for UI, foley and game sounds, deployed as a static
 site at **sounds.camlc.dev**. This document fixes the stack and architecture, and splits the
 remaining work into workstreams that can be built in parallel without stepping on each other.
 

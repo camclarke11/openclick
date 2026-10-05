@@ -76,7 +76,7 @@ describe('exportSound', () => {
 describe('helpers', () => {
   it('slugifies names and never returns empty', () => {
     expect(slugify('  Café Blip!! ')).toBe('cafe-blip');
-    expect(slugify('***')).toBe('openclick-sound');
+    expect(slugify('***')).toBe('sound');
   });
 
   it('mutatePatch is a no-op at 0 and deterministic per seed', () => {

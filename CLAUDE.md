@@ -1,4 +1,4 @@
-# OpenClick
+# Sounds
 
 Browser-based sound design tool (UI, foley and game sounds), static site for sounds.camlc.dev.
 Read `docs/PLAN.md` before working: it defines the architecture, which workstream owns which

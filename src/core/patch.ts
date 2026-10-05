@@ -107,7 +107,7 @@ export function sanitizePatch(registry: Registry, input: unknown): Patch {
 
 export function parsePreset(registry: Registry, json: unknown): Preset {
   const p = (json && typeof json === 'object' ? json : {}) as Partial<Preset>;
-  if (p.format !== PRESET_FORMAT) throw new Error('Not an OpenClick preset');
+  if (p.format !== PRESET_FORMAT) throw new Error('Not a Sounds preset');
   if (typeof p.version !== 'number' || p.version > PRESET_VERSION) {
     throw new Error(`Unsupported preset version ${String(p.version)}`);
   }
