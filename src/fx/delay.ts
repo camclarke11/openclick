@@ -72,7 +72,8 @@ export const delay: EffectModule = {
     const fb = num(p, 'feedback');
     // Ping-pong repeats alternate sides but decay at the same rate per repeat.
     const repeats = fb <= 0.001 ? 1 : 1 + Math.ceil(TAIL_DB / 20 / Math.log10(fb));
-    return Math.min(30, time * repeats + 0.05);
+    // Not capped: long, high-feedback settings really do ring this long (renders cap at maxSeconds).
+    return time * repeats + 0.05;
   },
   create(ctx, params) {
     const frame = createMixFrame(ctx, num(params, 'mix'), 'equal-power');

@@ -34,8 +34,12 @@ export const DEFAULT_GRAIN_SETTINGS: GrainSettings = {
   spread: 0.5,
 };
 
-/** Input history kept for grains to read from. Must exceed max position + jitter + grain span. */
-const HISTORY_SECONDS = 4;
+/**
+ * Input history kept for grains to read from. It must cover the furthest a grain can reach
+ * back at the schema maxima: position + jitter (2 s), plus the read-ahead a transposed grain
+ * needs (500 ms at +36 st reads 4 s, 3.5 s ahead of real time), plus that 4 s span itself.
+ */
+const HISTORY_SECONDS = 10;
 const MAX_GRAINS = 96;
 
 interface Grain {

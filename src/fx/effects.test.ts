@@ -111,6 +111,21 @@ describe.each(native.map((n) => [n.mod.type, n] as const))('%s', (_, { mod, audi
   });
 });
 
+describe('reverb room changes', () => {
+  it('regenerates the IR after the debounce and crossfades to it', async () => {
+    const p = withParams(reverb, { mix: 1 });
+    const base = await renderEffect(reverb, p, { seconds: 1 });
+    const longer = withParams(reverb, { mix: 1, decay: 6, damping: 0 });
+    const immediate = await renderEffect(reverb, p, { seconds: 1, update: longer });
+    // Before the debounce fires nothing has changed yet...
+    expect(diffRms(base.left, immediate.left)).toBeLessThan(1e-5);
+    const settled = await renderEffect(reverb, p, { seconds: 1, update: longer, settleMs: 120 });
+    // ...after it, the longer, brighter room is audibly different.
+    expect(diffRms(base.left, settled.left)).toBeGreaterThan(1e-3);
+    expect(isFinite32(settled.left)).toBe(true);
+  });
+});
+
 describe.each([granulizer, bitcrusher].map((m) => [m.type, m] as const))('%s (worklet)', (_, mod) => {
   it('is a clean passthrough at mix 0', async () => {
     const input = testSignal();

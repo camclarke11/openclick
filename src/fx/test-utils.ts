@@ -25,7 +25,7 @@ export interface EffectRender {
 export async function renderEffect(
   mod: EffectModule,
   params: Params,
-  opts: { input?: Float32Array; seconds?: number; seed?: number; update?: Params } = {},
+  opts: { input?: Float32Array; seconds?: number; seed?: number; update?: Params; settleMs?: number } = {},
 ): Promise<EffectRender> {
   const input = opts.input ?? testSignal();
   const ctx = createTestContext(2, Math.round((opts.seconds ?? 0.5) * SR), SR);
@@ -37,6 +37,8 @@ export async function renderEffect(
   src.connect(fx.input);
   fx.output.connect(ctx.destination);
   if (opts.update) fx.update(opts.update);
+  // Debounced live work (reverb IR regeneration) runs on timers before rendering starts.
+  if (opts.settleMs) await new Promise((r) => setTimeout(r, opts.settleMs));
   src.start(0);
   const out = await ctx.startRendering();
   fx.dispose();

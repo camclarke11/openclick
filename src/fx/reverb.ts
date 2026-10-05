@@ -120,6 +120,11 @@ export function generateReverbIr(
   }) as [Float32Array<ArrayBuffer>, Float32Array<ArrayBuffer>];
 }
 
+/** Settle time before a live room change regenerates the IR. */
+const IR_DEBOUNCE_MS = 60;
+/** The 80 ms fade-out time constant reaches -60 dB after about 550 ms. */
+const FADE_OUT_MS = 700;
+
 const irKey = (p: Params) => `${num(p, 'size')}|${num(p, 'decay')}|${num(p, 'damping')}`;
 
 /** Convolution reverb with a generated impulse response. */
@@ -141,11 +146,18 @@ export const reverb: EffectModule = {
 
     // Changing the room means a new IR. ConvolverNode buffers can only be set once, so each new
     // IR gets its own convolver and we crossfade, letting the old tail ring out under the new.
-    let current: { conv: ConvolverNode; gain: GainNode } | null = null;
-    let fading: { conv: ConvolverNode; gain: GainNode } | null = null;
+    type Conv = { conv: ConvolverNode; gain: GainNode };
+    let current: Conv | null = null;
+    const fading = new Set<Conv>();
+    const release = (c: Conv) => {
+      c.conv.disconnect();
+      c.gain.disconnect();
+      fading.delete(c);
+    };
     let key = '';
+    let pending: ReturnType<typeof setTimeout> | null = null;
+    let disposed = false;
     const loadIr = (p: Params, immediate: boolean) => {
-      key = irKey(p);
       const [l, r] = generateReverbIr({
         sampleRate: ctx.sampleRate,
         size: num(p, 'size'),
@@ -162,16 +174,23 @@ export const reverb: EffectModule = {
       const gain = ctx.createGain();
       setParam(ctx, gain.gain, immediate ? 1 : 0, true);
       lowCut.connect(conv).connect(gain).connect(bus);
-      if (fading) {
-        fading.conv.disconnect();
-        fading.gain.disconnect();
-      }
-      fading = current;
+      const old = current;
       current = { conv, gain };
-      if (!immediate) {
-        glide(ctx, gain.gain, 1, 0.03);
-        if (fading) glide(ctx, fading.gain.gain, 0, 0.08);
-      }
+      if (immediate || !old) return;
+      glide(ctx, gain.gain, 1, 0.03);
+      glide(ctx, old.gain.gain, 0, 0.08);
+      // Once the crossfade is ~60 dB down, stop paying for the old convolver.
+      fading.add(old);
+      setTimeout(() => release(old), FADE_OUT_MS);
+    };
+    // Dragging a room knob fires many updates and each IR can be ~1M samples, so live changes
+    // are debounced; only the latest settings get generated.
+    const scheduleIr = (p: Params) => {
+      if (pending) clearTimeout(pending);
+      pending = setTimeout(() => {
+        pending = null;
+        if (!disposed) loadIr(p, false);
+      }, IR_DEBOUNCE_MS);
     };
 
     const apply = (p: Params, immediate: boolean) => {
@@ -182,7 +201,11 @@ export const reverb: EffectModule = {
         glide(ctx, pre.delayTime, num(p, 'preDelay') / 1000, 0.05);
         glide(ctx, lowCut.frequency, num(p, 'lowCut'));
       }
-      if (irKey(p) !== key) loadIr(p, immediate);
+      if (irKey(p) !== key) {
+        key = irKey(p);
+        if (immediate) loadIr(p, true);
+        else scheduleIr(p);
+      }
       frame.setMix(num(p, 'mix'), immediate);
     };
     apply(params, true);
@@ -192,10 +215,10 @@ export const reverb: EffectModule = {
       output: frame.output,
       update: (p) => apply(p, false),
       dispose() {
-        for (const c of [current, fading]) {
-          c?.conv.disconnect();
-          c?.gain.disconnect();
-        }
+        disposed = true;
+        if (pending) clearTimeout(pending);
+        for (const c of [...fading]) release(c);
+        if (current) release(current);
         for (const n of [pre, lowCut, bus]) n.disconnect();
         frame.dispose();
       },

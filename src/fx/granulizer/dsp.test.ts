@@ -68,6 +68,19 @@ describe('createGrainEngine', () => {
     expect(energy(0.6, 1)).toBe(0);
   });
 
+  it('honours the full position range with maximally transposed grains', () => {
+    const input = new Float32Array(3 * SR);
+    input.set(sine(0.05, 440));
+    const { L } = run(
+      { size: 500, density: 40, pitch: 24, pitchJitter: 12, position: 1000, positionJitter: 0 },
+      input,
+    );
+    const energy = (a: number, b: number) => L.subarray(a * SR, b * SR).reduce((s, v) => s + v * v, 0);
+    // Grains read at least 1 s back, so nothing of the burst can be heard before then.
+    expect(energy(0, 0.95)).toBe(0);
+    expect(energy(0.95, 3)).toBeGreaterThan(0);
+  });
+
   it('survives extreme settings without reading out of range', () => {
     const { L } = run(
       {
