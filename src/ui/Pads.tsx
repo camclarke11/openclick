@@ -22,10 +22,11 @@ const FLASH_MS = 150;
 export function Pads() {
   const base = octaveBase(octave.value);
   const [lit, setLit] = useState<ReadonlySet<number>>(new Set());
-  // pointerId → pad, in a ref so back-to-back pointer events see each other's changes.
-  const held = useRef(new Map<number, number>());
+  // Held presses (pointer or Enter/Space) → the pad and the note it played, in a ref so
+  // back-to-back events see each other's changes and releases match even if the octave moves.
+  const held = useRef(new Map<string, { padId: number; note: number }>());
   const [heldPads, setHeldPads] = useState<ReadonlySet<number>>(new Set());
-  const syncHeld = () => setHeldPads(new Set(held.current.values()));
+  const syncHeld = () => setHeldPads(new Set([...held.current.values()].map((h) => h.padId)));
 
   useEffect(() => {
     const timers = new Set<ReturnType<typeof setTimeout>>();
@@ -63,23 +64,39 @@ export function Pads() {
     }
     const rect = el.getBoundingClientRect();
     const velocity = velocityFromY(e.clientY, rect.top, rect.height);
-    held.current.set(e.pointerId, padId);
-    syncHeld();
-    bus.emit('noteOn', { note: padNote(padId, base), velocity, source: 'pad', padId });
-  };
-  const release = (e: PointerEvent) => {
-    const padId = held.current.get(e.pointerId);
-    if (padId === undefined) return;
-    held.current.delete(e.pointerId);
-    syncHeld();
-    bus.emit('noteOff', { note: padNote(padId, base), source: 'pad' });
+    hold(`p${e.pointerId}`, padId, velocity);
   };
 
+  const hold = (key: string, padId: number, velocity: number) => {
+    const note = padNote(padId, base);
+    held.current.set(key, { padId, note });
+    syncHeld();
+    bus.emit('noteOn', { note, velocity, source: 'pad', padId });
+  };
+  const unhold = (key: string) => {
+    const h = held.current.get(key);
+    if (!h) return;
+    held.current.delete(key);
+    syncHeld();
+    bus.emit('noteOff', { note: h.note, source: 'pad' });
+  };
+  const release = (e: PointerEvent) => unhold(`p${e.pointerId}`);
+
+  const isPlayKey = (e: KeyboardEvent) => e.key === 'Enter' || e.key === ' ';
   const onKeyDown = (padId: number, e: KeyboardEvent) => {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
+    if (!isPlayKey(e)) return;
     e.preventDefault();
     e.stopPropagation();
-    if (!e.repeat) bus.emit('noteOn', { note: padNote(padId, base), velocity: 0.8, source: 'pad', padId });
+    if (!e.repeat) hold(`k${padId}:${e.key}`, padId, 0.8);
+  };
+  const onKeyUp = (padId: number, e: KeyboardEvent) => {
+    if (!isPlayKey(e)) return;
+    e.preventDefault();
+    unhold(`k${padId}:${e.key}`);
+  };
+  const onBlur = (padId: number) => {
+    unhold(`k${padId}:Enter`);
+    unhold(`k${padId}: `);
   };
 
   return (
@@ -98,6 +115,8 @@ export function Pads() {
             onPointerUp={release}
             onPointerCancel={release}
             onKeyDown={(e) => onKeyDown(padId, e)}
+            onKeyUp={(e) => onKeyUp(padId, e)}
+            onBlur={() => onBlur(padId)}
             onContextMenu={(e) => e.preventDefault()}
           >
             <span class="pad-num">{padId + 1}</span>

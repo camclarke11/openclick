@@ -131,3 +131,25 @@ test('step lanes edit arp values from the keyboard', async ({ page }) => {
   expect(after[1]).toBeGreaterThan(before[1]!);
   expect(after[0]).toBe(before[0]);
 });
+
+test('pads release the note they played, even across an octave change', async ({ page }) => {
+  const pad1 = page.getByRole('button', { name: 'Pad 1 C4' });
+  await pad1.dispatchEvent('pointerdown', { pointerId: 7 });
+  await page.getByRole('button', { name: 'Octave up' }).click();
+  await page.getByRole('button', { name: 'Pad 1 C5' }).dispatchEvent('pointerup', { pointerId: 7 });
+  expect(await lastEvent(page)).toMatchObject({ type: 'noteOff', note: 60, source: 'pad' });
+});
+
+test('pads play and release from Enter and Space', async ({ page }) => {
+  const pad = page.getByRole('button', { name: 'Pad 2 C#4' });
+  await pad.focus();
+  await page.keyboard.press('Enter');
+  const log = await events(page);
+  expect(log.at(-2)).toMatchObject({ type: 'noteOn', note: 61, padId: 1 });
+  expect(log.at(-1)).toMatchObject({ type: 'noteOff', note: 61 });
+  await page.keyboard.down(' ');
+  expect(await lastEvent(page)).toMatchObject({ type: 'noteOn', note: 61 });
+  await page.getByRole('button', { name: 'Pad 3 D4' }).focus();
+  expect(await lastEvent(page)).toMatchObject({ type: 'noteOff', note: 61 });
+  await page.keyboard.up(' ');
+});
