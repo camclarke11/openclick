@@ -1,5 +1,6 @@
 import { useSignal } from '@preact/signals';
 import { useEffect, useRef } from 'preact/hooks';
+import { PackButton } from '../export';
 import { registry } from '../modules';
 import { actions, currentPreset, patch } from '../state/store';
 import { downloadText, generate, loadAndPlay, presetSlug, PREVIEW_NOTE } from './actions';
@@ -351,6 +352,18 @@ export function PresetSidebar(props: { notify: Notify }) {
           <span class="switch-text">Audition on hover</span>
         </button>
         <span class="spacer" />
+        <PackButton
+          notify={notify}
+          choices={[
+            { label: 'Everything', name: 'Sounds pack', presets: factory },
+            {
+              label: 'Roblox',
+              name: 'Sounds Roblox pack',
+              presets: factory.filter((p) => p.tags.includes('roblox')),
+            },
+            { label: 'This list', name: 'Sounds selection', presets: visiblePresets.value },
+          ]}
+        />
         <label class="link-btn">
           Import
           <input

@@ -69,3 +69,31 @@
   border-color: #2fa86b;
   color: #7be0a8;
 }
+
+.popover.oc-pack-options {
+  left: 0;
+  top: auto;
+  bottom: calc(100% + 8px);
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  gap: 12px;
+}
+.oc-pack-format {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+}
+.oc-pack-format .mono {
+  white-space: nowrap;
+}
+.oc-pack-format .oc-export-target {
+  padding: 0 10px;
+  white-space: nowrap;
+}
+.oc-pack-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-2, #c9cad0);
+}
