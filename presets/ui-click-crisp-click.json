@@ -1,0 +1,58 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-click-crisp-click",
+  "name": "Crisp Click",
+  "category": "UI/Click",
+  "tags": ["modern", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Switches/Push button",
+          "roundRobin": "random",
+          "humanize": 15,
+          "pitch": 4,
+          "length": 0.06,
+          "fade": 0.01,
+          "filter": "highpass",
+          "cutoff": 1200
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -16,
+          "pan": 0,
+          "transpose": 24,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.02,
+          "sustain": 0,
+          "release": 0.02
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

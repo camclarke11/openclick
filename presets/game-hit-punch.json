@@ -1,0 +1,63 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-hit-punch",
+  "name": "Punch",
+  "category": "Game/Hit",
+  "tags": ["modern", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": -24,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.1,
+          "sustain": 0,
+          "release": 0.1,
+          "sweep": 24,
+          "sweepTime": 0.05,
+          "sweepCurve": "exp"
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -6,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.05,
+          "sustain": 0,
+          "release": 0.05,
+          "oscLevel": 0,
+          "noiseLevel": 1,
+          "noiseType": "white",
+          "cutoff": 3000
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -2
+    }
+  }
+}

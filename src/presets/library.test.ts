@@ -1,5 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { defaultPatch, parsePreset, peak } from '../core';
+import {
+  defaultPatch,
+  layerMixSchema,
+  parsePreset,
+  peak,
+  sanitizeParam,
+  type ParamSchema,
+  type Params,
+  type Patch,
+} from '../core';
 import { registry } from '../modules';
 import { renderForTest } from '../test/audio';
 import { CATEGORIES, categoryTree, TAGS } from './categories';
@@ -14,6 +23,7 @@ import {
   stepPreset,
   USER_PRESETS_KEY,
 } from './library';
+import { sampleAssets } from './testAssets';
 
 const preset = (id: string, name: string, category: string, tags: string[] = []) =>
   makePreset({ id, name, category, tags, patch: defaultPatch(registry) });
@@ -28,9 +38,43 @@ describe('factory presets', () => {
     expect(parsePreset(registry, JSON.parse(presetToJson(p)))).toEqual(p);
     expect(CATEGORIES as readonly string[]).toContain(p.category);
     for (const t of p.tags) expect(TAGS as readonly string[]).toContain(t);
-    const audio = await renderForTest(registry, p.patch);
+    const audio = await renderForTest(registry, p.patch, { assets: sampleAssets() });
     expect(peak(audio)).toBeGreaterThan(0.01);
     expect(peak(audio)).toBeLessThanOrEqual(1);
+  });
+});
+
+describe('factory preset files', () => {
+  const raw = import.meta.glob<Record<string, unknown>>('../../presets/*.json', {
+    eager: true,
+    import: 'default',
+  });
+
+  it.each(Object.entries(raw))('%s uses only real params, in range', (_path, json) => {
+    const patch = json.patch as Patch;
+    const check = (schema: ParamSchema, params: Params, where: string) => {
+      for (const [key, value] of Object.entries(params)) {
+        const spec = schema[key];
+        expect(spec, `${where}.${key} is not a param`).toBeDefined();
+        expect(sanitizeParam(spec!, value), `${where}.${key} out of range`).toEqual(value);
+      }
+    };
+    patch.layers.forEach((l, i) => {
+      expect(registry.sources.has(l.source)).toBe(true);
+      check(registry.sources.get(l.source)!.schema, l.params, `layer ${i}`);
+      check(layerMixSchema, l.mix, `layer ${i} mix`);
+    });
+    patch.fx.forEach((f, i) => {
+      expect(registry.effects.has(f.type), `fx ${f.type}`).toBe(true);
+      check(registry.effects.get(f.type)!.schema, f.params, `fx ${i}`);
+    });
+    check(registry.arp.schema, patch.arp, 'arp');
+  });
+
+  it('has at least three presets in every category', () => {
+    for (const c of CATEGORIES) {
+      expect(factoryPresets.filter((p) => p.category === c).length, c).toBeGreaterThanOrEqual(3);
+    }
   });
 });
 

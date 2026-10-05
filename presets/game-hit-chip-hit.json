@@ -1,0 +1,42 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-hit-chip-hit",
+  "name": "Chip Hit",
+  "category": "Game/Hit",
+  "tags": ["retro", "8-bit", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": -12,
+          "delay": 0
+        },
+        "params": {
+          "shape": 3,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.08,
+          "sustain": 0,
+          "release": 0.08,
+          "noiseLevel": 0.7,
+          "noiseType": "chip",
+          "sweep": 18,
+          "sweepTime": 0.06
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -3
+    }
+  }
+}

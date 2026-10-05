@@ -1,0 +1,51 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/foley-mechanism-relay-clack",
+  "name": "Relay Clack",
+  "category": "Foley/Mechanism",
+  "tags": ["short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Control panels/Relay",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      },
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": -6,
+          "pan": 0.2,
+          "transpose": 0,
+          "delay": 45
+        },
+        "params": {
+          "sound": "Control panels/Relay",
+          "roundRobin": "random",
+          "humanize": 15,
+          "pitch": -3
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

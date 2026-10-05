@@ -2,12 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { defaultPatch, peak } from '../core';
 import { registry } from '../modules';
 import { createTestContext } from '../test/audio';
-import { createMemoryAssetStore } from '../core';
+import { sampleAssets } from '../presets/testAssets';
 import { defaultExportSettings, exportSound, mutatePatch, slugify } from './exportSound';
 import { decodeWav } from './wav';
 import { readZip } from './zip';
 
-const env = { registry, assets: createMemoryAssetStore(), createContext: createTestContext, maxSeconds: 1 };
+const env = { registry, assets: sampleAssets(), createContext: createTestContext, maxSeconds: 1 };
 
 describe('exportSound', () => {
   it('renders the patch to a normalised WAV named after the preset', async () => {
