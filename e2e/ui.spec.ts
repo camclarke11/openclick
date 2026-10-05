@@ -114,3 +114,20 @@ test('fits a phone screen without horizontal scroll', async ({ page }) => {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(0);
 });
+
+test('step lanes edit arp values from the keyboard', async ({ page }) => {
+  const read = () =>
+    page.evaluate(
+      () =>
+        (window as unknown as { __openclick: { patch: { value: { arp: Record<string, unknown> } } } })
+          .__openclick.patch.value.arp,
+    );
+  const lane = page.getByRole('group', { name: /^Pitch:/ });
+  const before = (await read()).pitch as number[];
+  await lane.focus();
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('ArrowUp');
+  const after = (await read()).pitch as number[];
+  expect(after[1]).toBeGreaterThan(before[1]!);
+  expect(after[0]).toBe(before[0]);
+});

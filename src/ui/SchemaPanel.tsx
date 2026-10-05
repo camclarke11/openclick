@@ -24,6 +24,10 @@ export function SchemaPanel(props: {
                 key={key}
                 id={`${idPrefix}-${key}`}
                 spec={schema[key]!}
+                // A control that names its own group (Pitch in "Pitch") doesn't need the label twice.
+                hideLabel={
+                  schema[key]!.kind === 'steps' && schema[key]!.label.toLowerCase() === g.name.toLowerCase()
+                }
                 value={params[key]!}
                 onChange={(v) => onChange(key, v)}
               />

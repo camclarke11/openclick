@@ -9,6 +9,8 @@ export function ParamControl(props: {
   spec: ParamSpec;
   value: ParamValue;
   onChange: (v: ParamValue) => void;
+  /** Step lanes only: omit the visible label (it stays as the accessible name). */
+  hideLabel?: boolean;
 }) {
   const { id, spec, value, onChange } = props;
   switch (spec.kind) {
@@ -56,9 +58,11 @@ export function ParamControl(props: {
     case 'steps':
       return (
         <div class="param param-steps">
-          <span class="param-label" title={spec.hint}>
-            {spec.label}
-          </span>
+          {!props.hideLabel && (
+            <span class="param-label" title={spec.hint}>
+              {spec.label}
+            </span>
+          )}
           <StepLane id={id} spec={spec} value={value as number[]} onChange={onChange} />
         </div>
       );

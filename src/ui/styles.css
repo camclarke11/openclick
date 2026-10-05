@@ -382,13 +382,15 @@ select:disabled {
 }
 .param-steps {
   align-items: stretch;
-  flex-basis: 100%;
+  flex: 1 1 320px;
+  max-width: 560px;
 }
 .param-group:has(.param-steps) {
   flex-basis: 100%;
 }
-.param-steps .steplane {
-  width: min(100%, 560px);
+.param-group:has(.param-steps) .param-grid {
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .knob {
@@ -462,8 +464,8 @@ select:disabled {
 .steplane {
   display: flex;
   gap: 2px;
-  height: 64px;
-  min-width: 220px;
+  height: 56px;
+  min-width: 0;
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -560,9 +562,6 @@ select:disabled {
   }
   .param {
     min-width: 56px;
-  }
-  .steplane {
-    min-width: 0;
   }
 }
 @media (hover: none) {
