@@ -1,4 +1,4 @@
-import { useSignal } from '@preact/signals';
+import { signal, useSignal } from '@preact/signals';
 import { useEffect, useRef } from 'preact/hooks';
 import { registry } from '../modules';
 import { assets, currentPreset, patch } from '../state/store';
@@ -26,7 +26,11 @@ function loadSettings(): ExportSettings {
   return defaultExportSettings;
 }
 
-function saveSettings(s: ExportSettings): void {
+/** Shared by the export button and the pack download, so both write files the same way. */
+export const exportSettings = signal<ExportSettings>(loadSettings());
+
+export function saveSettings(s: ExportSettings): void {
+  exportSettings.value = s;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
   } catch {
@@ -75,7 +79,7 @@ function Seg<T>(props: { label: string; options: [T, string][]; value: T; onChan
  * the arrow opens the export options.
  */
 export function ExportButton(props: { notify?: (message: string) => void }) {
-  const settings = useSignal<ExportSettings>(loadSettings());
+  const settings = exportSettings;
   const open = useSignal(false);
   const busy = useSignal<string | null>(null);
   const ref = useRef<HTMLDivElement>(null);
