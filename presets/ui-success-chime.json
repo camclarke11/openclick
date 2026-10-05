@@ -1,0 +1,88 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-success-chime",
+  "name": "Chime Success",
+  "category": "UI/Success",
+  "tags": ["modern", "soft"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -2,
+          "pan": 0,
+          "transpose": 12,
+          "delay": 0
+        },
+        "params": {
+          "wave": "sine",
+          "sweep": 0,
+          "sweepTime": 0.08,
+          "attack": 0.002,
+          "decay": 0.3
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -2,
+          "pan": 0,
+          "transpose": 16,
+          "delay": 70
+        },
+        "params": {
+          "wave": "sine",
+          "sweep": 0,
+          "sweepTime": 0.08,
+          "attack": 0.002,
+          "decay": 0.3
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -2,
+          "pan": 0,
+          "transpose": 19,
+          "delay": 140
+        },
+        "params": {
+          "wave": "sine",
+          "sweep": 0,
+          "sweepTime": 0.08,
+          "attack": 0.002,
+          "decay": 0.3
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -2,
+          "pan": 0,
+          "transpose": 24,
+          "delay": 210
+        },
+        "params": {
+          "wave": "sine",
+          "sweep": 0,
+          "sweepTime": 0.08,
+          "attack": 0.002,
+          "decay": 0.3
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -4
+    }
+  }
+}
