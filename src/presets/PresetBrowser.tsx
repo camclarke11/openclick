@@ -1,7 +1,7 @@
 import { useSignal } from '@preact/signals';
-import { bus, type Preset } from '../core';
+import { bus, type Patch, type Preset } from '../core';
 import { registry } from '../modules';
-import { actions, currentPreset, patch } from '../state/store';
+import { actions, assets, currentPreset, engine, patch } from '../state/store';
 import { audition } from './audition';
 import { CATEGORIES, categoryTree, isCategory, splitCategory, TAGS, type Category } from './categories';
 import { makePreset, newPresetId, parsePresetFile, presetToJson, stepPreset } from './library';
@@ -28,9 +28,27 @@ function play() {
   bus.emit('noteOn', { note: PREVIEW_NOTE, velocity: 0.9, source: 'ui' });
 }
 
+/**
+ * Play the patch just loaded once its samples and effect worklets are ready. The engine prepares
+ * new patches without waiting, and worklet effects pass audio through dry until loaded, so playing
+ * straight away would make a preset's first hit miss its bitcrusher or granulizer (or a sample).
+ */
+async function playWhenReady(p: Patch) {
+  const ctx = engine.context;
+  if (ctx) {
+    await Promise.all([
+      ...p.layers.map((l) => registry.sources.get(l.source)?.prepare?.(l.params, ctx, assets)),
+      ...p.fx.map((f) => registry.effects.get(f.type)?.prepare?.(ctx)),
+    ]).catch(() => {});
+    // Let effect slots waiting on the same worklet swap their processor in first.
+    await new Promise((r) => setTimeout(r, 0));
+  }
+  play();
+}
+
 function load(preset: Preset) {
   actions.loadPreset(preset);
-  play();
+  void playWhenReady(patch.value);
 }
 
 function downloadText(fileName: string, text: string) {
@@ -56,7 +74,7 @@ export function generate(category: Category) {
   actions.loadPreset(
     makePreset({ id: 'generated', name: `New ${splitCategory(category)[1]}`, category, tags: [], patch: p }),
   );
-  play();
+  void playWhenReady(patch.value);
 }
 
 function SaveForm(props: { onDone: () => void }) {
