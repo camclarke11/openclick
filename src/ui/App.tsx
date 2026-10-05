@@ -1,54 +1,72 @@
-import { bus } from '../core';
-import { registry } from '../modules';
+import type { NumberParam } from '../core';
 import { ExportButton } from '../export';
 import { PresetBrowser } from '../presets';
 import { actions, patch } from '../state/store';
-import { ParamControl } from './ParamControl';
+import { ArpPanel } from './ArpPanel';
+import { formatValue } from './controls';
+import { FxChain } from './FxChain';
+import { InputBar } from './InputBar';
+import { Knob } from './Knob';
+import { LayerStrip } from './Layers';
+import { Pads } from './Pads';
+import { Scope } from './Scope';
 
-/**
- * FOUNDATION SHELL: one layer editor and one pad, proving the audio path end to end. The UI
- * workstream replaces this with the full layout (see docs/PLAN.md).
- */
+const masterSpec: NumberParam = {
+  kind: 'number',
+  label: 'Master',
+  min: -60,
+  max: 6,
+  default: 0,
+  unit: 'dB',
+};
+
 export function App() {
-  const p = patch.value;
+  const gain = patch.value.master.gain;
   return (
-    <main>
-      <h1>OpenClick</h1>
-      <PresetBrowser />
-      <ExportButton />
-      <button
-        class="pad"
-        onPointerDown={() => bus.emit('noteOn', { note: 72, velocity: 1, source: 'pad', padId: 0 })}
-      >
-        Play
-      </button>
-      {p.layers.map((layer, i) => {
-        const mod = registry.sources.get(layer.source)!;
-        return (
-          <section key={i} class="layer">
-            <h2>
-              Layer {i + 1}{' '}
-              <select value={layer.source} onChange={(e) => actions.setLayerSource(i, e.currentTarget.value)}>
-                {[...registry.sources.values()].map((s) => (
-                  <option key={s.type} value={s.type}>
-                    {s.label}
-                  </option>
-                ))}
-              </select>{' '}
-              <button onClick={() => actions.randomizeLayer(i)}>Randomise</button>
-            </h2>
-            {Object.entries(mod.schema).map(([key, spec]) => (
-              <ParamControl
-                key={key}
-                id={`l${i}-${key}`}
-                spec={spec}
-                value={layer.params[key]!}
-                onChange={(v) => actions.setLayerParam(i, key, v)}
-              />
-            ))}
-          </section>
-        );
-      })}
-    </main>
+    <div class="app">
+      <header class="topbar">
+        <h1 class="logo">OpenClick</h1>
+        <div class="topbar-presets">
+          <PresetBrowser />
+        </div>
+        <button
+          type="button"
+          class="btn accent"
+          onClick={() => actions.randomizeAll()}
+          title="Randomise every module"
+        >
+          Randomise all
+        </button>
+        <ExportButton />
+        <div class="master">
+          <Knob
+            id="master-gain"
+            spec={masterSpec}
+            value={gain}
+            onChange={(v) => actions.setMasterGain(v)}
+            size={36}
+          />
+          <span class="master-text">
+            <span class="param-label">Master</span>
+            <output for="master-gain">{formatValue(masterSpec, gain)}</output>
+          </span>
+        </div>
+        <Scope />
+      </header>
+
+      <main class="workspace">
+        <section class="panel play" aria-label="Play">
+          <Pads />
+          <InputBar />
+          <p class="hint keys-hint">
+            Keys <kbd>A</kbd>–<kbd>K</kbd> play, <kbd>W</kbd> <kbd>E</kbd> <kbd>T</kbd> <kbd>Y</kbd>{' '}
+            <kbd>U</kbd> sharps, <kbd>Z</kbd>/<kbd>X</kbd> octave, <kbd>Esc</kbd> stop.
+          </p>
+        </section>
+        <LayerStrip />
+        <ArpPanel />
+        <FxChain />
+      </main>
+    </div>
   );
 }

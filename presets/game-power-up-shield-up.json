@@ -1,10 +1,10 @@
 {
   "format": "openclick-preset",
   "version": 1,
-  "id": "factory/game-laser-zap",
-  "name": "Zap Laser",
-  "category": "Game/Laser",
-  "tags": ["retro", "chiptune", "harsh"],
+  "id": "factory/game-power-up-shield-up",
+  "name": "Shield Up",
+  "category": "Game/Power-up",
+  "tags": ["modern"],
   "author": "OpenClick",
   "patch": {
     "layers": [
@@ -14,15 +14,21 @@
         "mix": {
           "gain": 0,
           "pan": 0,
-          "transpose": 19,
+          "transpose": 12,
           "delay": 0
         },
         "params": {
-          "wave": "square",
-          "sweep": -36,
-          "sweepTime": 0.15,
+          "shape": 1,
           "attack": 0.002,
-          "decay": 0.2
+          "hold": 0,
+          "decay": 0.4,
+          "sustain": 0,
+          "release": 0.4,
+          "fmIndex": 2,
+          "fmRatio": 2,
+          "fmDecay": 0.3,
+          "sweep": -12,
+          "sweepTime": 0.25
         }
       }
     ],
@@ -31,7 +37,7 @@
     },
     "fx": [],
     "master": {
-      "gain": -6
+      "gain": -4
     }
   }
 }

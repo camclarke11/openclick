@@ -1,0 +1,61 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-click-glass-tick",
+  "name": "Glass Tick",
+  "category": "UI/Click",
+  "tags": ["modern", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Control panels/Knob detent",
+          "roundRobin": "random",
+          "humanize": 15,
+          "pitch": 7,
+          "length": 0.04,
+          "filter": "highpass",
+          "cutoff": 2000
+        }
+      },
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -12,
+          "pan": 0,
+          "transpose": 24,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.03,
+          "sustain": 0,
+          "release": 0.03,
+          "fmIndex": 1.5,
+          "fmRatio": 3.5,
+          "fmDecay": 0.02,
+          "coarse": 7
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

@@ -1,45 +1,35 @@
 import type { ParamSpec, ParamValue } from '../core';
+import { formatValue } from './controls';
+import { Knob } from './Knob';
+import { StepLane } from './StepLane';
 
-/**
- * Generic control generated from a param spec. FOUNDATION: plain inputs. The UI workstream
- * restyles these (knobs, step editors) keeping the same props.
- */
+/** A control generated from a param spec: knob, select, toggle or step lane. */
 export function ParamControl(props: {
   id: string;
   spec: ParamSpec;
   value: ParamValue;
   onChange: (v: ParamValue) => void;
+  /** Step lanes only: omit the visible label (it stays as the accessible name). */
+  hideLabel?: boolean;
 }) {
   const { id, spec, value, onChange } = props;
-  const label = (
-    <label for={id} title={spec.hint}>
-      {spec.label}
-    </label>
-  );
   switch (spec.kind) {
     case 'number':
       return (
-        <div class="param">
-          {label}
-          <input
-            id={id}
-            type="range"
-            min={spec.min}
-            max={spec.max}
-            step={spec.step ?? (spec.max - spec.min) / 1000}
-            value={value as number}
-            onInput={(e) => onChange(Number(e.currentTarget.value))}
-          />
-          <output>
-            {(value as number).toFixed(spec.step && spec.step >= 1 ? 0 : 3)}
-            {spec.unit ? ` ${spec.unit}` : ''}
-          </output>
+        <div class="param param-knob">
+          <Knob id={id} spec={spec} value={value as number} onChange={onChange} />
+          <span class="param-label" title={spec.hint}>
+            {spec.label}
+          </span>
+          <output for={id}>{formatValue(spec, value as number)}</output>
         </div>
       );
     case 'enum':
       return (
-        <div class="param">
-          {label}
+        <div class="param param-select">
+          <label for={id} class="param-label" title={spec.hint}>
+            {spec.label}
+          </label>
           <select id={id} value={value as string} onChange={(e) => onChange(e.currentTarget.value)}>
             {spec.options.map((o) => (
               <option key={o} value={o}>
@@ -51,21 +41,29 @@ export function ParamControl(props: {
       );
     case 'bool':
       return (
-        <div class="param">
-          {label}
-          <input
-            id={id}
-            type="checkbox"
-            checked={value as boolean}
-            onChange={(e) => onChange(e.currentTarget.checked)}
-          />
+        <div class="param param-toggle">
+          <label class="toggle" title={spec.hint}>
+            <input
+              id={id}
+              type="checkbox"
+              role="switch"
+              checked={value as boolean}
+              onChange={(e) => onChange(e.currentTarget.checked)}
+            />
+            <span class="toggle-track" aria-hidden="true" />
+            <span class="param-label">{spec.label}</span>
+          </label>
         </div>
       );
     case 'steps':
       return (
-        <div class="param">
-          {label}
-          <span>{(value as number[]).join(' ')}</span>
+        <div class="param param-steps">
+          {!props.hideLabel && (
+            <span class="param-label" title={spec.hint}>
+              {spec.label}
+            </span>
+          )}
+          <StepLane id={id} spec={spec} value={value as number[]} onChange={onChange} />
         </div>
       );
   }

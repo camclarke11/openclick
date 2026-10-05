@@ -1,0 +1,44 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-hover-breath-hover",
+  "name": "Breath Hover",
+  "category": "UI/Hover",
+  "tags": ["soft", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 6,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.02,
+          "hold": 0,
+          "decay": 0.07,
+          "sustain": 0,
+          "release": 0.07,
+          "oscLevel": 0,
+          "noiseLevel": 1,
+          "noiseType": "pink",
+          "filterType": "bandpass",
+          "cutoff": 5000,
+          "resonance": 1
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

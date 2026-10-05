@@ -1,0 +1,35 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/foley-toy-wind-up-toy",
+  "name": "Wind-up Toy",
+  "category": "Foley/Toy",
+  "tags": ["long"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "click",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "sound": "Toys/Wind-up",
+          "roundRobin": "random",
+          "humanize": 15
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

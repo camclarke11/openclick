@@ -1,0 +1,42 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-hit-hurt",
+  "name": "Hurt",
+  "category": "Game/Hit",
+  "tags": ["retro", "chiptune"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": -5,
+          "delay": 0
+        },
+        "params": {
+          "shape": 3,
+          "attack": 0.002,
+          "hold": 0.03,
+          "decay": 0.12,
+          "sustain": 0,
+          "release": 0.12,
+          "sweep": 12,
+          "sweepTime": 0.12,
+          "noiseLevel": 0.4,
+          "noiseType": "chip"
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -4
+    }
+  }
+}

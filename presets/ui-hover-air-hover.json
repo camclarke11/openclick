@@ -1,0 +1,39 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/ui-hover-air-hover",
+  "name": "Air Hover",
+  "category": "UI/Hover",
+  "tags": ["soft", "short"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": -6,
+          "pan": 0,
+          "transpose": 24,
+          "delay": 0
+        },
+        "params": {
+          "shape": 0,
+          "attack": 0.012,
+          "hold": 0,
+          "decay": 0.05,
+          "sustain": 0,
+          "release": 0.05,
+          "cutoff": 6000
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": 0
+    }
+  }
+}

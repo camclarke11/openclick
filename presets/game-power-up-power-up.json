@@ -1,0 +1,47 @@
+{
+  "format": "openclick-preset",
+  "version": 1,
+  "id": "factory/game-power-up-power-up",
+  "name": "Power Up",
+  "category": "Game/Power-up",
+  "tags": ["retro", "chiptune", "8-bit"],
+  "author": "OpenClick",
+  "patch": {
+    "layers": [
+      {
+        "enabled": true,
+        "source": "beep",
+        "mix": {
+          "gain": 0,
+          "pan": 0,
+          "transpose": 0,
+          "delay": 0
+        },
+        "params": {
+          "shape": 3,
+          "attack": 0.002,
+          "hold": 0,
+          "decay": 0.12,
+          "sustain": 0,
+          "release": 0.12,
+          "sweep": -5,
+          "sweepTime": 0.05,
+          "seqOn": true,
+          "seqMode": "retrigger",
+          "seqScale": "chromatic",
+          "seqLoop": false,
+          "seqSteps": [0, 4, 7, 12, 16, 19, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "seqLength": 7,
+          "seqRate": 0.05
+        }
+      }
+    ],
+    "arp": {
+      "enabled": false
+    },
+    "fx": [],
+    "master": {
+      "gain": -4
+    }
+  }
+}
