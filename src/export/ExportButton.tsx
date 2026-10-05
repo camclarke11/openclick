@@ -1,4 +1,5 @@
 import { useSignal } from '@preact/signals';
+import { useEffect, useRef } from 'preact/hooks';
 import { registry } from '../modules';
 import { assets, currentPreset, patch } from '../state/store';
 import {
@@ -31,12 +32,65 @@ function saveSettings(s: ExportSettings): void {
   }
 }
 
-/** Renders the current patch offline and downloads it as WAV (or a zip of variations). */
-export function ExportButton() {
+const FORMATS: [BitDepth, string][] = [
+  [16, '16-bit'],
+  [24, '24-bit'],
+  ['32f', '32-bit float'],
+];
+const RATES: [44100 | 48000, string][] = [
+  [44100, '44.1 kHz'],
+  [48000, '48 kHz'],
+];
+const CHANNELS: ['stereo' | 'mono', string][] = [
+  ['stereo', 'Stereo'],
+  ['mono', 'Mono'],
+];
+
+function Seg<T>(props: { label: string; options: [T, string][]; value: T; onChange: (v: T) => void }) {
+  return (
+    <div class="export-field">
+      <span class="export-field-label">{props.label}</span>
+      <div class="seg fill" role="radiogroup" aria-label={props.label}>
+        {props.options.map(([v, text]) => (
+          <button
+            key={text}
+            type="button"
+            role="radio"
+            aria-checked={v === props.value}
+            class={v === props.value ? 'on' : ''}
+            onClick={() => props.onChange(v)}
+          >
+            {text}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Split button: renders the current patch offline and downloads a WAV (or a zip of variations);
+ * the arrow opens the export options.
+ */
+export function ExportButton(props: { notify?: (message: string) => void }) {
   const settings = useSignal<ExportSettings>(loadSettings());
   const open = useSignal(false);
   const busy = useSignal<string | null>(null);
-  const error = useSignal<string | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open.value) return;
+    const onDown = (e: PointerEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) open.value = false;
+    };
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && (open.value = false);
+    window.addEventListener('pointerdown', onDown, true);
+    window.addEventListener('keydown', onKey, true);
+    return () => {
+      window.removeEventListener('pointerdown', onDown, true);
+      window.removeEventListener('keydown', onKey, true);
+    };
+  }, [open.value]);
 
   const set = <K extends keyof ExportSettings>(key: K, value: ExportSettings[K]) => {
     settings.value = { ...settings.value, [key]: value };
@@ -45,7 +99,6 @@ export function ExportButton() {
 
   const run = async () => {
     if (busy.value) return;
-    error.value = null;
     busy.value = 'Rendering…';
     try {
       const s = settings.value;
@@ -59,95 +112,83 @@ export function ExportButton() {
         },
       );
       download(result);
+      props.notify?.(`Exported ${result.fileName}`);
     } catch (e) {
-      error.value = e instanceof Error ? e.message : String(e);
+      props.notify?.(`Export failed: ${e instanceof Error ? e.message : String(e)}`);
     } finally {
       busy.value = null;
     }
   };
 
   const s = settings.value;
+  const varyPct = Math.round(s.mutate * 100);
   return (
-    <div class="oc-export">
-      <div class="oc-export-row">
-        <button type="button" class="oc-export-go" onClick={run} disabled={!!busy.value}>
-          {busy.value ?? (s.variations > 1 ? `Export ${s.variations} WAVs` : 'Export WAV')}
-        </button>
-        <button
-          type="button"
-          class="oc-export-toggle"
-          aria-expanded={open.value}
-          aria-label="Export options"
-          title="Export options"
-          onClick={() => (open.value = !open.value)}
-        >
-          ⚙
-        </button>
-      </div>
-      {error.value && (
-        <p class="oc-export-error" role="alert">
-          Export failed: {error.value}
-        </p>
-      )}
+    <div class="oc-export" ref={ref}>
+      <button type="button" class="oc-export-go" onClick={run} disabled={!!busy.value}>
+        {busy.value ?? (s.variations > 1 ? `Export ${s.variations} WAVs` : 'Export WAV')}
+      </button>
+      <button
+        type="button"
+        class="oc-export-toggle"
+        aria-expanded={open.value}
+        aria-label="Export options"
+        title="Export options"
+        onClick={() => (open.value = !open.value)}
+      >
+        ▼
+      </button>
       {open.value && (
-        <div class="oc-export-options" role="group" aria-label="Export options">
-          <label>
-            Format
-            <select
-              value={String(s.bitDepth)}
-              onChange={(e) => {
-                const v = e.currentTarget.value;
-                set('bitDepth', (v === '32f' ? v : Number(v)) as BitDepth);
-              }}
-            >
-              <option value="16">16-bit</option>
-              <option value="24">24-bit</option>
-              <option value="32f">32-bit float</option>
-            </select>
-          </label>
-          <label>
-            Sample rate
-            <select
-              value={String(s.sampleRate)}
-              onChange={(e) => set('sampleRate', Number(e.currentTarget.value) as 44100 | 48000)}
-            >
-              <option value="44100">44.1 kHz</option>
-              <option value="48000">48 kHz</option>
-            </select>
-          </label>
-          <label>
-            Channels
-            <select
-              value={s.channels}
-              onChange={(e) => set('channels', e.currentTarget.value as 'stereo' | 'mono')}
-            >
-              <option value="stereo">Stereo</option>
-              <option value="mono">Mono</option>
-            </select>
-          </label>
-          <label class="oc-export-check">
-            <input
-              type="checkbox"
-              checked={s.normalize}
-              onChange={(e) => set('normalize', e.currentTarget.checked)}
-            />
-            Normalise to −1 dB
-          </label>
-          <label>
-            Variations
-            <input
-              type="number"
-              min={1}
-              max={MAX_VARIATIONS}
-              value={s.variations}
-              onChange={(e) =>
-                set('variations', Math.max(1, Math.min(MAX_VARIATIONS, Number(e.currentTarget.value) || 1)))
-              }
-            />
-          </label>
+        <div class="popover oc-export-options" role="group" aria-label="Export options">
+          <span class="eyebrow">Export options</span>
+          <Seg label="Format" options={FORMATS} value={s.bitDepth} onChange={(v) => set('bitDepth', v)} />
+          <Seg
+            label="Sample rate"
+            options={RATES}
+            value={s.sampleRate}
+            onChange={(v) => set('sampleRate', v)}
+          />
+          <Seg label="Channels" options={CHANNELS} value={s.channels} onChange={(v) => set('channels', v)} />
+          <button
+            type="button"
+            role="switch"
+            aria-checked={s.normalize}
+            class={`switch${s.normalize ? ' on' : ''}`}
+            onClick={() => set('normalize', !s.normalize)}
+          >
+            <span class="switch-track" aria-hidden="true">
+              <span class="switch-knob" />
+            </span>
+            <span class="switch-text">Normalise to −1 dB</span>
+          </button>
+          <div class="export-variations">
+            <span class="export-field-label">Variations</span>
+            <div class="stepper">
+              <button
+                type="button"
+                class="btn icon"
+                aria-label="Fewer variations"
+                disabled={s.variations <= 1}
+                onClick={() => set('variations', Math.max(1, s.variations - 1))}
+              >
+                −
+              </button>
+              <span class="mono" aria-live="polite">
+                {s.variations}
+              </span>
+              <button
+                type="button"
+                class="btn icon"
+                aria-label="More variations"
+                disabled={s.variations >= MAX_VARIATIONS}
+                onClick={() => set('variations', Math.min(MAX_VARIATIONS, s.variations + 1))}
+              >
+                +
+              </button>
+            </div>
+          </div>
           {s.variations > 1 && (
-            <label>
-              Vary by {Math.round(s.mutate * 100)}%
+            <label class="export-vary">
+              <span class="export-field-label">Vary by</span>
               <input
                 type="range"
                 min={0}
@@ -156,6 +197,7 @@ export function ExportButton() {
                 value={s.mutate}
                 onInput={(e) => set('mutate', Number(e.currentTarget.value))}
               />
+              <span class="mono">{varyPct}%</span>
             </label>
           )}
         </div>

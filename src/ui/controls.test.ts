@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { NumberParam, ParamSchema } from '../core';
-import { formatValue, groupSchema, nudge } from './controls';
+import { formatValue, groupSchema, nudge, waveformBars } from './controls';
 
 const num = (o: Partial<NumberParam>): NumberParam => ({
   kind: 'number',
@@ -24,6 +24,8 @@ describe('formatValue', () => {
     expect(formatValue(num({ min: -24, max: 24, step: 1, unit: 'st' }), 7)).toBe('+7 st');
     expect(formatValue(num({ label: 'Pan', min: -1, max: 1 }), -0.4)).toBe('L 40');
     expect(formatValue(num({ label: 'Pan', min: -1, max: 1 }), 0)).toBe('C');
+    expect(formatValue(num({ unit: '%' }), 0.25)).toBe('25%');
+    expect(formatValue(num({ max: 100, step: 1, unit: '%' }), 40)).toBe('40%');
   });
 });
 
@@ -60,5 +62,18 @@ describe('groupSchema', () => {
       { name: 'Osc', keys: ['a', 'c'] },
       { name: 'Amp', keys: ['b'] },
     ]);
+  });
+});
+
+describe('waveformBars', () => {
+  it('takes the peak of each slice across channels, normalised to the loudest', () => {
+    const left = Float32Array.from([0.1, -0.5, 0, 0]);
+    const right = Float32Array.from([0, 0, 0.25, -0.1]);
+    expect(waveformBars([left, right], 2)).toEqual([1, 0.5]);
+  });
+
+  it('returns flat bars for silence or no audio', () => {
+    expect(waveformBars([new Float32Array(8)], 4)).toEqual([0, 0, 0, 0]);
+    expect(waveformBars([], 3)).toEqual([0, 0, 0]);
   });
 });

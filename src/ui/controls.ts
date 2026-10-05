@@ -17,6 +17,9 @@ export function formatValue(spec: NumberParam, v: number): string {
       return v < 1000 ? ms(v) : `${(v / 1000).toFixed(2)} s`;
     case 'dB':
       return v <= -60 ? '-inf dB' : `${v > 0 ? '+' : ''}${v.toFixed(1)} dB`;
+    case '%':
+      // Fractions (0..1 mix, size) read as whole percentages; 0..100 params are already percent.
+      return spec.max <= 1 ? `${Math.round(v * 100)}%` : `${fixed(v)}%`;
     case 'st':
     case 'ct':
       return `${v > 0 ? '+' : ''}${fixed(v)} ${spec.unit}`;
@@ -59,4 +62,24 @@ export function groupSchema(schema: ParamSchema, exclude: readonly string[] = []
   }
   const out = [...groups].map(([name, keys]) => ({ name, keys }));
   return out.sort((a, b) => (a.name === '' ? -1 : b.name === '' ? 1 : 0));
+}
+
+/** Number of bars in the waveform overview. */
+export const WAVE_BARS = 96;
+
+/** Peak per bar over every channel of a rendered sound. */
+export function waveformBars(channels: Float32Array[], count = WAVE_BARS): number[] {
+  const length = channels[0]?.length ?? 0;
+  const bars = new Array<number>(count).fill(0);
+  if (!length) return bars;
+  for (let b = 0; b < count; b++) {
+    const from = Math.floor((b / count) * length);
+    const to = Math.max(from + 1, Math.floor(((b + 1) / count) * length));
+    let pk = 0;
+    for (const ch of channels)
+      for (let i = from; i < to && i < length; i++) pk = Math.max(pk, Math.abs(ch[i]!));
+    bars[b] = pk;
+  }
+  const max = Math.max(...bars);
+  return max > 0 ? bars.map((v) => v / max) : bars;
 }
