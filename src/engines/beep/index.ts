@@ -1,86 +1,115 @@
-import { midiToHz, num, str, type ParamSchema, type SourceModule } from '../../core';
+import { midiToHz, num, str, type SourceModule } from '../../core';
+import { buildCurves, CONTROL_RATE } from './curves';
+import { getNoiseBuffer } from './noise';
+import { beepSchema } from './schema';
+import { createSpeaker } from './speaker';
+import { getWave } from './wave';
+
+/** Headroom so the oscillator, noise and filter resonance stay under 0 dBFS. */
+const VOICE_LEVEL = 0.5;
 
 /**
- * Beep synth engine. FOUNDATION STUB: a single oscillator with a pitch sweep and AD envelope,
- * enough to prove the audio path. The Beep workstream replaces this module (see docs/PLAN.md).
+ * Beep: the synth source. One voice is a variable-shape oscillator with optional FM and a noise
+ * generator, through a filter, an AHDSR amp and a speaker model:
+ *
+ *   modulator ─► carrier.frequency
+ *   carrier ─► osc level ─┐
+ *   noise ─► tone ─► lvl ─┴► mix ─► filter ─► amp ─► speaker ─► kill ─► output
+ *
+ * Pitch (sweep, envelope, vibrato, step sequencer), amp, FM depth and cutoff are precomputed as
+ * control-rate curves by `buildCurves`, so the voice only schedules them.
  */
-const schema = {
-  wave: {
-    kind: 'enum',
-    label: 'Wave',
-    group: 'Oscillator',
-    options: ['sine', 'triangle', 'square', 'sawtooth'],
-    default: 'sine',
-  },
-  sweep: { kind: 'number', label: 'Sweep', group: 'Pitch', min: -48, max: 48, default: 0, unit: 'st' },
-  sweepTime: {
-    kind: 'number',
-    label: 'Sweep time',
-    group: 'Pitch',
-    min: 0.001,
-    max: 2,
-    default: 0.08,
-    curve: 'log',
-    unit: 's',
-  },
-  attack: {
-    kind: 'number',
-    label: 'Attack',
-    group: 'Amp',
-    min: 0.001,
-    max: 1,
-    default: 0.002,
-    curve: 'log',
-    unit: 's',
-    randomRange: [0.001, 0.05],
-  },
-  decay: {
-    kind: 'number',
-    label: 'Decay',
-    group: 'Amp',
-    min: 0.005,
-    max: 4,
-    default: 0.15,
-    curve: 'log',
-    unit: 's',
-    randomRange: [0.02, 0.6],
-  },
-} satisfies ParamSchema;
-
 export const beepSource: SourceModule = {
   type: 'beep',
   label: 'Beep',
-  schema,
-  createVoice({ ctx, output }, p, ev) {
+  schema: beepSchema,
+  createVoice({ ctx, output, rng }, p, ev) {
     const t = ev.time;
-    const attack = num(p, 'attack');
-    const decay = num(p, 'decay');
-    const end = t + attack + decay;
+    const curves = buildCurves(p, ev, ctx.sampleRate);
+    const dur = Math.max(curves.duration, 1 / CONTROL_RATE);
+    const end = t + dur;
     const freq = midiToHz(ev.note);
+    const sources: AudioScheduledSourceNode[] = [];
 
-    const osc = ctx.createOscillator();
-    osc.type = str(p, 'wave') as OscillatorType;
-    osc.frequency.setValueAtTime(freq, t);
-    const sweep = num(p, 'sweep');
-    if (sweep !== 0) {
-      osc.frequency.exponentialRampToValueAtTime(freq * Math.pow(2, sweep / 12), t + num(p, 'sweepTime'));
+    const oscLevel = num(p, 'oscLevel');
+    const noiseLevel = num(p, 'noiseLevel');
+    const mix = ctx.createGain();
+    mix.gain.value = VOICE_LEVEL / Math.max(1, oscLevel + noiseLevel);
+
+    if (oscLevel > 0) {
+      const osc = ctx.createOscillator();
+      osc.setPeriodicWave(getWave(ctx, num(p, 'shape'), num(p, 'pulseWidth')));
+      osc.frequency.value = freq;
+      osc.detune.setValueCurveAtTime(curves.cents, t, dur);
+      if (num(p, 'fmIndex') > 0) {
+        const mod = ctx.createOscillator();
+        mod.frequency.value = freq * num(p, 'fmRatio');
+        mod.detune.setValueCurveAtTime(curves.cents, t, dur);
+        const depth = ctx.createGain();
+        depth.gain.value = 0;
+        depth.gain.setValueCurveAtTime(curves.fmDepth, t, dur);
+        mod.connect(depth).connect(osc.frequency);
+        mod.start(t);
+        sources.push(mod);
+      }
+      const g = ctx.createGain();
+      g.gain.value = oscLevel;
+      osc.connect(g).connect(mix);
+      osc.start(t);
+      sources.push(osc);
     }
 
-    const amp = ctx.createGain();
-    const level = 0.5 * ev.velocity;
-    amp.gain.setValueAtTime(0, t);
-    amp.gain.linearRampToValueAtTime(level, t + attack);
-    amp.gain.exponentialRampToValueAtTime(0.0001, end);
+    if (noiseLevel > 0) {
+      const type = str(p, 'noiseType');
+      const src = ctx.createBufferSource();
+      src.buffer = getNoiseBuffer(ctx, type);
+      src.loop = true;
+      if (type.startsWith('chip')) {
+        // Chip noise is pitched: it follows the note and every pitch movement.
+        src.playbackRate.value = Math.pow(2, (ev.note - 60) / 12);
+        src.detune.setValueCurveAtTime(curves.cents, t, dur);
+      }
+      const tone = ctx.createBiquadFilter();
+      tone.type = 'lowpass';
+      tone.frequency.value = Math.min(num(p, 'noiseFilter'), ctx.sampleRate * 0.45);
+      const g = ctx.createGain();
+      g.gain.value = noiseLevel;
+      src.connect(tone).connect(g).connect(mix);
+      src.start(t, rng.next() * src.buffer.duration);
+      sources.push(src);
+    }
 
-    osc.connect(amp).connect(output);
-    osc.start(t);
-    osc.stop(end + 0.01);
+    const filter = ctx.createBiquadFilter();
+    const ftype = str(p, 'filterType') as BiquadFilterType;
+    filter.type = ftype;
+    const res = num(p, 'resonance');
+    // Web Audio reads low/high-pass Q in dB; band-pass Q is linear.
+    filter.Q.value = ftype === 'bandpass' ? res : 20 * Math.log10(res);
+    filter.frequency.setValueCurveAtTime(curves.cutoff, t, dur);
+
+    const amp = ctx.createGain();
+    amp.gain.value = 0;
+    amp.gain.setValueCurveAtTime(curves.amp, t, dur);
+
+    mix.connect(filter).connect(amp);
+    const speaker = createSpeaker(ctx, amp, str(p, 'speaker'), num(p, 'speakerAmount'));
+    const kill = ctx.createGain();
+    speaker.connect(kill).connect(output);
+
+    const stopAt = end + 0.01;
+    for (const s of sources) s.stop(stopAt);
     return {
-      endTime: end + 0.01,
+      endTime: stopAt,
       stop(now) {
-        amp.gain.cancelScheduledValues(now);
-        amp.gain.setTargetAtTime(0, now, 0.005);
-        osc.stop(now + 0.05);
+        kill.gain.cancelScheduledValues(now);
+        kill.gain.setTargetAtTime(0, now, 0.005);
+        for (const s of sources) {
+          try {
+            s.stop(Math.min(stopAt, now + 0.05));
+          } catch {
+            // already stopped
+          }
+        }
       },
     };
   },
